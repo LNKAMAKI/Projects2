@@ -47,8 +47,8 @@ function invert() {
     }
 }
 
-function () {
-    
+function opvale() {
+    console.log('Hey')
 }
 function mudarVar(n) {
     console.log(n) 
