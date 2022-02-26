@@ -5,9 +5,9 @@ expression = ['3', 'x', '(', '100', '+', '(', '4', 'x', '(', '10', '/', '5', '+'
 expression = ['20', '+', '(','10', '+', '(','5', '+', '(', '20', '+', '(','1', '+', '(', '5', '+', '(', '12', '+', '3', ')', '+', '20', '+', '4', ')', ')', ')', ')', ')']
 
 
-expression = ['10', '+', '(','50', '+', '100', '+', '(','(','200', '-', '(','(','20', '+', '50', ')', '+', '(', '90', '+', '10', ')',')',')', '+', 
+expression = ['(','(','10', '+', '(','50', '+', '100', '+', '(','(','200', '+', '(','(','20', '+', '50', ')', '+', '(', '90', '+', '10', ')',')',')', '+', 
 '(', '30', '+', '(', '150', '+', '(', '20', '+', '(', '110', '+', '50',')', '+', '(','40', '+', '2',')',
-')',')',')',')',')']
+')',')',')',')',')', '+', '60', '+', '6', '+', '(', '10', '+', '7', ')', ')', '+', '100', ')', '+','500']
 
 console.log(expression, expression.length) 
 stop = false
@@ -132,13 +132,56 @@ for (e = 0; e < expression.length; e++) {
     }
 }
 
-degSort = sort(degs)[0]
-console.log(degSort)
-
 
 console.log(expression)
+console.log(expression.indexOf('('))
+if (expression.indexOf('(') != -1) {
+console.log('--------------------------------------TECEIRO PASSO--------------------------------------')
 
+console.log(expression.length - 1)
+while (expression.length != 1) {
+for (n = expression.length - 1; n > 0; n--) {
+    console.log(expression[n - 1], expression[n], expression[n + 1])
 
+    console.log(expression)
+    
+    if (expression[n] == '+' && expression[n - 1] != '(' && expression[n - 1] != ')' && 
+    expression[n + 1] != '(' && expression[n + 1] != ')') {
+        console.log('Éé...')
+        console.log(n - 1, n + 1)
+        expression[n] = Number(expression[n - 1]) + Number(expression[n + 1])
+        expression.splice(n + 1, 1)
+        expression.splice(n - 1,1)
+        if (expression[n - 2] == '(' && expression[n] == ')') {
+            expression.splice(n, 1)
+            expression.splice(n - 2, 1)
+            
+        }
+    }
+}
+}
+}
+
+if (expression.length > 1) {
+for (n = expression.length - 1; n > 0; n--) {
+    if (expression[n] == '+' && expression[n - 1] != '(' && expression[n - 1] != ')' && 
+    expression[n + 1] != '(' && expression[n + 1] != ')') {
+        console.log('Éé...')
+        console.log(n - 1, n + 1)
+        expression[n] = Number(expression[n - 1]) + Number(expression[n + 1])
+        expression.splice(n + 1, 1)
+        expression.splice(n - 1,1)
+        if (expression[n - 2] == '(' && expression[n] == ')') {
+            expression.splice(n, 1)
+            expression.splice(n - 2, 1)
+            n--
+        }
+    }
+}
+}
+/*
+degSort = sort(degs)[0]
+console.log(degSort)
 
 function sort(n) {
     var maiorparamenor = []
@@ -176,3 +219,4 @@ function sort(n) {
     }
     return [maiorparamenor, posiçõesnumeros]
 }
+*/
