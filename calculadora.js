@@ -179,7 +179,7 @@ for (n = expression.length - 1; n > 0; n--) {
     }
 }
 }
-/*
+
 degSort = sort(degs)[0]
 console.log(degSort)
 
@@ -219,4 +219,3 @@ function sort(n) {
     }
     return [maiorparamenor, posiçõesnumeros]
 }
-*/
