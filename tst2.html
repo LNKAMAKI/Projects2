@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="header-style.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+        body {
+            margin: 0px;
+        }
+
+        #calc {
+           background-color: rgb(118, 198, 255);
+           width: calc(100% - 50px);
+           margin: auto;
+           margin-top: 4vw;
+           max-width: 480px;
+           min-width: 310px;
+           padding-top: 5px;
+           border-radius: 25px;
+           padding-bottom: 20px;
+           z-index: 2;
+           
+        }
+        #visor {
+            position: relative;
+            box-shadow: inset 5px 5px 2px rgb(224, 224, 224);
+            width: 80%;
+            height: 20vw;
+            max-height: 100px;
+            min-height: 80px;
+            /*padding-bottom: 20%;*/
+            margin-top: 40px;
+            margin-left: 10%;
+            background-color: white;
+            border-radius: 10px;
+            font-size: 2.5em;
+            font-family: 'Roboto Condensed';
+        }
+                #selc {
+            position: absolute;
+            overflow-y: hidden;
+            width: 100%;
+            height: 100%;
+        border-image: none;
+        background-color: transparent;
+        outline-width: 0px;
+        border: 0px solid black;
+        border-radius: 5px;
+        }
+        #selc > option#put {
+            position: absolute;
+        background-color: transparent;
+        font-size: 3em;
+        display: grid;
+        align-items: center;
+        justify-content: end;
+        width: calc(100% - 20px);
+        height: 100%;
+      
+        }
+        #selc > option#ans {
+            position: absolute;
+            width: calc(100% - 20px);
+            height: 20px;
+            top: 5px;
+            background-color: transparent;
+            display: grid;
+            justify-content: end;
+            animation: goup2 0.3s;
+        }
+        @keyframes goup {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+        @keyframes goup2 {
+            0% {
+                font-size: 2em;
+                transform: translateY(100%) translateX(-10%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+        #most {
+            position: absolute;
+            background-color: transparent;
+            width: calc(100% - 20px);
+            display: grid;
+            height: 100%;
+            align-content: center;
+           text-align: left;
+            padding: 0px 10px 0px 10px;
+            overflow-x: hidden;
+        }
+       #contnumbers {
+            width: calc(100% - 40px);
+            margin-top: 20px;
+            margin-left: 20px;
+            background-color: transparent;
+            border-radius: 10px;
+            padding-top: 0px;
+            padding-bottom: 3px;
+       }
+       .dshow {
+           background-color: transparent;
+           height: fit-content;
+           display: flex;
+           justify-content: center;
+           flex-direction: row;
+       }
+       .tecla {
+           display: inline-block;
+           position: relative;
+           width: calc(20% - 4px);
+           min-width: fit-content;
+           margin:4px 3px 7px 3px;
+           height: 0px;
+           padding-bottom: 15%;
+           border-radius: 5px;
+           color: white;
+           background-color: rgb(165 75 165);
+           font-family: 'Roboto Condensed';
+           box-shadow:-4px 2px 1px #0000001f;
+           font-size: 2.2em;
+           display: flex;
+           cursor: pointer;
+       }
+       .tecla:hover {
+           transition-duration: 0.2s;
+           background-color: rgb(138, 42, 138);
+       }
+       .help {
+           position: absolute;
+           height: 100%;
+           width: 100%;
+           background-color: transparent;
+           display: grid;
+           align-content: center;
+           justify-content: center;
+       }
+    </style>
+</head>
+<body>
+    
+
+    <script src="calculadora.js"></script>
+    <div id="calc">
+        <div id="visor">
+            <select name="selc" id="selc" size="11"  class="para">
+                <option id="put"></option>
+                <option id="ans"></option>
+            </select>
+        </div>
+        <div id="contnumbers">
+            <div class="dshow">
+                <div class="tecla" onclick="inserir(1)">
+                    <div class="help">
+                        1
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir(2)">
+                    <div class="help">
+                        2
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir(3)">
+                    <div class="help">
+                        3
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir(4)">
+                    <div class="help">
+                        4
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir(5)">
+                    <div class="help">
+                        5
+                    </div>
+                </div>  
+            </div>
+            <div class="dshow">
+            <div class="tecla" onclick="inserir(6)">
+                <div class="help">
+                    6
+                </div>
+            </div>
+            <div class="tecla" onclick="inserir(7)">
+                <div class="help">
+                    7
+                </div>
+            </div>
+            <div class="tecla" onclick="inserir(8)">
+                <div class="help">
+                    8
+                </div>
+            </div>
+            <div class="tecla" onclick="inserir(9)">
+                <div class="help">
+                    9
+                </div>
+            </div>
+            <div class="tecla" onclick="inserir(0)">
+                <div class="help">
+                    0
+                </div>
+            </div>  
+        </div>
+        <div class="dshow">
+                <div class="tecla" onclick="inserir('(')">
+                    <div class="help">
+                        (
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir(')')">
+                    <div class="help">
+                        )
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir('*')">
+                    <div class="help">
+                        *
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir('+')">
+                    <div class="help">
+                        +
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir('-')">
+                    <div class="help">
+                        -
+                    </div>
+                </div>  
+            </div>
+            <div class="dshow">
+                <div class="tecla" onclick="inserir('√')">
+                    <div class="help">
+                        √
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir('.')">
+                    <div class="help">
+                        .
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir('x')">
+                    <div class="help">
+                        x
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir('/')">
+                    <div class="help">
+                        /
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir('=')">
+                    <div class="help">
+                        =
+                    </div>
+                </div>
+                <div class="tecla" onclick="inserir('CE')">
+                    <div class="help">
+                        CE
+                    </div>
+                </div>
+            </div>
+
+        </div></div>
+</body>

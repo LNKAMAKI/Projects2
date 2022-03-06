@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Fjalla+One&family=Ubuntu+Condensed&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+        * {
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+        }
+            #cen {
+        padding: 20px 0px 20px 0px;
+        background-color: rgb(67 100 139);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    img#char {
+        border-radius: 0px;
+    background-color: transparent;
+    
+    }
+    h1#spec {
+        margin: 0px 0px 0px 5px;
+        display: inline-block;
+        color: white;
+        font-family: 'Aclonica', sans-serif;
+        text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.287);
+        font-size: 2em;
+    }
+        h1 {
+            text-align: center;
+            font-family:'Open Sans Condensed';
+            font-size: 1.5em;
+            margin-bottom: 66px;
+            margin-top: 15px;
+        }
+
+
+        #fh1 {
+            margin-bottom: 0px;
+        }
+        #fh2 {
+            font-size: 1em;
+            font-weight: normal;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        div.centr {
+           text-align: center;
+        }
+        input[type="number"], input[type="text"] {
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    border-image: none;
+    outline-width: 0px;
+    border: 2px solid rgb(240, 240, 240);
+    padding: 6px;
+}
+    input[type='number'].pri {
+        font-size: 1.9em;
+        height: 45px;
+        width: 75px;
+    }
+    input[type="number"]:hover, input[type="text"]:hover {
+        box-shadow: 0px 0px 8px rgb(7 143 255);
+    }
+    input[type="number"]:focus-visible, input[type="text"]:focus-visible {
+        border: 2px solid rgb(123, 207, 255);
+    }
+    input[type="button"]#invert {
+        margin-top: 15px;
+        color: white;
+        position: relative;
+        background-color: rgb(84 84 235);
+        height: 61px;
+        width: fit-content;
+        font-size: 1.2em;
+        top: -4px;
+        text-align: center;
+        padding: 3px 8px 3px 8px;
+        border-radius: 5px;
+        border: 2px solid rgb(84 84 235);
+        border-image: none;
+        outline-width: 0px;
+    }
+    input[type="button"]#fazcomp {
+        display: block;
+        margin: auto;
+        margin-top: 15px;
+        color: white;
+        position: relative;
+        background-color: rgb(84 84 235);
+        height: 86px;
+        width: fit-content ;
+        min-width: 100px;
+        font-size: 1.2em;
+        top: -8px;
+        text-align: center;
+        padding: 15px;
+        border-radius: 5px;
+        border: 2px solid rgb(84 84 235);
+        border-image: none;
+        outline-width: 0px;
+    }
+    div#sca1, div#sca2 {
+        background-color: black;
+        width: 2px;
+        height: 350px;
+        display: inline-block;
+       
+    }
+    div#sca1 {
+        position: relative;
+    }
+    div.ali1 {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+    }
+    div.ali2 {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+    align-items: center;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+    }
+    div.ali22 {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+    align-items: flex-end;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+    }
+    #relac {
+        z-index: 1;
+        background-color: blueviolet;
+    }
+    div.ali3 {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+    }
+    div.lin {
+        display: grid;
+        align-items: center;   
+        justify-items: center;
+        position: absolute;
+        background-color: black;
+        color: transparent;
+        width: calc(100% + 18px);
+        height: 2px;
+    }
+    .scanum2 {
+        position: absolute;
+        width: 60px;
+        height: 40px;
+        left: -80px;
+        font-size: 1.7em;
+        text-align: center;
+        background-color: blue;
+    }
+    input.scanum {
+        position: absolute;
+        width: 60px;
+        height: 40px;
+        font-size: 1.7em;
+        left: calc(100% + 4px);
+    }
+    div.cont {
+        position: absolute;
+        color: black;
+        background-color: transparent;
+        top: -50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input.specput {
+        background-color: white;
+        position: relative;
+    width: 20px;
+    color: black;
+        display: inline-block;
+        padding: 0px;
+        border-width: 0px;
+        text-align: center;
+        border-radius: 0px;
+    }
+
+    #sca1rel2, #sca2rel2 {
+    top: calc(50%);
+    z-index: 1;
+    }
+
+    #titfor {
+        margin: 40px auto 40px auto;
+        max-width: 354px;
+        text-align: center;
+        display: grid;
+    font-family: monospace;
+    font-size: 1.3em;
+    color: transparent;
+    }
+    select {
+        text-align: center;
+        border-radius: 0px;
+        border: 2px solid rgb(240, 240, 240);
+    }
+    
+    </style>
+</head>
+<body>
+    <script src="conversor.js"></script>
+    
+    <div id="cen"><img src="termometro.png" alt="" id="char" style="width: 32px; height: 45px;"><h1 id="spec">Conversor</h1></div>
+   <div class="centr"> 
+      
+           <input type="number" name="fst" id="cel" onclick="converter()" onkeyup="converter()" class="pri">
+           <span style="font-size: 1.9em;" id="gf">C</span>
+      
+       <span style="font-size: 1.9em;">=</span>
+       
+           <input type="number" name="sec" id="fah" onclick="converter2()" onkeyup="converter2()" class="pri">
+           <span style="font-size: 1.9em;" id="gs">F</span>
+     
+       <input type="button" value="Inverter" id="invert" onclick="invert()">
+   
+ </div>
+
+<h1 id="fh1">Comparação de Escalas</h1>
+
+<h1 id="fh2"><select name="" id="sel">
+    <option value="" onclick="opvale()">Temperatura</option>
+    <option value="" onclick="opvale()">Variação</option>
+</select></h1>
+
+        <div style="display: flex; justify-content: center;margin-top: 30px;"> 
+            
+            <div id="sca2"  style="margin-right: 121px;">
+                
+                <div class="ali1">
+                    <div class="lin" style="background-color: transparent;">
+                        aaa
+                            <div class="cont">Escala&nbsp;<input type="text" class="specput" value="Y" id="fstspec" >
+                            </div>
+                        </div>
+                </div>
+
+                <div class="ali1">
+                    <div class="lin" id="sca2rel3">
+                        aaa
+                        <input type="number" name="" id="sca2num3" class="scanum2" value="100" onkeyup="mudarVar(2)" onclick="mudarVar(2)">
+
+                    </div>
+                </div>
+                <div class="ali22">
+                    <div class="lin" id="sca2rel2">
+                        aaa
+                        <input type="number" id="sca2num2" class="scanum2" onkeyup="mudarVar(2)" onclick="mudarVar(2)" value="">
+                    </div>
+                </div>
+                <div class="ali3">
+                    <div class="lin" id="sca2rel1">
+                        aaa
+                        <input type="number" name="" id="sca2num1" class="scanum2" value="0" onkeyup="mudarVar(2)" onclick="mudarVar(2)">
+                    </div>
+                </div>
+            </div>
+
+                <div id="sca1">
+
+                    <div class="ali1">
+                        <div class="lin" style="background-color: transparent;">
+                            aaa
+                                <div class="cont">Escala&nbsp;<input type="text" class="specput" value="X" id="secspec">
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="ali1">
+                        <div class="lin" id="sca1rel3">
+                            aaa
+                            <input type="number" name="" id="sca1num3" class="scanum" value="212" onkeyup="mudarVar(1)" onclick="mudarVar(1)">
+
+                            
+                        </div>
+                    </div>
+
+                    <div class="ali22">
+                        <div class="lin" id="sca1rel2">
+                            aaa
+                            <input type="number" name="" id="sca1num2" class="scanum" onkeyup="mudarVar(1)" onclick="mudarVar(1)">
+                        </div>
+                    </div>
+
+                    <div class="ali3">
+                        <div class="lin" id="sca1rel1">
+                            aaa
+                            <input type="number" name="" id="sca1num1" class="scanum" onkeyup="mudarVar(1)" onclick="mudarVar(1)" value="32">
+                        </div>
+                    </div>
+
+
+                </div>
+        </div>
+
+        <div id="titfor">
+            Fórmula:<br><br>
+           <span id="form"></span>
+        </div>
+
+    <!--<input type="button" value="Ir" id="fazcomp" onclick="fazerComparacao()">-->
+</body>
+</html>
