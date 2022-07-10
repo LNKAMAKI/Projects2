@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style-tabela.css">
+    <style>
+    table {
+        border-collapse: collapse;
+        margin: auto;
+    }
+    td,th {
+        border: 1px solid black;
+        padding: 10px;
+    }
+    div.table {
+        overflow: auto;
+        max-height: 350px;
+    }
+    abbr {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<h2 id="tipograf" style="text-align: center; font-family: Time;">IMAGENS</h2>
+<div id="efect"></div>
+
+<div id="fontypes" style="text-align: center;">
+
+    <span class="title">COLOCANDO IMAGENS</span>
+    <p>Ok, agora vamos falar sobre imagens, conteúdo muito presente nos websites. Colocar imagem é bem fácil. Veja abaixo um exemplo de como fazer isso:</p>
+    <code>
+        <span class="tag2">img <span class="prop">src</span><span class="n">=</span><span class="str">"imagem.png"</span> <span class="prop">alt</span><span class="n">=</span><span class="str">"exemplo de imagem"</span></span> 
+    </code>
+    <p>O exemplo acima é de uma imagem hospedada localmente, ou seja, uma imagem que foi baixada e está dentro da pasta onde está localizado o arquivo HTML. A propriedade <span class="prop">src</span> refere-se ao source, origem da imagem, que, no exemplo, é o seu nome seguido de seu formato.</p>
+    <p>Já a propriedade <span class="prop">alt</span> é o nome que aparece caso a imagem não for carregada; então geralmente é uma descrição da imagem.</p>
+
+    <p>Exemplo prático:</p>
+    <img src="uu.png" alt="não foi possível carregar esta imagem">
+   <p>Outra forma de colocar uma imagem é através de seu link:</p>
+   <code>
+    <span class="tag2">img <span class="prop">src</span><span class="n">=</span><span class="str">"link da imagem"</span> <span class="prop">alt</span><span class="n">=</span><span class="str">"exemplo de imagem"</span></span> 
+</code>
+
+<span class="title">DIREITOS AUTORAIS</span>
+<p>Antes de falarmos um pouco sobre formatos de imagens, é sempre importante relembrar que uma imagem pode conter direitos autorais, o que significa que não podemos simplesmente "pegá-la" e colocá-la em nosso site. Por isso, devemos estar atentos e sempre conferir se ela tem uma licença que nos permita utilizá-la.
+</p>
+
+<p>Podemos fazer isso filtrando as imagens com as <button>Ferramentas</button> que o google possue.</p>
+<p>*AÍ AQUI VAI AS IMAGENS EXPLICANDO AS COISA*</p>
+
+<p>UNSPLASH, PEXELS, PIXABAY</p>
+<span class="title">JPEG, PNG E GIF</span>
+<p>Os principais formatos de imagem encontrados em um site são jpeg, png e gif. A principal diferença entre eles é
+    que o jpeg possui uma alta compactação, ou seja, é bom para ser usado quando a imagem é muito grande, o png suporta
+    imagens transparentes e o gif permite animação.
+</p>
+<p>AQUI VAI ALGUMAS IMAGENS PARA EXEMPLIFICAR</p>
+
+<span class="title">IMAGENS RESPONSIVAS</span>
+
+<p>Agora vamos falar sobre como deixar as imagens adaptadas ao tamanho da dela, ou seja, "responsivas", já 
+    que se somente diminuíssemos a largura da imagem, poderia comprometer a sua visualização, tornando mais interessante
+    ter pelo menos mais duas fotos para telas médias e pequenas.
+</p>
+<p>Para fazermos isso, primeiro devemos criar uma tag <span class="tag">picture</span> e inserir dentro tela uma <span class="tag">img</span></p>
+<code>
+    <span class="tag2">picture</span> <br>
+    <span class="tag2">img <span class="prop">src</span><span class="n">=</span><span class="str">""</span> <span class="prop">alt</span><span class="n">=</span><span class="str">""</span></span> <br>
+    <span class="tag3">picture</span>
+</code>
+<p>Agora, suponhamos que temos três imagens: uma grande, uma média e uma pequena e que:</p>
+<ul>
+    <li>Imagem grande: cabe em telas com largura de, no mínimo, 1000px</li>
+    <li>Imagem média: cabe em telas com largura de, no mínimo, 550px</li>
+    <li>Imagem pequena: cabe em qualquer tela</li>
+</ul>
+<p>Com essas informações, vamos agora colocar isso em prática, utilizando a tag <span class="tag">source:media:type</span>:</p>
+
+<code>
+    <span class="tag2">picture</span> <br>
+    <span class="tag2">source <span class="prop">media</span><span class="n">=</span><span class="str">"(min-width: 1000px)"</span> <span class="prop">srcset</span><span class="n">=</span><span class="str">"imagem-grande.png"</span> <span class="prop">type</span><span class="n">=</span><span class="str">"image/png"</span></span><br>
+    <span class="tag2">source <span class="prop">media</span><span class="n">=</span><span class="str">"(min-width: 550px)"</span> <span class="prop">srcset</span><span class="n">=</span><span class="str">"imagem-media.png"</span> <span class="prop">type</span><span class="n">=</span><span class="str">"image/png"</span></span><br>
+    <span class="tag2">img <span class="prop">src</span><span class="n">=</span><span class="str">"imagem-pequena.png"</span> <span class="prop">alt</span><span class="n">=</span><span class="str">"imagem pequena"</span></span> <br>
+    <span class="tag3">picture</span>
+</code>
+
+<p>Essa é uma forma de ter o resultado desejado, outra forma é usando o max-width em vez de min-width:</p>
+
+<code>
+    <span class="tag2">picture</span> <br>
+    <span class="tag2">source <span class="prop">media</span><span class="n">=</span><span class="str">"(max-width: 550px)"</span> <span class="prop">srcset</span><span class="n">=</span><span class="str">"imagem-pequena.png"</span> <span class="prop">type</span><span class="n">=</span><span class="str">"image/png"</span></span><br>
+    <span class="tag2">source <span class="prop">media</span><span class="n">=</span><span class="str">"(max-width: 1000px)"</span> <span class="prop">srcset</span><span class="n">=</span><span class="str">"imagem-media.png"</span> <span class="prop">type</span><span class="n">=</span><span class="str">"image/png"</span></span><br>
+    <span class="tag2">img <span class="prop">src</span><span class="n">=</span><span class="str">"imagem-grande.png"</span> <span class="prop">alt</span><span class="n">=</span><span class="str">"imagem grande"</span></span> <br>
+    <span class="tag3">picture</span>
+</code>
+
+</div>
+    <div id="efect2"></div>
+</body>
+</html>
