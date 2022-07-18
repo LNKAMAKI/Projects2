@@ -56,6 +56,7 @@ expression = '15 + 5b + 15l + 5bl'
 //expression = '29 + 37 + 74x + 58x'
 //expression = '3x + 15x + 19l + 17l'
 // BIOLOGIA, FÍSICA, QUÍMICA, MATEMÁTICA
+expression = '10y - 338xy + 20y^2 - 169x + ab + bb + ac + bc'
 
 FATORAR(FATORE(expression))
 function FATORAR(expression) {
