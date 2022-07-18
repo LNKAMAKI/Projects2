@@ -3,7 +3,7 @@
 
 //expression = ['6','x','^','2','b', '-', '42','x','^','2', '+', '7','y','^','2','-','y','^','2','b']
 
-//expression = [ '-', '8','x','+','3', 'x', 'y', '+', '4','x','y', '-','6','x','+','2','x','y', '-','4','x','-','169','h','^','4','k','^','2']
+//expression = [ '-', '8','x','+','3', 'x', 'y', '+', '4','x','y', '-','6','x','+','2','x','y', '-','4','x']
 
 //expression = ['7','x', '+', '14','x','^','2', '+', '35', '+', '2','x', '+', '4','x','^','2', '+', '10', '+', '3','x', '+', '6','x','^','2', '+', '15','+','5','x','+','10','x','^','2','+','25']
 
@@ -12,7 +12,7 @@
 
 //expression = ['2','y','+','4','y','+','2','x','+','4','x']
 
-//expression = ['6','x','+','15','x','^','2','+','6','a','x','+','15','a','x','^','2','+','6','x','y','+','15','x','^','2','y','+','6','x','z','+','15','x','^','2','z','+','6','x','b','+','15','x','^','2','b']
+//expression = ['6','x','+','15','x','^','2','+','6','a','x','+','15','x','^','2','a','+','6','x','y','+','15','x','^','2','y','+','6','x','z','+','15','x','^','2','z','+','6','x','b','+','15','x','^','2','b']
 
 //expression = ['6','x','+','15','x','^','2','+','6','a','x','+','15','x','^','2','a']
 
@@ -24,7 +24,6 @@
 //expression = ['3x','+','3a','+','3','z','+','5xy']
 
 //expression = ['+','10','y','-','338','x','y','+','20','y','^','2','-','169','x','+','ab','+','bb','+','ac','+','bc']
-
 
 //expression = ['3','-','6','x','^','3','+','14','x','^','3','y','^','2','-','7','y','^','2']
 
@@ -45,248 +44,178 @@
 //expression = ['37','x','+','21','x','^','4']
 //expression = ['13*2y','+','13xy']
 //expression = ['-','50','x','x','y','-','60','x','x','-','40','x','x','-','30','x','x','y']
-expression = ['+','5x','+','3x','-','7','x','+','4','y','+','10','y']
+//expression = ['+','5x','+','3x','-','7','x','+','4','y','+','10','y']
 //expression = ['-','2y','-','5y','+','4','x','+','10','x','-','6','y','-','15','y','+','49','+','63','+','ab','+','bb']
 //expression = ['-','3x','-','5x','+','4','x','x','+','3y','+','5y','-','4','x','y']
 //expression = ['a','^','2','+','a','-','5a','-','5']
+//expression = ['3x','+','15','x','+','19','l','+','17','l']
+//expression = ['15','+','15','x','+','15','x','x'] //15(1 + x + xx)
+//expression = ['58','x','+','74','x','+','29','+','37'] 
+//expression = ['14','y','+','9','x','+','7','x']
+expression = '-8x + 8y - 4xy'
+expression = '15 + 5b + 15l + 5bl'
 
-// BIOLOGIA, FÍSICA, QUÍMICA
+FATORAR(FATORE(expression))
+function FATORAR(expression) {
 
-File
-                   
-                   
-               }
-   
-               sob = sob/e
-               
-             //  console.log('SIM')
-             //  console.log(fator + ' x ' + e + ': ' + fator*e)
-   
-               fator = fator*e
-   
-               st = false
-               
-               if (fator == expression[n]) {
-               stop = true
-               fatorado += `${e}`
-               }else{
-                   fatorado += `${e}*`
-               }
-              }
-           }
-       }
-       expression[n] = fatorado
-   }
-   }
-   //
-   
-   
-   // FAZEnDO AS POTÊnCIAS COM LETRAS 
-   
-   //
-   for (y in expression) {
-     
-   
-       if (expression[y] == '^') {
-          // console.log('expression[y - 1]: ' + expression[Number(y) - 1])
-          // console.log('expression[y]: ' + expression[y])
-           
-   
-          ad =  expression[Number(y) - 1] 
-           for (h = 0; h < Number(expression[Number(y) + 1]) - 1; h++) {
-              // console.log(h)
-               expression[Number(y) - 1]+= ad
-           }
-   
-           expression.splice(Number(y) + 1, 1)
-           expression.splice(y, 1)
-          // console.log(expression[Number(y) - 1])
-          // console.log(expression)
-       }
-   }
-   
-   // SEPARAnDO OS MOnÔMIOS
-   
-   monomios = [{numero: ''}]
-   obnum = 0
-   for (n = 0; n < expression.length; n++) {
-   
-   
-   if (String(expression[n]).search('[\\-\\+]') != -1 && n != 0) {
-   
-   monomios.push({numero: ''})
-   obnum++
-   }
-   
-   monomios[obnum].numero += expression[n]
-   
-   }
-   
-   for (surprise in monomios) {
-      // console.log(monomios[surprise].numero)
-   }
-   //monomios = [{numero: ['11','x']},{numero: ['11','*','3','x']}]
-   
-   // TRANSFORMA  O MONOMIOS.NUMERO(STRING) EM UM ARRAY
-   /*
-   for (bye in monomios) {
-       
-   
-       comofica = []
-       ground = ''
-   
-       for (misery in monomios[bye].numero) { 
-        // console.log(monomios[bye].numero[misery])
-           
-           carac = monomios[bye].numero[misery]
-          
-         
-   
-         // console.log('OH COME On',ground, String(ground.search('[0-9]')))
-               if (ground.length == 0) {
-                  // console.log('LISTA VAZIA')
-                   ground+= carac
-               }else if(String(ground.search('[0-9]')) != -1 && String(carac).search('[0-9]') != -1){
-                  // console.log('É UM nÚMERO')
-                   ground+= carac
-               }else{
-                   comofica.push(ground)
-                   ground = ''
-                   ground += carac
-                   
-               }
-               if (misery == monomios[bye].numero.length - 1) {
-                   comofica.push(ground)
-               }
-       }
-   
-      // console.log('COMOFICA', comofica)
-       //
-       monomios[bye].numero = comofica
-   }
-   */
+    startexp = [...expression];
 
-   for (huh in monomios) {
-       
-   
-       partlet = ''
-       for (y in monomios[huh].numero) {
-        
-        if (String(monomios[huh].numero[y]).search('[a-z]') != -1) {
-           
-           partlet+= String(monomios[huh].numero[y])
-        }
-       }
-       monomios[huh].partletral = partlet
-       
-   }
-   
-   
-   ji = []
-   // JUNTANDO OS MONÔMIOS QUE DÁ PARA SOMAR
-   for (huh in monomios) {
-       
-       
-       if (ji.find(function (ji) {
-           return ji.que == monomios[huh].partletral
-          }) == undefined) {
-              
-       ji.push({quais: [Number(huh)], que:  monomios[huh].partletral})
-          }else{
-           ji.find(function (ji) {
-               return ji.que == monomios[huh].partletral
-              }).quais.push(Number(huh))
-          }
-       
-   }
-   
-   
-   // SEPARAnDO/JUnTAnDO OS nÚMEROS
-   
-   exp = []
-   
-   for (bye in ji) {
-      // console.log(ji[bye])
-   
-       for (misery in ji[bye].quais) { 
-           
-   
-           ground = ''
-   
-           comofica = []
-           for (b in monomios[ji[bye].quais[misery]].numero) {
-   
-              carac =  monomios[ji[bye].quais[misery]].numero[b]
-             // console.log(carac)
-               
-               if (ground.length == 0) {
-                  // console.log('LISTA VAZIA')
-                   ground+= carac
-               }else if(String(ground.search('[0-9]')) != -1 && String(carac).search('[0-9]') != -1){
-                   console.log('É UM nÚMERO')
-                   ground+= carac
-               }else{
-                   comofica.push(ground)
-                   ground = ''
-                   ground += carac
-                   if (b == monomios[ji[bye].quais[misery]].numero.length - 1) {
-                       comofica.push(ground)
-                   }
-               }
-           }
-           
-           monomios[ji[bye].quais[misery]].numero = comofica
-       }
-   }
-   
-   
-   
-   //
-   
-   // SEPARAR CORRETAMEnTE OS nÚMEROS
-   
-   
-   for (bye in monomios) {
-       //
-   
-       comofica = []
-       ground = ''
-   
-       for (misery in monomios[bye].numero) { 
-         //  
-           
-           carac = monomios[bye].numero[misery]
-          // 
-         //  
-   
-          // 
-               if (ground.length == 0) {
-                   
-                   ground+= carac
-               }else if(String(ground.search('[0-9]')) != -1 && String(carac).search('[0-9]') != -1){
-                   
-                   ground+= carac
-               }else{
-                   comofica.push(ground)
-                   ground = ''
-                   ground += carac
-                  
-               }
-               if (misery == monomios[bye].numero.length - 1) {
-                   comofica.push(ground)
-               }
-       }
-   
-       //
-       //
-       monomios[bye].numero = comofica
+  if (expression[0] !== "-" && expression[0] !== "+") {
+    //
+    expo = ["+"];
+    for (ent in expression) {
+      //
+      expo.push(expression[ent]);
     }
- 
-   
-   
-   // FATORAR SÓ UM nÚMERO
-   
-   
+    expression = expo;
+  }
+
+  //6x^2 + 3 + 14x^2y + 7y
+
+  //FAZEnDO AS COnTAS COM nÚMEROS
+
+  //FATORAnDO OS nÚMEROS
+
+  for (n = 0; n < expression.length; n++) {
+    if (
+      ehprimo(expression[n]) == false &&
+      String(expression[n]).search("[0-9]") != -1 &&
+      expression[n - 1] != "^"
+    ) {
+      fatorado = "";
+
+      first = 1;
+
+      div = 0;
+      //
+
+      stop = false;
+      fator = 1;
+
+      for (e = 2; stop == false; e++) {
+        sob = Number(expression[n]);
+
+        if (ehprimo(e) == true) {
+          while (sob % e == 0) {
+            if (sob % e == 0) {
+              //
+            }
+
+            sob = sob / e;
+
+            //
+            //
+
+            fator = fator * e;
+
+            st = false;
+
+            if (fator == expression[n]) {
+              stop = true;
+              fatorado += `${e}`;
+            } else {
+              fatorado += `${e}*`;
+            }
+          }
+        }
+      }
+
+      expression[n] = fatorado;
+    }
+  }
+  //
+
+  //FAZEnDO AS POTÊnCIAS COM LETRAS
+
+  //
+  for (y in expression) {
+    if (expression[y] == "^") {
+      ad = expression[Number(y) - 1];
+      for (h = 0; h < Number(expression[Number(y) + 1]) - 1; h++) {
+        expression[Number(y) - 1] += ad;
+      }
+
+      expression.splice(Number(y) + 1, 1);
+      expression.splice(y, 1);
+    }
+  }
+
+  //SEPARAnDO OS MOnÔMIOS
+
+  monomios = [{ numero: "" }];
+  obnum = 0;
+  for (n = 0; n < expression.length; n++) {
+    if (String(expression[n]).search("[\\-\\+]") != -1 && n != 0) {
+      monomios.push({ numero: "" });
+      obnum++;
+    }
+
+    monomios[obnum].numero += expression[n];
+  }
+
+  //monomios = [{numero: ['11','x']},{numero: ['11','*','3','x']}]
+
+  //TRANSFORMA  O MONOMIOS.NUMERO(STRING) EM UM ARRAY
+
+  for (bye in monomios) {
+    comofica = [];
+    ground = "";
+
+    for (misery in monomios[bye].numero) {
+      carac = monomios[bye].numero[misery];
+
+      if (ground.length == 0) {
+        //
+        ground += carac;
+      } else if (
+        String(ground.search("[0-9]")) != -1 &&
+        String(carac).search("[0-9]") != -1
+      ) {
+        //
+        ground += carac;
+      } else {
+        comofica.push(ground);
+        ground = "";
+        ground += carac;
+      }
+      if (misery == monomios[bye].numero.length - 1) {
+        comofica.push(ground);
+      }
+    }
+    monomios[bye].numero = comofica;
+  }
+
+  for (huh in monomios) {
+    partlet = "";
+    for (y in monomios[huh].numero) {
+      if (String(monomios[huh].numero[y]).search("[a-z]") != -1) {
+        partlet += String(monomios[huh].numero[y]);
+      }
+    }
+    monomios[huh].partletral = partlet;
+  }
+
+  ji = [];
+  //JUNTANDO OS MONÔMIOS QUE DÁ PARA SOMAR
+  for (huh in monomios) {
+    if (
+      ji.find(function (ji) {
+        return ji.que == monomios[huh].partletral;
+      }) == undefined
+    ) {
+      ji.push({ quais: [Number(huh)], que: monomios[huh].partletral });
+    } else {
+      ji.find(function (ji) {
+        return ji.que == monomios[huh].partletral;
+      }).quais.push(Number(huh));
+    }
+  }
+
+  //SEPARAnDO/JUnTAnDO OS nÚMEROS
+// ==> SOMANDO OS MONÔMIOS...
+
+// AQUI ACABA O CÓDIGO PARA SOMAR OS MONÔMIOS
+
    function FATORARSInGULAR(potn) {
    if (ehprimo(potn) == false && String(potn).search('[0-9]') != -1) {
        fatorado = ''
@@ -299,24 +228,24 @@ File
        fator = 1
        
        for (e = 2; stop == false; e++) {
-           //
-           //
-           //
+           ////console.log('')
+           ////console.log(e)
+           ////console.log('')
        
            sob = Number(potn)
          
               if (ehprimo(e) == true) {
                while (sob%e == 0) {
                if (sob%e == 0) {
-                   //
+                   ////console.log(sob + '/' + e + ': ' + sob/e)
                    
                    
                }
    
                sob = sob/e
                
-               
-               
+               //console.log('SIM')
+               //console.log(fator + ' x ' + e + ': ' + fator*e)
    
                fator = fator*e
    
@@ -345,38 +274,38 @@ File
    //Primeiro raizes e potências
    for (n = 0; n < anterior.length; n++) {
    if(anterior[n] == '*' && anterior[n - 1] != '(' && anterior[n - 1] != ')' && anterior[n + 1] != '(' && anterior[n + 1] != ')' && anterior[n + 1] != '√') {
-       
+       //console.log('POTEnCIALIZAÇÃO')
        anterior[n + 1] = String(Number(anterior[n - 1]) ** Number(anterior[n + 1]))
        anterior.splice(n - 1, 2)
        
        n = n - 3 // n = n - 3
-       
+       //console.log('EnEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ' + n, anterior[n])
        if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-           
+           //console.log('TIRAR')
            anterior.splice(n + 3, 1)
            anterior.splice(n + 1, 1)
            n = n - 3
    
-           
+           //console.log(anterior)
        }else{
-           
+           //console.log(anterior)
        }
    }else if(anterior[n] == '√' && anterior[n + 1] != '(' ) {
-       
+       //console.log('RAIZ')
        anterior[n + 1] = String(Number(anterior[n + 1]) ** (1/2))
        anterior.splice(n, 1)
-       
+       //console.log(n)
        n = n - 2
-       
+       //console.log(n)
        if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-           
+           //console.log('TIRAR')
            anterior.splice(n + 3, 1)
            anterior.splice(n + 1, 1)
            n = n - 3
    
-           
+           //console.log(anterior)
        }else{
-           
+           //console.log(anterior)
        }
    }
    }
@@ -384,39 +313,39 @@ File
    // Segundo multiplicações e divisões
    for (n = 0; n < anterior.length; n++) {
    if(anterior[n] == 'x' && anterior[n - 1] != '(' && anterior[n - 1] != ')' && anterior[n + 1] != '(' && anterior[n + 1] != ')' && anterior[n + 1] != '√' && String(anterior[n + 2]).search('\\*') == -1 && String(anterior[n - 2]).search('\\*') == -1) {
-   
+   //console.log('MULTIPLICAÇÃO')
    anterior[n + 1] = String(Number(anterior[n - 1]) * Number(anterior[n + 1]))
    anterior.splice(n - 1, 2)
    
    n = n - 3
-   
+   //console.log('EnEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ' + n, anterior[n])
    
    if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-       
+       //console.log('TIRAR')
        anterior.splice(n + 3, 1)
        anterior.splice(n + 1, 1)
        n = n - 3
    
-       
+       //console.log(anterior)
    }else{
-       
+       //console.log(anterior)
    }
    }else if(anterior[n] == '/' && anterior[n - 1] != '(' && anterior[n - 1] != ')' && anterior[n + 1] != '(' && anterior[n + 1] != ')' && anterior[n + 1] != '√' && String(anterior[n + 2]).search('\\*') == -1 && String(anterior[n - 2]).search('\\*') == -1) {
-   
+   //console.log('DIVISÃO')
    anterior[n + 1] = String(Number(anterior[n - 1]) / Number(anterior[n + 1]))
    anterior.splice(n - 1, 2)
    
    n = n - 3
-   
+   //console.log('EnEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ' + n, anterior[n])
    if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-       
+       //console.log('TIRAR')
        anterior.splice(n + 3, 1)
        anterior.splice(n + 1, 1)
        n = n - 3
    
-       
+       //console.log(anterior)
    }else{
-       
+       //console.log(anterior)
    }
    }
    }
@@ -426,108 +355,108 @@ File
    
    // while(anterior.length != 1 && anterior.indexOf('nan') == -1) {
        for (n = 0; n < anterior.length && anterior.length != 1; n++) {
-           
+           //console.log(anterior[n])
            if (anterior[n] == '+' && anterior[n - 1] != '(' && anterior[n - 1] != ')' && anterior[n + 1] != '(' && anterior[n + 1] != ')' && anterior[n + 1] != '√' && String(anterior[n + 2]).search('[x\\/\\*]') == -1 && String(anterior[n - 2]).search('[x\\/\\*\\-]') == -1) {
-               
+               //console.log('ADIÇÃO')
                anterior[n + 1] = String(Number(anterior[n - 1]) + Number(anterior[n + 1]))
                anterior.splice(n - 1, 2)
              
                n = n - 3
-               
+               //console.log('EnEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ' + n, anterior[n])
                if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-                   
+                   //console.log('TIRAR')
                    anterior.splice(n + 3, 1)
                    anterior.splice(n + 1, 1)
                    n = n - 3
    
-                   
+                   //console.log(anterior)
                }else{
-                   
+                   //console.log(anterior)
                }
            }else if(anterior[n] == '-' && anterior[n - 1] != '(' && anterior[n - 1] != ')' && anterior[n + 1] != '(' && anterior[n + 1] != ')' && anterior[n + 1] != '√' && String(anterior[n + 2]).search('[x\\/\\*]') == -1 && String(anterior[n - 2]).search('[x\\/\\*\\-]') == -1) {
-               
+               //console.log('SUBTRAÇÃO') 
                anterior[n + 1] = String(Number(anterior[n - 1]) - Number(anterior[n + 1]))
                anterior.splice(n - 1, 2)
                
                n = n - 3
-               
+               //console.log('EnEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ' + n, anterior[n])
                if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-                   
+                   //console.log('TIRAR')
                    anterior.splice(n + 3, 1)
                    anterior.splice(n + 1, 1)
                    n = n - 3
    
-                   
+                   //console.log(anterior)
                }else{
-                   
+                   //console.log(anterior)
                }
            }else if(anterior[n] == 'x' && anterior[n - 1] != '(' && anterior[n - 1] != ')' && anterior[n + 1] != '(' && anterior[n + 1] != ')' && anterior[n + 1] != '√' && String(anterior[n + 2]).search('\\*') == -1 && String(anterior[n - 2]).search('\\*') == -1) {
-               
+               //console.log('MULTIPLICAÇÃO')
                anterior[n + 1] = String(Number(anterior[n - 1]) * Number(anterior[n + 1]))
                anterior.splice(n - 1, 2)
                
                n = n - 3
-               
+               //console.log('EnEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ' + n, anterior[n])
                if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-                   
+                   //console.log('TIRAR')
                    anterior.splice(n + 3, 1)
                    anterior.splice(n + 1, 1)
                    n = n - 3
    
-                   
+                   //console.log(anterior)
                }else{
-                   
+                   //console.log(anterior)
                }
            }else if(anterior[n] == '/' && anterior[n - 1] != '(' && anterior[n - 1] != ')' && anterior[n + 1] != '(' && anterior[n + 1] != ')' && anterior[n + 1] != '√' && String(anterior[n + 2]).search('\\*') == -1 && String(anterior[n - 2]).search('\\*') == -1) {
-               
+               //console.log('DIVISÃO')
                anterior[n + 1] = String(Number(anterior[n - 1]) / Number(anterior[n + 1]))
                anterior.splice(n - 1, 2)
                
                n = n - 3
-               
+               //console.log('EnEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ' + n, anterior[n])
                if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-                   
+                   //console.log('TIRAR')
                    anterior.splice(n + 3, 1)
                    anterior.splice(n + 1, 1)
                    n = n - 3
    
-                   
+                   //console.log(anterior)
                }else{
-                   
+                   //console.log(anterior)
                }
            }else if(anterior[n] == '*' && anterior[n - 1] != '(' && anterior[n - 1] != ')' && anterior[n + 1] != '(' && anterior[n + 1] != ')' && anterior[n + 1] != '√') {
-               
+               //console.log('DIVISÃO')
                anterior[n + 1] = String(Number(anterior[n - 1]) ** Number(anterior[n + 1]))
                anterior.splice(n - 1, 2)
                
                n = n - 3
-               
+               //console.log('EnEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: ' + n, anterior[n])
                if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-                   
+                   //console.log('TIRAR')
                    anterior.splice(n + 3, 1)
                    anterior.splice(n + 1, 1)
                    n = n - 3
    
-                   
+                   //console.log(anterior)
                }else{
-                   
+                   //console.log(anterior)
                }
            }else if(anterior[n] == '√' && anterior[n + 1] != '(') {
-               
+               //console.log('RAIZ')
                anterior[n + 1] = String(Number(anterior[n + 1]) ** (1/2))
                anterior.splice(n, 1)
                
                n = n - 2
-               
+               //console.log(n)
                if (anterior[n + 1] == '(' && anterior[n + 3] == ')') {
-                   
+                   //console.log('TIRAR')
                    anterior.splice(n + 3, 1)
                    anterior.splice(n + 1, 1)
                    n = n - 3
            
-                   
+                   //console.log(anterior)
                }else{
-                   
+                   //console.log(anterior)
                }
            }
        }
@@ -539,8 +468,31 @@ File
    return anterior
    }
    //
-   
-   
+   function versetem(comp) {
+    podeir = true;
+    qual = -1;
+    for (meow in segs) {
+      array1 = [];
+      for (d in segs[meow].car) {
+        array1.push(segs[meow].car[d]);
+      }
+      array2 = [];
+      for (d in comp) {
+        array2.push(comp[d]);
+      }
+      if (segs[meow].car.length < comp.length) {
+        divisao = DIVIDIR(VAI(segs[meow].car), VAI(comp));
+      } else {
+        divisao = DIVIDIR(VAI(comp), VAI(segs[meow].car));
+      }
+      if (divisao == "" || divisao == "-") {
+        //
+        podeir = false;
+        qual = meow;
+      }
+    }
+    return podeir;
+  }
    
    function DIVIDIR(T, qual) {
        
@@ -548,18 +500,18 @@ File
        Tfix = []
    for (h in T) {
        Tfix.push(T[h])
-       
+       //console.log(T[h])
    }
    //egs = [...qual]
    
-   
+   //console.log('QUAL?',qual)
    egs = []
    for (norte in qual) {
-   
-   if (qual[norte] == '*') {
-       
+   //console.log(qual[norte])
+   if (qual[norte] == '*' || qual[norte] == '.') {
+       //console.log('NÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
    }else{
-   
+   //console.log('SIIIIIIIIIIM')
    
    egs.push(qual[norte])
    
@@ -582,7 +534,7 @@ File
    }
    
    
-   
+   //console.log('eeeeeeeeeeeeeeeeeeg', egs)
    
    
    for (giro = egs.length - 1; giro >= 0; giro--) {
@@ -594,7 +546,7 @@ File
        }
    }
    
-   
+   //console.log('GIRRRRRRRRRROOOOO', egs)
    depois = ''
    for (n in egs) {
       // console.log('yo',egs[n])
@@ -612,7 +564,7 @@ File
    }
    //expression = exp
    
-   //
+   ////console.log('--------------------------------------------MOnOMIOS--------------------------------------')
    reps = []
    segs = []
    let  = []
@@ -624,9 +576,9 @@ File
        repetido = []
    
       numerosrep = []
-       //
-    //
-       
+       ////console.log('BURRO')
+    ////console.log('--------------------')
+       //console.log(monomios[m].numero)
        
     
        for (oc = 0; oc < monomios[m].numero.length; oc++) { // CADA LETRA DE CADA MOnÔMIO
@@ -635,7 +587,7 @@ File
            if (monomios[m].numero[oc].search('[\\*\\+\\/]') == -1) {
          // console.log('LETRA OU nÚMERO ISOLADO: ' + monomios[m].numero[oc])
    
-          
+          //console.log('nUMEROS REPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP', numerosrep.indexOf(monomios[m].numero[oc]))
            if (numerosrep.indexOf(monomios[m].numero[oc]) == -1) {
            numerosrep.push(monomios[m].numero[oc])
    
@@ -643,8 +595,8 @@ File
                ocs2 = []
    
                if(u != m) {
-           
-           
+           //console.log(`monomio ${u}: `)
+           //console.log(monomios[u])   
                
    
              // OCAS
@@ -662,13 +614,13 @@ File
                }
              }
            }
-             
+             //console.log('OOOOOOOOOOOOOOCS-------!!!!!!', ocs)
              
              for (e = 0; e < monomios[u].numero.length; e++) { // CADA LETRA DE CADA MOnÔMIO
-             
+             //console.log(monomios[u].numero[e])
                
                if (monomios[u].numero[e] == monomios[m].numero[oc]) {
-                 //  
+                 //  //console.log(monomios[m].numero[oc] + ' é igual a ' + monomios[u].numero[e])
    
                    if (repetido.find(function(repetido) {
                        return repetido.monum == u
@@ -686,7 +638,7 @@ File
                                    return ocs2.ed == monomios[m].numero[oc]
                                    }).el <= ocs) {
    
-                                       
+                                       //console.log('________uuuuuuuuuuuuuuuuuuuuuu________',{monum: u, wc: [m], letr: monomios[u].numero[e]})
                    repetido.push({monum: u, wc: [m], letr: monomios[u].numero[e]})
    
                   
@@ -696,7 +648,7 @@ File
                    //reps.push({mns: [u, m],alg: monomios[u].numero[e])
                   // reps.push(monomios[u].numero[e])
                        }else{
-                           //
+                           ////console.log('OOOOOBABAOBABEI')
                           // if (repetido.find(function(repetido) {
                               // return repetido.monum == u
                               // }).letr.indexOf(monomios[u].numero[e]) == -1) {
@@ -721,42 +673,42 @@ File
        
                  
                               // }else{
-                                   ////
+                                   //////console.log('DO nOT ADD')
                              // }
                        }
                    
-                   //
-                   //
+                   ////console.log('REPETIDO: ', repetido)
+                   ////console.log('OCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS34246352645263546345:', ocs2)
                }else{
                    
                }
-               //
+               ////console.log('')
              }
            }
            }
-           //
+           ////console.log('------------------------------------------------------------------------------------------')
        }
        }
        }
       
-       
+       //console.log('REPETIDO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', repetido)
        reps.push(repetido)
    
        
        for (nope in repetido) {
        if (repetido[nope].letr[0] == '-') {
-           
+           //console.log('hei')
            la = ''
            for (u in repetido[nope].letr) {
                if (u != 0 && u != 1) {
                    la+= repetido[nope].letr[u]
                }
            }
-           
+           //console.log(la, 'aaaaaaaaa')
            if (repetido.find(function(repetido){
                return repetido.letr == la
            })) {
-               
+               //console.log(':(', nope)
                repetido.splice(nope, 1)
                
            }
@@ -764,67 +716,110 @@ File
    }
    
    
-       //
+       ////console.log('OALAALODLOALDAODLADOLADAOLAODLaaaaaaaaaaaa000000000000000OOOOOOooooooooooooooooooooIIIIIIIIIIIIIIAODALDLAOLDAO')
        
            for (moe = repetido.length - 1; moe >= 0; moe--) {
-              
-               if (segs.find(function(segs) {
-                   return segs.car == repetido[moe].letr
-                   }) == undefined) {
-   
-                    // console.log('WHAT YOU HAVE IN YOUR MIND?????????????????????huh????????',repetido[moe].letr)
-                      if (repetido[moe].letr == '-' || repetido[moe].letr == '1') {
-                          console.log('ARE YOU SERIOUS?')
-                       }else{
-                           segs.push({car: repetido[moe].letr, mons: [m]})
-                       }
-                 
+              console.log('**********************************************************************esse',repetido[moe], segs)
+
+              podeir = true
+              qual = -1
+              for (meow in segs) {
                   
-   
-               }else if(segs.find(function(segs) {
-                   return segs.car == repetido[moe].letr
-                   }).mons.indexOf(m) == -1){
-                 
-                       
-                       segs.find(function(segs) {
-                           return segs.car == repetido[moe].letr
-                           }).mons.push(m)
-   
-                           
+                console.log('')
+                console.log('',segs[meow].car)
+               
+                    array1 = []
+                    for (d in segs[meow].car) {
+                        array1.push(segs[meow].car[d])
+                    }
+
+                    array2 = []
+                    for (d in repetido[moe].letr) {
+                        array2.push(repetido[moe].letr[d])
+                    }
+
+                    if (segs[meow].car.length < repetido[moe].letr.length) {
+
+                        divisao =  DIVIDIR(VAI(segs[meow].car), VAI(repetido[moe].letr))
+                    console.log('DIVIDIR', segs[meow].car, 'por', repetido[moe].letr, '(', VAI(segs[meow].car), '*', VAI(repetido[moe].letr), ')', divisao)
+                     }else{
+                         divisao = DIVIDIR(VAI(repetido[moe].letr),VAI(segs[meow].car))
+                    console.log('DIVIDIR', repetido[moe].letr, 'por', segs[meow].car, '(', VAI(segs[meow].car), '*', VAI(repetido[moe].letr), ')',divisao)
+                     }
+
+                     if (divisao == '' || divisao == '-') {
+                        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> OPA, TEM!!!!!!!!!!!!!!!')
+                        podeir = false
+                        qual = meow
+                     }
+                  
+              }
+
+              console.log('PODE IR?????????????????????????', podeir, qual)
+               if (podeir == true) {
+
+                splitUp(repetido[moe].letr);
+                function splitUp(str) {
+                  estado = "";
+                  // CÓDIGO PARA ADICIONAR OS TERMOS EM COMUM DOS MONÔMIOS NA LISTA SEGS(SEGMENTOS)
+                  for (i in str) {
+                    if (str[i] == "." && estado != "-") {
+                      permission = versetem(estado);
+                      //console.log(permission)
+                      if (permission == true && estado != " " && estado != "-") {
+                        segs.push({ car: estado, mons: [m] });
+                      }
+                    }
+                    estado += str[i];
+                    if (i == str.length - 1) {
+                      permission = versetem(estado);
+                      if (permission == true && estado != " " && estado != "-") {
+                        segs.push({ car: estado, mons: [m] });
+                      }
+                    }
+                  }
+                  //
+                }
+               }else if(segs[qual].mons.indexOf(m) == -1){
+                       segs[qual].mons.push(m)
                }
            }
            
    }
    
    
-   //
-   //
+   ////console.log('RELAÇÃO EnTRE OS MOnÔMIOS')
+   ////console.log(segs)
    
    
    for (nl = 0; nl < segs.length; nl++) {
+       console.log('-----------------------------------------------------------------------------------------')
        
-       
-       
+       console.log(segs[nl])
    
-      // console.log('AnALISAR CADA ITEM')
-       
+       console.log('AnALISAR CADA ITEM')
+       console.log('nUMERO: ', segs[nl].car)
        for (n = 0; n < segs.length; n++) {
    
-           
+           console.log('---------------------------------------------------------------------')
            if (n != nl) {
-          // console.log(`${segs[n].car}.search('${segs[nl].car}')`)
+           console.log(`${segs[n].car}.search('${segs[nl].car}')`, String(segs[n].car).search(String(segs[nl].car)))
+           for (dry in segs[nl].car) {
+            console.log('_|(o u o)|_', segs[nl].car[dry])
+           }
+
            if (String(segs[n].car).search(String(segs[nl].car)) != -1) {
               
-             //  console.log(`${segs[n].car}: ${segs[n].mons}`)
-              // console.log(`${segs[nl].car}: ${segs[nl].mons}`)
+               console.log(`${segs[n].car}: ${segs[n].mons}`)
+               console.log(`${segs[nl].car}: ${segs[nl].mons}`)
    
                for (u in segs[n].mons) {
-                  // console.log(segs[n].mons[u])
+                   console.log(segs[n].mons[u])
                    if (segs[nl].mons.indexOf(segs[n].mons[u]) != -1) {
-                      // console.log('TEM')
+                       console.log('TEM')
                    }else{
-                     
-                    // console.log('O DEVTOOLS É A PIOR COISA QUE JÁ EXISTIU nESSE MUnDO', segs[nl].mons)
+                     console.log('nÃO TEM')
+                     console.log('O DEVTOOLS É A PIOR COISA QUE JÁ EXISTIU nESSE MUnDO', segs[nl].mons)
                        segs[nl].mons.push(segs[n].mons[u])
                      
                    }
@@ -852,43 +847,43 @@ File
    }
    
    
-   ////
+   //////console.log('------------------------------ORDEnAnDO DO MAIOR PARA O MEnOR----------------------------')
    
    
    grtols = []
    
    
    for (hi in segs) {
-       ////
+       //////console.log(segs[hi], segs[hi].mons.length)
        segs[hi].length = segs[hi].mons.length
    
        grtols.push(segs[hi])
    }
    
-   ////
-   ////
+   //////console.log('grtols: ', segs)
+   //////console.log(sortob(grtols, 'length'))
    organizado = sortob(grtols, 'length')[1]
    
    grtols = []
    for (ah in organizado) {
-      // //
+      // ////console.log(segs[organizado[ah]])
        grtols.push(segs[organizado[ah]])
       
    }
    
-   ////
+   //////console.log('LISTA ORDEnADA PELO TAMAnHO', grtols)
    segs = grtols
    
   
    //DIVS
    ml = monomios.length
-   ////
+   //////console.log(ml)
    
    divs = ehprimo2(ml)
-   ////
+   //////console.log(divs)
    
    for (n in divs) {
-       ////
+       //////console.log(divs[okentao])
        
    }
    
@@ -896,7 +891,7 @@ File
    divs = [1]
    }
    
-
+/*
    goaway = []
    for (nah in segs) {
     
@@ -927,18 +922,18 @@ File
         segs.splice(time, 1)
         }
    }
-
+*/
    //divs = [2,3]
    
-   ////
-   ////
+   //////console.log('AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIÓÓOÓÓÓÓÓOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
+   //////console.log(segs)
    
    
-       ////
+       //////console.log(segs, divs)
    
-       //
+       ////console.log(segs)
    
-    
+    //console.log(segs)
    
        //const HATEYOU = []
        //for (HATEDEVTOOLS in segs) {
@@ -947,7 +942,7 @@ File
            //HATEYOU.push(segs[HATEDEVTOOLS])
       // }
        
-      
+      //console.log(segs)
       for (tie in segs) {
       // console.log(segs[tie])
        segs[tie].godhelpme = [...segs[tie].mons]
@@ -960,141 +955,149 @@ File
           // console.log('nAOOOOOOOOOOOOOOOOOOOOOOsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss', n)
            //const vi = 0
            scarecrow = []
-           for(anchor in segs) {
-              // console.log('i feel the light betrayed me', segs[anchor].mons)
-               
-           
-               army = []
-               lpisthebest = ''
-                   for (fall in segs[anchor].car) {
-                   if (lpisthebest.length == 0) {
-                       
-                       lpisthebest = segs[anchor].car[fall]
-                       
-                   }else if(lpisthebest.search('[0-9]') != -1 && segs[anchor].car[fall].search('[0-9]') != -1) {
-                       
-                       lpisthebest += segs[anchor].car[fall]
-                   }else{
-                       
-                       army.push(lpisthebest)
-                       if(segs[anchor].car[fall] != '.') {
-                       lpisthebest = segs[anchor].car[fall]
-                       }else{
-                           if (segs[anchor].car[Number(fall) + 1].search('[0-9]') != -1) {
-                           lpisthebest = '*'
-                           }else{
-                               lpisthebest = ''
-                           }
-                       }
-                  //
-                   }
-                   if (fall == segs[anchor].car.length - 1) {
-                       army.push(lpisthebest)
-                   }
-               }
-               bell = [...army]
-              // console.log('OAHAHA', army)
-   
-              // console.log(army, '_____________YOU HAVE TO FIX WHAT YOU DID WRONG!_______________')
-               
-               for (pahh in army) {
-                  // console.log(army[pahh])
-                   if (army[pahh] == '*') {
-                       army[pahh] = '.'
-                   }
-               }
-               scarecrow.push({divididos: [], outrodiv: [], poss: [...segs[anchor].mons], divisor: [...army], positions: [...segs[anchor].mons]})
-               for (high in segs[anchor].mons) {
-                   
-                  
-                   army = [...bell]
-            
-                //   console.log(monomios[segs[anchor].mons[high]].numero,army)
-           
-               
-                lightson = [...army]
-                   pain = DIVIDIR(army,monomios[segs[anchor].mons[high]].numero)
-                   
-   
-                   if (pain.length == 0 || pain.search('([0-9]|[a-z)])') == -1) {
-                  
-                  if (lightson.indexOf('-') != -1 && monomios[segs[anchor].mons[high]].numero.indexOf('-') == -1) {
-   
-                      pain = '-1'
-                     // console.log('opa')
-                      scarecrow[anchor].divididos.push('1')
-                       scarecrow[anchor].outrodiv.push(pain)
-                  }else if(lightson.indexOf('-') == -1 && monomios[segs[anchor].mons[high]].numero.indexOf('-') != -1) {
-                      
-                       pain = '-1'
-                     //  console.log('opa')
-                       scarecrow[anchor].divididos.push('1')
-                       scarecrow[anchor].outrodiv.push(pain)
-                  }else{
-                   pain = '1'
-                   scarecrow[anchor].divididos.push(pain)
-                       scarecrow[anchor].outrodiv.push(pain)
+           for (anchor in segs) {
+            army = [];
+            lpisthebest = "";
+            for (fall in segs[anchor].car) {
+              if (lpisthebest.length == 0) {
+                lpisthebest = segs[anchor].car[fall];
+              } else if (
+                lpisthebest.search("[0-9]") != -1 &&
+                segs[anchor].car[fall].search("[0-9]") != -1
+              ) {
+                lpisthebest += segs[anchor].car[fall];
+              } else {
+                army.push(lpisthebest);
+                if (segs[anchor].car[fall] != ".") {
+                  lpisthebest = segs[anchor].car[fall];
+                } else {
+                  if (segs[anchor].car[Number(fall) + 1].search("[0-9]") != -1) {
+                    lpisthebest = "*";
+                  } else {
+                    lpisthebest = "";
                   }
-                   
-   
-                   }else{
-           
-                       right = ''
-                       for (feet in pain) {
-                         //  console.log(pain[feet])
-                           if (pain[feet] != '+') {
-                               right+= pain[feet]
-                           }
-                       }
-                    //   console.log('É ESSE:', right)
-                      
-                       uy = ''
-                     //  console.log(right, 'RIGHT') 
-   
-                      for (xarope in right) {
-                    //   console.log(right[xarope])
-                       if (xarope == 0 && right[xarope] == '*') { // *2
-                      //   console.log('ERRADO!', '*2')
-                       }else if(xarope == right.length - 1 && right[xarope] == '*'){ // 2*
-                     // 
-                       }else if(right[xarope] == '*' && String(right[Number(xarope) + 1]).search('[0-9]') == -1){ // 2*x
-                    //  
-                       }else if(right[xarope] == '*' && String(right[Number(xarope) - 1]).search('[0-9]') == -1){ // x*2
-                      //
-                       }else{
-                           uy+= right[xarope]
-                       }
-                      }
-                      
-                      scarecrow[anchor].outrodiv.push(uy)
-   
-                      if (uy[0] == '-') {
-                       holdon = ''
-                       for (qual in uy) { 
-                           if (uy[qual] != '-')
-                           holdon+= uy[qual]
-                       }
-                       
-                       uy = holdon
-                      }
-                      scarecrow[anchor].divididos.push(uy)
-                   }
-                  
-               }
-           }
+                }
+              }
+              if (fall == segs[anchor].car.length - 1) {
+                army.push(lpisthebest);
+              }
+            }
+            bell = [...army];
+        
+            for (pahh in army) {
+              //
+              if (army[pahh] == "*") {
+                army[pahh] = ".";
+              }
+            }
+            scarecrow.push({
+              divididos: [],
+              outrodiv: [],
+              poss: [...segs[anchor].mons],
+              divisor: [...army],
+              positions: [...segs[anchor].mons],
+            });
+            for (high in segs[anchor].mons) {
+              army = [...bell];
+        
+              lightson = [...army];
+              pain = DIVIDIR(army, monomios[segs[anchor].mons[high]].numero);
+        
+              if (pain.length == 0 || pain.search("([0-9]|[a-z)])") == -1) {
+                if (
+                  lightson.indexOf("-") != -1 &&
+                  monomios[segs[anchor].mons[high]].numero.indexOf("-") == -1
+                ) {
+                  pain = "-1";
+                  //
+                  scarecrow[anchor].divididos.push("1");
+                  scarecrow[anchor].outrodiv.push(pain);
+                } else if (
+                  lightson.indexOf("-") == -1 &&
+                  monomios[segs[anchor].mons[high]].numero.indexOf("-") != -1
+                ) {
+                  pain = "-1";
+                  //
+                  scarecrow[anchor].divididos.push("1");
+                  scarecrow[anchor].outrodiv.push(pain);
+                } else {
+                  pain = "1";
+                  scarecrow[anchor].divididos.push(pain);
+                  scarecrow[anchor].outrodiv.push(pain);
+                }
+              } else {
+                right = "";
+                for (feet in pain) {
+                  if (pain[feet] != "+") {
+                    right += pain[feet];
+                  }
+                }
+        
+                uy = "";
+                //
+        
+                for (xarope in right) {
+                  //
+                  if (xarope == 0 && right[xarope] == "*") {
+                    //*2
+                    //
+                  } else if (xarope == right.length - 1 && right[xarope] == "*") {
+                    //2*
+                    //
+                  } else if (
+                    right[xarope] == "*" &&
+                    String(right[Number(xarope) + 1]).search("[0-9]") == -1
+                  ) {
+                    //2*x
+                    //
+                  } else if (
+                    right[xarope] == "*" &&
+                    String(right[Number(xarope) - 1]).search("[0-9]") == -1
+                  ) {
+                    //x*2
+                    //
+                  } else {
+                    uy += right[xarope];
+                  }
+                }
+        
+                scarecrow[anchor].outrodiv.push(uy);
+        
+                if (uy[0] == "-") {
+                  holdon = "";
+                  for (qual in uy) {
+                    if (uy[qual] != "-") holdon += uy[qual];
+                  }
+        
+                  uy = holdon;
+                }
+                scarecrow[anchor].divididos.push(uy);
+              }
+            }
+          }
       
           miss = []
    
           for (ah in scarecrow) {
-              
-              for (é in scarecrow[ah].divididos) {
-                  
-              if (miss.find(function(miss){return miss.dividido == scarecrow[ah].divididos[é]}) == undefined) {
-               miss.push({dividido: scarecrow[ah].divididos[é], aparicoes: [Number(ah)], divisor: scarecrow[ah].divisor})
-              }else{
-               miss.find(function(miss){return miss.dividido == scarecrow[ah].divididos[é]}).aparicoes.push(Number(ah))
+            for (é in scarecrow[ah].divididos) {
+              if (
+                miss.find(function (miss) {
+                  return miss.dividido == scarecrow[ah].divididos[é];
+                }) == undefined
+              ) {
+                miss.push({
+                  dividido: scarecrow[ah].divididos[é],
+                  aparicoes: [Number(ah)],
+                  divisor: scarecrow[ah].divisor,
+                });
+              } else {
+                miss
+                  .find(function (miss) {
+                    return miss.dividido == scarecrow[ah].divididos[é];
+                  })
+                  .aparicoes.push(Number(ah));
               }
-           }
+            }
           }
    
           
@@ -1107,7 +1110,7 @@ File
    
           grtols = []
    for (hi in miss) {
-       ////
+       //////console.log(segs[hi], segs[hi].mons.length)
        miss[hi].length = miss[hi].aparicoes.length
    
        grtols.push(miss[hi])
@@ -1116,7 +1119,7 @@ File
    
    grtols = []
    for (ah in organizado) {
-      // //
+      // ////console.log(segs[organizado[ah]])
        grtols.push(miss[organizado[ah]])
       
    }
@@ -1125,231 +1128,249 @@ File
    deucerto = false
    java = 0
    
-   
-   
-   
-   while(java < miss.length && deucerto == false) {
-              
-             // if (miss[java].aparicoes.length >= quantasposições) {
-           //    console.log('')
-        //   console.log('SEnDO AnALISADO nO MOMEnTO', miss[java].aparicoes)
-   
-           podeser = []
-           for (outro in miss) {
-              // console.log('')
-               if (outro != java /*&& miss[outro].aparicoes.length >= quantasposições*/) {
-               //   console.log(miss[outro], outro)
-   
-                   presentes = []
-                   for (quecoisa in miss[outro].aparicoes) {
-                       fatorzinho = miss[outro].aparicoes[quecoisa]
-                    //   console.log('FATORZINHO', fatorzinho, 'MISS[JAVA]', miss[java].aparicoes)
-   
-                       if (miss[java].aparicoes.indexOf(fatorzinho) != -1) {
-                    //   console.log('TEM', fatorzinho)
-                           presentes.push(fatorzinho)
-                       }
-                   }
-                 //  console.log('OLHA', presentes)
-   
-                   adicionou = false
-                   for (idk in podeser) {
-                    //   console.log(podeser[idk])
-                       esigual = true
-                       for (denovo in podeser[idk].opl) {
-                          // console.log(podeser[idk].opl[denovo], presentes[denovo])
-                           if (podeser[idk].opl[denovo] == presentes[denovo]) {
-                              // console.log('É IGUAL')
-                           }else{
-                               esigual = false
-                           }
-                       }
-                       if (esigual == true) {
-                           podeser[idk].position.push(outro)
-                           adicionou = true
-                       }
-                   }
-                   if (presentes.length > 0 && presentes.length > 0 && adicionou == false) {
-                       podeser.push({opl: presentes, position: [outro]})
-                   }
-                   
-               }
+   //console.log('MISS.LENGTH',miss.length)
+   roller = [];
+  for (eep in miss) {
+    //console.log('>>>>>>>>>>>>>>>>>>>',eep, miss[eep].aparicoes)
+
+    //console.log('---')
+    for (quad in miss) {
+      //console.log('')
+      if (quad != eep) {
+        //console.log(quad,miss[quad].aparicoes)
+
+        repeated = [];
+        repwri = "";
+        for (vespa in miss[eep].aparicoes) {
+          //console.log(miss[eep].aparicoes[vespa])
+          if (miss[quad].aparicoes.indexOf(miss[eep].aparicoes[vespa]) != -1) {
+            //console.log(miss[quad].aparicoes,'indexOf(',miss[eep].aparicoes[vespa],') não é igual a -1')
+            repeated.push(miss[eep].aparicoes[vespa]);
+
+            repwri += "," + miss[eep].aparicoes[vespa];
+
+            //console.log('repetido:',repeated,'repwri',repwri)
+
+            if (
+              roller.find(function (roller) {
+                return roller.rept == repwri;
+              }) == undefined
+            ) {
+              //console.log('PODE PUSHAR',{rept: repwri,opl:repeated,position: [eep,quad]}, repeated, repeated.length)
+              roller.push({
+                rept: repwri,
+                opl: [...repeated],
+                position: [eep, quad],
+              });
+            } else {
+              if (
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.indexOf(eep) == -1
+              ) {
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.push(eep);
               }
-              
-              
-              
-              for (belief in podeser) {
-                  if (podeser[belief].position.indexOf(java) == -1) {
-                  podeser[belief].position.push(String(java))
-                  }
-   
-               
-   
-               shot = ''
-               for (gun in podeser[belief].opl) {
-                   
-                   shot+= podeser[belief].opl[gun] + ','
-               }
-              // console.log('THAT WE LET IT GO:', shot)
-   
-               if (roll.length == 0) {
-                  // console.log('ADICIONAR(LISTA VAZIA)')
-                   roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
-               }else if(roll.find(function(roll){return roll.way == shot}) != undefined) { // SE JÁ TIVER NA LSITA
-                   
-                  
-   
-                   for (capital in podeser[belief].position) {
-                       
-   
-                     // console.log(roll.find(function(roll){return roll.way == shot}).posições, roll.find(function(roll){return roll.way == shot}).posições.indexOf(podeser[belief].position[capital]),podeser[belief].position[capital])
-   
-                   if (roll.find(function(roll){return roll.way == shot}).posições.indexOf(podeser[belief].position[capital])== -1) {
-                      
-                      roll.find(function(roll){return roll.way == shot}).posições.push(podeser[belief].position[capital])
-                   }
-                   }
-   
-               }else{
-                   
-                   roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
-               }
+
+              if (
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.indexOf(quad) == -1
+              ) {
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.push(quad);
               }
-   
-              
-              whyis = java
-              if (podeser.length > 0) {
-                  
-                  
-   
-                  for(cold in podeser) {
-              if (podeser[cold].position.length == quantosfatores && podeser[cold].opl.length == quantasposições && miss[whyis].aparicoes.length == quantasposições) {
-              // console.log('É ISSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO')
-               deucerto = true
-   
-               ficaassim = ''
-              // podeser[cold].position.push(whyis)
-   
-               for (yehaa in podeser[cold].position) {
-                 //  console.log(podeser[cold])
-                  // console.log(miss[podeser[cold].position[yehaa]].dividido)
-                   if (miss[podeser[cold].position[yehaa]].dividido[0] == '-') {
-                       
-                       fi = ''
-                       for (ohjesus in miss[podeser[cold].position[yehaa]].dividido) {
-                           if (miss[podeser[cold].position[yehaa]].dividido[ohjesus] != '-') {
-                               fi+= miss[podeser[cold].position[yehaa]].dividido[ohjesus]
-                           }
-                       }
-                     //  console.log(fi)
-                       if (yehaa != 0) {
-                            ficaassim += ` - ${fi}`
-                       }else{
-                           ficaassim += `-${fi}`
-                       }
-                   }else if(yehaa != 0){
-                       ficaassim += ' + '
-                       ficaassim+= miss[podeser[cold].position[yehaa]].dividido
-                   }else{
-                       ficaassim+= miss[podeser[cold].position[yehaa]].dividido 
-                   }
-                   
-               
-               }
-              // console.log('FICA ASSIM', `(${ficaassim})`)
-              for (ruin in podeser[cold].opl) {
-             //  console.log(scarecrow[podeser[cold].opl[ruin]].divisor)
-               emotion = ''
-               for (scream in scarecrow[podeser[cold].opl[ruin]].divisor ) {
-              //
-                   emotion+= scarecrow[podeser[cold].opl[ruin]].divisor[scream]
-               }
-             //  console.log(`${emotion}(${ficaassim})`)
-             }
-              }
-           }
-   
-           }
-   
-            //  }
-              
-            //  console.log('continuar', miss[java])
-   
-              java++
+            }
           }
-          okentao++
-   
-   
-          
-          for (nao in roll) {
-             // console.log('-------------------------------------------------------------------')
-          // console.log('esse é o negócio',roll[nao].repetidos)
-           
-          // console.log('---------------------------------------------')
-         //  console.log('ANALISANDO O MISS')
-   
-          
-               shot = ''
-               for (gun in roll[nao].repetidos) {
-                   
-                   shot+= roll[nao].repetidos[gun] + ','
-               }
-   
-           for (whyso in miss) {
-               
-               igual = 0
-               for (heat in miss[whyso].aparicoes) {
-                   
-                   if (roll[nao].repetidos.indexOf(miss[whyso].aparicoes[heat]) != -1) {
-                     //  console.log('TEM')
-                       igual++
-                   }
-               }
-              // console.log('HÁ', igual, 'numero repetidos')
-               if (igual == roll[nao].repetidos.length) {
-                  // console.log('TEM SIMMMMMMMMMMMMMMM', whyso)
-                     // console.log(roll.find(function (roll){return roll.way == shot}).posições)
-   
-                      if (roll.find(function (roll){return roll.way == shot}).posições.indexOf(whyso) != -1) {
-                       
-                   }else{
-                     //  console.log('ADICIONAR EFETIVAMENTE')
-                       roll.find(function (roll){return roll.way == shot}).posições.push(whyso)
-                   }
-               }
-                 // console.log('THAT WE LET IT GO:', shot)
-                  
-               }
-           }
-           
-          
+        }
+      }
+    }
+  }
+  e = [...roller];
+
+  while (java < miss.length && deucerto == false) {
+    //FOCO
+    podeser = [];
+    for (outro in miss) {
+      if (
+        outro != java /*&& miss[outro].aparicoes.length >= quantasposições*/
+      ) {
+        presentes = [];
+        for (quecoisa in miss[outro].aparicoes) {
+          fatorzinho = miss[outro].aparicoes[quecoisa];
+
+          if (miss[java].aparicoes.indexOf(fatorzinho) != -1) {
+            presentes.push(fatorzinho);
+          }
+        }
+
+        adicionou = false;
+        for (idk in podeser) {
+          //
+          esigual = true;
+          for (denovo in podeser[idk].opl) {
+            if (podeser[idk].opl[denovo] == presentes[denovo]) {
+              //
+            } else {
+              esigual = false;
+            }
+          }
+          if (esigual == true) {
+            //podeser[idk].position.push(outro)
+            adicionou = true;
+          }
+        }
+        if (
+          presentes.length > 0 &&
+          presentes.length > 0 &&
+          adicionou == false
+        ) {
+          //podeser.push({opl: presentes, position: [outro]})
+        }
+      }
+    }
+    //
+    podeser = [...roller];
+
+    for (belief in podeser) {
+      if (podeser[belief].position.indexOf(java) == -1) {
+        //podeser[belief].position.push(String(java))
+      }
+
+      shot = "";
+      for (gun in podeser[belief].opl) {
+        shot += String(podeser[belief].opl[gun]) + ",";
+      }
+
+      if (roll.length == 0) {
+        roll.push({
+          repetidos: [...podeser[belief].opl],
+          way: shot,
+          posições: [...podeser[belief].position],
+        });
+      } else if (
+        roll.find(function (roll) {
+          return roll.way == shot;
+        }) != undefined
+      ) {
+        //SE JÁ TIVER NA LSITA
+
+        for (capital in podeser[belief].position) {
+          if (
+            roll
+              .find(function (roll) {
+                return roll.way == shot;
+              })
+              .posições.indexOf(podeser[belief].position[capital]) == -1
+          ) {
+            roll
+              .find(function (roll) {
+                return roll.way == shot;
+              })
+              .posições.push(podeser[belief].position[capital]);
+          }
+        }
+      } else {
+        roll.push({
+          repetidos: [...podeser[belief].opl],
+          way: shot,
+          posições: [...podeser[belief].position],
+        });
+      }
+    }
+
+    whyis = java;
+    if (podeser.length > 0) {
+      for (cold in podeser) {
+        if (
+          podeser[cold].position.length == quantosfatores &&
+          podeser[cold].opl.length == quantasposições &&
+          miss[whyis].aparicoes.length == quantasposições
+        ) {
+          //
+          deucerto = true;
+
+          ficaassim = "";
+          //podeser[cold].position.push(whyis)
+
+          for (yehaa in podeser[cold].position) {
+            //
+
+            if (miss[podeser[cold].position[yehaa]].dividido[0] == "-") {
+              fi = "";
+              for (ohjesus in miss[podeser[cold].position[yehaa]].dividido) {
+                if (
+                  miss[podeser[cold].position[yehaa]].dividido[ohjesus] != "-"
+                ) {
+                  fi += miss[podeser[cold].position[yehaa]].dividido[ohjesus];
+                }
+              }
+              //
+              if (yehaa != 0) {
+                ficaassim += ` - ${fi}`;
+              } else {
+                ficaassim += `-${fi}`;
+              }
+            } else if (yehaa != 0) {
+              ficaassim += " + ";
+              ficaassim += miss[podeser[cold].position[yehaa]].dividido;
+            } else {
+              ficaassim += miss[podeser[cold].position[yehaa]].dividido;
+            }
+          }
+
+          for (ruin in podeser[cold].opl) {
+            emotion = "";
+            for (scream in scarecrow[podeser[cold].opl[ruin]].divisor) {
+              emotion += scarecrow[podeser[cold].opl[ruin]].divisor[scream];
+            }
+          }
+        }
+      }
+    }
+    java++;
+  }
+  okentao++;
+  
+  INDIRETARROLL();
+
          //  console.log('ROOLLLLLLLLLLLLLLLLLLLLLLLLLLL', roll)
    
    
-         
+         //console.log('PARAR PARA ANALISAR')
          for (ne in roll) {
           //for (ne = 0; ne < 1; ne++) {
-             
-           
-           
-           
+             //console.log('_______________________________')
+           //console.log(roll[ne].posições, '(MISS):')
+           //console.log('')
+           //console.log(roll[ne].repetidos, '(SCARECROW)')
    
            arranjar = []
            for (pq in roll[ne].repetidos) {
                gosto = roll[ne].repetidos[pq], scarecrow[roll[ne].repetidos[pq]].divididos
-               
+               //console.log('----', gosto, scarecrow[gosto].divisor)
                arranjar.push({pos: pq, ocupa: [], origin: gosto})
    
            for (moon in roll[ne].posições) {
    
-              
+              //console.log(roll[ne].posições[moon], miss[roll[ne].posições[moon]].dividido, scarecrow[gosto].divididos)
                vaiir = scarecrow[gosto].outrodiv[scarecrow[gosto].divididos.indexOf(miss[roll[ne].posições[moon]].dividido)]
-               
+               //console.log(vaiir)
    
               arranjar[pq].ocupa.push(vaiir)
            }
        }
-       
+       //console.log('_______________ANALISANDO O ARRANJAR!!!!!!!!!!!_______________')
        
        
        jafoi = []
@@ -1367,7 +1388,7 @@ File
        
                if (calor != tosse) {
                   // console.log('------------------------------')
-                   
+                   //console.log(calor, arranjar[calor].ocupa)
    
                    equals = true
                    igualar =[]
@@ -1386,7 +1407,7 @@ File
                    }
                   // console.log('igualar:', igualar)
                    if (igualar.indexOf(false) == -1 || igualar.indexOf(true) == -1) {
-                       
+                       //console.log(`======================> ${arranjar[calor].ocupa} é igual a ${arranjar[tosse].ocupa}`,tosse, calor)                     
                        jafoi.push(calor)
                        organizer.agrupar.push(calor)
    
@@ -1399,12 +1420,12 @@ File
        
       // console.log(roll[ne].posições)
        for (youchoose in perfectwave) {
-           
-           
+           //console.log('_______________________________________',perfectwave[youchoose].agrupar)
+           //console.log('COMO É PARA FICAR:', perfectwave[youchoose].referencia)
            ficarassim =  perfectwave[youchoose].referencia
    
            for (catraca in perfectwave[youchoose].agrupar) {
-               
+               //console.log('-----------------------------------------------------------')
                presa = perfectwave[youchoose].agrupar[catraca]
              
               // console.log(perfectwave[youchoose].agrupar[catraca], arranjar[presa].origin)
@@ -1419,8 +1440,8 @@ File
                    if (vaiir != ficarassim[moon]) {
                        diferente = true
    
-                       
-                      
+                       //console.log('MUDARR!!!!!!')
+                      //console.log(scarecrow[arranjar[presa].origin].outrodiv[scarecrow[arranjar[presa].origin].divididos.indexOf(miss[roll[ne].posições[moon]].dividido)])
    
                       scarecrow[arranjar[presa].origin].outrodiv[scarecrow[arranjar[presa].origin].divididos.indexOf(miss[roll[ne].posições[moon]].dividido)] = ficarassim[moon]
                    }
@@ -1429,11 +1450,11 @@ File
                }
               // console.log('SOME LIKE TO PLAY, I LIKE TO CODE')
                if (diferente == true) {
-                   
+                   //console.log('ALTERAR...', scarecrow[arranjar[presa].origin].divisor)
    
                    lista = scarecrow[arranjar[presa].origin].divisor
                    if (lista != '-') {
-                       
+                       //console.log('aff... >:')
                        modificar = ['-','.']
                        for (saved in lista) {
                           // console.log(lista[saved])
@@ -1451,10 +1472,10 @@ File
    
         // console.log('OKAY, LET\'S DO IT!')
          for (sei in scarecrow) {
-           
+           //console.log(scarecrow[sei].divididos)
            
            for (ai in scarecrow[sei].divididos) {
-               
+               //console.log(scarecrow[sei].divididos[ai],'=', scarecrow[sei].outrodiv[ai])
                scarecrow[sei].divididos[ai] = scarecrow[sei].outrodiv[ai]
            }
          }
@@ -1462,9 +1483,9 @@ File
          miss = []
    
          for (ah in scarecrow) {
-             
+             //console.log('SCARECROW', scarecrow[ah].divididos)
              for (é in scarecrow[ah].divididos) {
-                 
+                 //console.log(scarecrow[ah].divididos[é])
              if (miss.find(function(miss){return miss.dividido == scarecrow[ah].divididos[é]}) == undefined) {
               miss.push({dividido: scarecrow[ah].divididos[é], aparicoes: [Number(ah)], divisor: scarecrow[ah].divisor})
              }else{
@@ -1473,11 +1494,86 @@ File
           }
          }
          
-   
+         
+         grtols = []
+         for (hi in miss) {
+             //////console.log(segs[hi], segs[hi].mons.length)
+             miss[hi].length = miss[hi].aparicoes.length
+         
+             grtols.push(miss[hi])
+         }
+         organizado = sortob(grtols, 'length')[1]
+         
+         grtols = []
+         for (ah in organizado) {
+            // ////console.log(segs[organizado[ah]])
+             grtols.push(miss[organizado[ah]])
+            
+         }
+         miss = [...grtols]
+
          java = 0
          roll = []
          deucerto = false
    
+         roller = [];
+  for (eep in miss) {
+    for (quad in miss) {
+      if (quad != eep) {
+        repeated = [];
+        repwri = "";
+        for (vespa in miss[eep].aparicoes) {
+          if (miss[quad].aparicoes.indexOf(miss[eep].aparicoes[vespa]) != -1) {
+            repeated.push(miss[eep].aparicoes[vespa]);
+
+            repwri += "," + miss[eep].aparicoes[vespa];
+
+            if (
+              roller.find(function (roller) {
+                return roller.rept == repwri;
+              }) == undefined
+            ) {
+              //console.log('PODE PUSHAR',{rept: repwri,opl:repeated,position: [eep,quad]}, repeated, repeated.length)
+              roller.push({
+                rept: repwri,
+                opl: [...repeated],
+                position: [eep, quad],
+              });
+            } else {
+              if (
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.indexOf(eep) == -1
+              ) {
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.push(eep);
+              }
+
+              if (
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.indexOf(quad) == -1
+              ) {
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.push(quad);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
          while(java < miss.length && deucerto == false) {
            
    
@@ -1485,26 +1581,26 @@ File
          for (outro in miss) {
             // console.log('')
              if (outro != java /*&& miss[outro].aparicoes.length >= quantasposições*/) {
-                
+                //console.log(miss[outro].aparicoes, outro)
    
                  presentes = []
                  for (quecoisa in miss[outro].aparicoes) {
                      fatorzinho = miss[outro].aparicoes[quecoisa]
-                    
+                    //console.log('FATORZINHO', fatorzinho, 'MISS[JAVA]', miss[java].aparicoes)
    
                      if (miss[java].aparicoes.indexOf(fatorzinho) != -1) {
-                     
+                     //console.log('TEM', fatorzinho)
                          presentes.push(fatorzinho)
                      }
                  }
-                 
+                 //console.log('OLHA', presentes)
    
                  adicionou = false
                  for (idk in podeser) {
                     // console.log(podeser[idk])
                      esigual = true
                      for (denovo in podeser[idk].opl) {
-                         
+                         //console.log(podeser[idk].opl[denovo], presentes[denovo])
                          if (podeser[idk].opl[denovo] == presentes[denovo]) {
                             // console.log('É IGUAL')
                          }else{
@@ -1530,11 +1626,11 @@ File
                 podeser[belief].position.push(String(java))
                 }
    
-             
+             //console.log(podeser[belief].opl)
    
              shot = ''
              for (gun in podeser[belief].opl) {
-                 
+                 //console.log(podeser[belief].opl[gun])
                  shot+= podeser[belief].opl[gun] + ','
              }
             // console.log('THAT WE LET IT GO:', shot)
@@ -1543,31 +1639,31 @@ File
                 // console.log('ADICIONAR(LISTA VAZIA)')
                  roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
              }else if(roll.find(function(roll){return roll.way == shot}) != undefined) { // SE JÁ TIVER NA LSITA
-                 
-                
+                 //console.log('JÁ TEM')
+                //console.log(roll.find(function(roll){return roll.way == shot}),'esse',podeser[belief])
    
                  for (capital in podeser[belief].position) {
-                     
+                     //console.log(podeser[belief].position[capital])
    
                    // console.log(roll.find(function(roll){return roll.way == shot}).posições, roll.find(function(roll){return roll.way == shot}).posições.indexOf(podeser[belief].position[capital]),podeser[belief].position[capital])
    
                  if (roll.find(function(roll){return roll.way == shot}).posições.indexOf(podeser[belief].position[capital])== -1) {
-                    
+                    //console.log('NÃO TEM') 
                     roll.find(function(roll){return roll.way == shot}).posições.push(podeser[belief].position[capital])
                  }
                  }
    
              }else{
-                 
+                 //console.log('NÃO TEM')
                  roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
              }
             }
    
-            
+            //console.log('E ESSE É O ORIGInAL: ', miss[java].aparicoes, java)
             whyis = java
             if (podeser.length > 0) {
-                
-                
+                //console.log('fatores', quantosfatores, 'posições', quantasposições)
+                //console.log(podeser)
    
                 for(cold in podeser) {
             if (podeser[cold].position.length == quantosfatores && podeser[cold].opl.length == quantasposições && miss[whyis].aparicoes.length == quantasposições) {
@@ -1579,7 +1675,7 @@ File
    
              for (yehaa in podeser[cold].position) {
                 // console.log(podeser[cold])
-                 
+                 //console.log(miss[podeser[cold].position[yehaa]].dividido)
                  if (miss[podeser[cold].position[yehaa]].dividido[0] == '-') {
                      
                      fi = ''
@@ -1603,7 +1699,7 @@ File
                  
              
              }
-             
+             //console.log('FICA ASSIM', `(${ficaassim})`)
             for (ruin in podeser[cold].opl) {
             // console.log(scarecrow[podeser[cold].opl[ruin]].divisor)
              emotion = ''
@@ -1623,13 +1719,10 @@ File
             java++
         }
    
-   
-   
-   
-   
-   
-   
-   
+        console.log("HORA DA VERDADE!");
+
+        INDIRETARROLL();
+
           youdumb = []
    
            aswillbe2 = []
@@ -1667,7 +1760,7 @@ File
                    older = 0
                    while (older < monomios.length && conseguiu == false) {
                    DESFATORAR(monomios[older].numero, scarecrow[roll[raging].repetidos[still]].divisor, miss[roll[raging].posições[still2]].dividido)
-                   
+                   //console.log('ISOOOOOOOOO', monomios[older].numero, scarecrow[roll[raging].repetidos[still]].divisor, miss[roll[raging].posições[still2]].dividido)
                    
                    // correto == ['2','*','10','x'] (NÚMERO QUE VAI SER COMPARADO)
                    // eg2 == ['10'] (NÚMERO QUE VAI MULTIPLICAR)
@@ -1680,13 +1773,13 @@ File
                    eassim = []
                    solo = ''
                    for (ne in eg) {
-                       
+                       //console.log('EGGGGGG',eg[ne])
                        if (eg[ne] != '.') {
                    if (solo.length == 0) {
-                       
+                       //console.log('LISTA VAZIA')
                        solo+= eg[ne]
                    }else if(String(solo.search('[0-9]')) != -1 && String(eg[ne]).search('[0-9]') != -1){
-                       
+                       //console.log('É UM nÚMERO')
                        solo+= eg[ne]
                    }else{
                        eassim.push(solo)
@@ -1698,7 +1791,7 @@ File
                        eassim.push(solo)
                    }
                        }else{
-                      
+                      //console.log('NAO')
                        }
                    }
                    
@@ -1719,7 +1812,7 @@ File
                   teri = false
                    juntar = ''
                    for (estudar in eg2) {
-                  
+                  //console.log(eg2[estudar])
                        if (eg2[estudar] == '.') {
                            teri = true
                            if (eg2[Number(estudar) + 1].search('[0-9]') != -1) {
@@ -1732,21 +1825,21 @@ File
                        }else{
                           
                       
-                    
+                    //console.log('juntar',juntar)
                            if (juntar.length == 0) {
                                juntar = eg2[estudar]
-                         
+                         //console.log('LISTA VAZIA', juntar)
                                if (estudar == eg2.length - 1) {
                                    whythat.push(juntar)
-                              
+                              //console.log('WHYTHAAAAAAAAAAAAAAAAT', whythat)
                                }
    
                            }else if(eg2[estudar].search('[0-9]') != -1 && juntar.search('[0-9]') != -1){
-                          
+                          //console.log('I\'M NEVER WHAT I LIKE')
                                juntar+= eg2[estudar]
-                          
+                          //console.log('juntar', juntar)
                                if (estudar == eg2.length - 1) {
-                              
+                              //console.log('UAISO')
                                    whythat.push(juntar)
                                
                                }
@@ -1762,7 +1855,7 @@ File
                     }
                     if (teri == false) {
                      whythat = []
-                  
+                  //console.log('SEM ASTERISCO')
                        for (t in eg2) {
                        whythat.push(eg2[t])
                        }
@@ -1780,55 +1873,55 @@ File
                           numerinhos.push(correto[decisao])
                           
                            }
-                  
+                  //console.log(correto[decisao],'AH, NAO')
                    }
-                  
+                  //console.log(numerinhos)
                        thatway = [...numerinhos]
    
    
                        for (poder in whythat){
                            if (whythat[poder] != '*' && whythat[poder] != '.' && whythat[poder] != '+' && numerinhos.indexOf(whythat[poder]) != -1) {
-                      
-                      
+                      //console.log(whythat[poder], numerinhos)
+                      //console.log(numerinhos.indexOf(whythat[poder]))
                            numerinhos.splice(numerinhos.indexOf(whythat[poder]),1)
    
                            }
                        }
    
                        for (pombo = whythat.length - 1; pombo >= 0; pombo--){
-                      
+                      //console.log('______________________', whythat[pombo])
                            if (whythat[pombo] == '*' || whythat[pombo] == '1') {
-                          
+                          //console.log('?',whythat[pombo])
                                whythat.splice(pombo,1)
-                         
+                         //console.log(whythat)
                            }
                            
                        }
    
-                  
-                  
-                  
+                  //console.log('WHYTHATTTTTTTTTTTTTTT', whythat, thatway, 'THATWAAAAAAAAAAAY')
+                  //console.log(numerinhos)
+                  //console.log('WERE BROKEN PEOPLE', thatway, 'thatway', whythat, 'numerinhos')
    
-                
+                //console.log('_U__U__U__U__U__U__U__U_ooooo_U_U_U__U_U__U__U_U_U__U__', thatway)
                      
-                
+                //console.log('PLEAAAAAAAAAAAAAAASE, GOD', numerinhos, whythat, thatway)
    
                      for (pray = whythat.length - 1; pray>=0 ; pray--) {
-                  
+                  //console.log(whythat[pray])
                        if (whythat[pray] == '-')
                        whythat.splice(pray, 1)
                      }
    
                        if (numerinhos.length == 0 && thatway.length == whythat.length) {
-                      
+                      //console.log('ENTÃO', eg2,'*',eg,'=',correto, older, 'ONE MORE MOMNET')
                            conseguiu = true
                        }
                    }
                    older++
                    }
-             
-             
-          
+             //console.log('ALL THE SORROW I\'VE SEEN', older - 1, scarecrow[roll[raging].repetidos[still]].divisor, miss[roll[raging].posições[still2]].dividido)
+             //console.log(whythat,'está na posição', older - 1, 'em monômios',monomios[older - 1].numero)
+          //console.log(older - 1, monomios[older - 1].numero)
                   asitwas.push(older - 1)
                   asitwas2.push(older - 1)
                   aswillbe.push(older - 1)
@@ -1836,7 +1929,7 @@ File
               }
            
    
-         
+         //console.log('ASITWAS',asitwas, asitwas2, aswillbe)
              // console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', asitwas)
 
 
@@ -1846,34 +1939,34 @@ File
            }
            
            youdumb.push({mons: asitwas, rag: raging, w: obe, polen: raging})
-      
+      //console.log(obe)
           }
    
-    
+    //console.log('YOUDUMB',youdumb)
           
            dontworry = []
            for (behappy in youdumb) {
    
-          
-          
+          //console.log('_______________________________')
+          //console.log(youdumb[behappy].mons)
    
-               
+               //console.log('---------------------------------------')
                for (armenia in youdumb) {
                    
                    if (armenia != behappy) {
-              
+              //console.log(youdumb[armenia].mons)
    
                    doeshave = true
                    for (sofar in youdumb[armenia].mons) {
-                  
+                  //console.log(youdumb[armenia].mons[sofar])
                        if (youdumb[behappy].mons.indexOf(youdumb[armenia].mons[sofar]) == -1) {
                            doeshave = false
                           
                        }
                    }
-              
+              //console.log(doeshave)
                    if (doeshave == true) {
-              
+              //console.log(youdumb[behappy].mons,'TEM', youdumb[armenia].mons)
                   if (dontworry.indexOf(behappy) == -1) {
                    dontworry.push(armenia)
                   }
@@ -1887,7 +1980,7 @@ File
            
            for (da = youdumb.length - 1; da >= 0; da--) {
                if (dontworry.indexOf(String(da)) != -1) {
-              
+              //console.log('TEM COISA AÍ',youdumb[da].mons)
                   // youdumb.splice(da,1)
                }
            }
@@ -1904,41 +1997,41 @@ File
        grtols.push(youdumb[hi])
    }
    
-   
-   
+   //console.log('grtols: ', segs)
+   //console.log(sortob(grtols, 'length'))
    
    
    organizado = sortob(grtols, 'length')[1]
    
    grtols = []
    for (ah in organizado) {
-      
+      //console.log(segs[organizado[ah]])
        grtols.push(youdumb[organizado[ah]])
       
    }
         
-   
+   //console.log('11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111')
    
    youdumb = []
    for (erro in grtols) {
-      
+      //console.log(grtols[erro])
        youdumb.push(grtols[erro])
    }
    
    
    
-   
+   //console.log('111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111')
    /*
    for (yourlife in grtols) {
    
        console.log(grtols[yourlife].w.what)
    
        for (bolinho in grtols[yourlife].w.what) {
-      
+      //console.log(grtols[yourlife].w.what[bolinho])
    
            vagem = grtols[yourlife].w.what[bolinho]
            for (ahnao in vagem) {
-          
+          //console.log(vagem[ahnao])
            }
        }
    }
@@ -1947,15 +2040,15 @@ File
    pans = []
    numerospresentes = []
    
-   
+   //console.log('WHAT IS IN YOUR MIND??????????????????__________LLLLLLLLLLLLLLLLLLLLLLLLL_______________')
    for (AH in youdumb) {
-       
+       //console.log(youdumb[AH])
    }
    for (wrecked in youdumb) {
-       
+       //console.log('YOUDUMB[WRECKED]',youdumb[wrecked])
        initial = youdumb[wrecked].w.what
        for (agg in initial) {
-      
+      //console.log(initial[agg].ar, Number(agg))
        }
    }
    
@@ -1970,47 +2063,47 @@ File
    
        if (initial.length > 0) {
        inside = {which: [], numberyoudumb: youdumb[imback].polen}
-      
-       
+      //console.log(imback)
+       //console.log('THERE\'S NOTHING TO SAY NOW',youdumb[imback].mons)
    
    
-       
+       //console.log('///////\\\\\\\ESPERE POR UM SEGUNDO...///////\\\\\\')
        
        
        for (agg in initial) {
-      
+      //console.log('IN THIS WORLD',initial[agg].ar)
    
            taai = false
             for (eng in initial[agg].ar) {
               // console.log(initial[agg].ar[eng])
                if (numerospresentes.indexOf(initial[agg].ar[eng]) == -1) {
-              
+              //console.log('OK')
                   
                }else{
-          
+          //console.log('WE HAVE A PROBLEM')
                    taai = true
                }
             }
         
             if (taai == false) {
-          
+          //console.log('SEM PROBLEMAS', imback, agg)
                inform = {monos: initial[agg].ar, numberwhat: initial[agg].indice} 
               
-          
+          //console.log('I\'M TWISTED UP',inside, inform)
                inside.which.push(inform)
-          
+          //console.log('INFORM', inform.monos)
                for (darkening in inform.monos) {
                   
                    sticky.push(inform.monos[darkening])
                }
-          
+          //console.log('DODODODODODODODDODOODDODODOODDDODODODO', inside.which)
    
                for (eng in initial[agg].ar) {
                
                    numerospresentes.push(initial[agg].ar[eng])
                   
                 }
-           
+           //console.log('NUMEROS PRESENTES ATÉ O MOMENTO:',numerospresentes)
             }
        }
    
@@ -2021,12 +2114,12 @@ File
        }
    
        //youdumb.splice(imback, 1)
-       
+       //console.log('FICOU ASSIM Ó:', numerospresentes, sticky)
        /*
        for (invest in pans) {
-      
+      //console.log('índice',invest)
            for (plat in pans[invest].which) {
-          
+          //console.log(pans[invest].which[plat].monos)
            }
        }
        */
@@ -2039,7 +2132,7 @@ File
          //  console.log(youdumb[h].w.what, h)
                }
    
-           
+           //console.log('-----------------------------')
            for (tempo = youdumb[h].w.what.length - 1; tempo >= 0; tempo--) {
            //  console.log(youdumb[h].w.what[tempo].ar, tempo)
                
@@ -2055,7 +2148,7 @@ File
               if (dulu == false) {
              //  console.log('PODE FICAR :)', h, tempo)
               }else{
-            //
+            ////console.log('NÃO PODE!!!!!!!!!!!!!')
              // youdumb[h].w.what.splice(tempo, 1)
              //imback++
          //    console.log('IMBAACK',imback)
@@ -2064,7 +2157,7 @@ File
        }
        }
        
-       
+       //console.log('YOUDUMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMB' )
    
      
     
@@ -2096,7 +2189,7 @@ File
       // console.log(youdumb[força].t)
     }
    
-   
+   //console.log('EU NÃO SEI MAS O QUE EU ESTOU FAZENDO....A, A, A, A, A, A, A, A, A, A, A, A,')
    
    
    grtols = []
@@ -2104,21 +2197,21 @@ File
    
        
    for (hi in youdumb) {
-       ////
+       //////console.log(segs[hi], segs[hi].mons.length)
        youdumb[hi].length = youdumb[hi].t.length
    
        grtols.push(youdumb[hi])
    }
    
-   ////
-   ////
+   //////console.log('grtols: ', segs)
+   //////console.log(sortob(grtols, 'length'))
    
    
    organizado = sortob(grtols, 'length')[1]
    
    grtols = []
    for (ah in organizado) {
-      // //
+      // ////console.log(segs[organizado[ah]])
        grtols.push(youdumb[organizado[ah]])
       
    }
@@ -2129,7 +2222,7 @@ File
        youdumb.push(grtols[erro])
    }
    
-   
+   //console.log('IMAGENS', youdumb)
    
    }
    
@@ -2141,35 +2234,40 @@ File
 
    for (bababa in pans) {
       
-       
+       //console.log('A PARTIR DA QUI')
        edge = []
        naonao = ''
        amount = []
    
-     
-      
-      
-    
+     //console.log(pans[bababa], Number(bababa))
+      //console.log(pans[bababa].which)
+      //console.log(roll[pans[bababa].numberyoudumb])
+    //console.log('posições(fixas) - miss: ',roll[pans[bababa].numberyoudumb].posições)
    
          tobreak = ''
          realife = []
          amontoado = []
          for (quassao in roll[pans[bababa].numberyoudumb].posições) {
-      
+      //console.log(quassao,':', roll[pans[bababa].numberyoudumb].posições[quassao],miss[roll[pans[bababa].numberyoudumb].posições[quassao]].dividido)
    
            el = miss[roll[pans[bababa].numberyoudumb].posições[quassao]].dividido
    
-      
+      //console.log('ALL I WANTED WAS TO FINISH THIS THING :D', el)
    
            gates = []
    
            quase = []
-         
+           /*
+           for (power in el) {
+               quase.push(el[power])
+          //console.log('EL POWER!',el[power])
+           }
+   */
            teri = false
            juntar = ''
          //  console.log('NADAAAAAAAAAA')
            for (estudar in el) {
-          
+          //console.log(el[estudar])
                if (el[estudar] == '*') {
                    teri = true
                    if (el[Number(estudar) + 1].search('[0-9]') != -1) {
@@ -2177,26 +2275,26 @@ File
                        quase.push(juntar)
                        juntar = ''
                    quase.push('*')
-              
+              //console.log('aaaaaaaaaaaaaaaaa', quase)
                    }
                }else{
                   
               
-            
+            //console.log('juntar',juntar)
                    if (juntar.length == 0) {
                        juntar = el[estudar]
-                  
+                  //console.log('LISTA VAZIA', juntar)
    
                        if (estudar == el.length - 1) {
                            quase.push(juntar)
                        }
    
                    }else if(el[estudar].search('[0-9]') != -1 && juntar.search('[0-9]') != -1){
-                  
+                  //console.log('I\'M NEVER WHAT I LIKE')
                        juntar+= el[estudar]
-                  
+                  //console.log('juntar', juntar)
                        if (estudar == el.length - 1) {
-                      
+                      //console.log('UAISO')
                            quase.push(juntar)
                        }
                    }else{
@@ -2209,7 +2307,7 @@ File
                }
                  
             }
-       
+       //console.log('QUASSSSEEEE',quase)
    
             if (teri == false) {
                
@@ -2225,9 +2323,9 @@ File
           elevar = 1
           aster = false
           
-          
+          //console.log('QUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASE',quase)
            for (patience in quase) {
-               
+               //console.log('_________uuuuuuuuuuu_______',quase[patience])       
               
                if (quase[patience] == '*') {
                    aster = true
@@ -2236,20 +2334,20 @@ File
                    gates.push(quase[Number(patience) - 1])
                    gates.push('x')
                    gates.push(quase[Number(patience) + 1])
-                   
+                   //console.log('gates',gates, fazerConta(gates))
    
-                  
+                  //console.log(friend)
                    quase[Number(patience) + 1] = fazerConta(gates)[0]
                    aconta = fazerConta(gates)[0]
                    friend = fazerConta(gates)[0]
-                   
+                   //console.log('AI QUE COISA MAIS ESTRESSANTE É ESSA', aconta)
                  
                    gates = []
                }else if(quase[patience].search('[a-z]') != -1)  {
-                  
+                  //console.log('É LETRA!!!!')
                   friend+= quase[patience]
                    if (quase[patience] == quase[Number(patience) - 1]) {
-                  
+                  //console.log('ELEVAR!')
                        elevar++
    
                        if (patience == quase.length - 1) {
@@ -2277,7 +2375,7 @@ File
                } 
            }
          
-           
+           //console.log( 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA__________',aconta)
            if (aster == false) {
            // console.log('<<<<<<<<<<<<<',quase)
             direitando = ''
@@ -2305,7 +2403,7 @@ File
            aconta = antes
         
        }
-       
+       //console.log('A CONTA',aconta)
    
        realife.push(aconta)
            if (tobreak.length == 0) {
@@ -2318,17 +2416,17 @@ File
                 //   console.log('PROBLEM')
                    mood = ''
                    for (member in aconta) {
-                       
+                       //console.log('VAMOS LOGO!!!', aconta[member])
                        if (aconta[member] != '-') {
                           // console.log('PUSHAR')
                            mood+= aconta[member]
                        }
                    }
-                   
+                   //console.log('THIS IS MOOOOOOOOOOOOD', mood)
                    tobreak+= `-${mood}`
                }else{
                    tobreak += `-${aconta}`
-                   
+                   //console.log('THIS IS ACONTAAAAAAAAAAA', aconta)
                }
    
                }else{
@@ -2352,12 +2450,12 @@ File
                }
               // console.log('ASSIM: ', correct)
                tobreak+= ` - ${correct}`
-               
+               //console.log('THIS IS CORRECTTTT||||||||||||||||||||||||||||||||||||||||||', correct)
            }else{
                negativo = false
              //  console.log(el)
                tobreak+= ` + ${aconta}`
-               
+               //console.log('THIS IS ACONTA||||||||||||||||||||||||||||||||||||||||||', aconta)
            }
           // console.log('THE COLOURS THAT I SAW', tobreak)
 
@@ -2381,16 +2479,16 @@ File
            }
            
          }
-         
+         //console.log('ENTÃO:','(', tobreak,')')
    
        for (repr in pans[bababa].which) {
            
         //  console.log(' ')
-           
-            
+           //console.log(pans[bababa].which[repr].monos, pans[bababa].which[repr].numberwhat, Number(repr))
+            //console.log('repetidos(não fixo) - scarecrow: ',roll[pans[bababa].numberyoudumb].repetidos[pans[bababa].which[repr].numberwhat], scarecrow[roll[pans[bababa].numberyoudumb].repetidos[pans[bababa].which[repr].numberwhat]].divisor)
    
             triste = scarecrow[roll[pans[bababa].numberyoudumb].repetidos[pans[bababa].which[repr].numberwhat]].divisor
-            
+            //console.log(triste)
    
             quase = []
            // console.log(quase, 'k')
@@ -2398,7 +2496,7 @@ File
             teri = false
             for (estudar in triste) {
              //  console.log('O QUE ESTÁ ACONTECENDO?', triste[estudar])
-               
+               //console.log('asasasa',triste[estudar])
                ohjeez = triste[Number(estudar) - 1] != '-'
              //  console.log(ohjeez)
                if (triste[estudar] == '.') {
@@ -2459,57 +2557,57 @@ File
             friend = ''
             aster = false
             elevar = 1
-            
+            //console.log('QUAAAAAAAASE', quase)
    
             for (patience in quase) {
-               
+               //console.log(quase,'edededededededededed',quase[patience])   
    
                if (quase[patience] == '*') {
                    aster = true
-                   
-                   
+                   //console.log('AND THE CLSDADWDWD', patience)
+                   //console.log(quase[Number(patience) - 1], quase[Number(patience) + 1])
                    gates.push(quase[Number(patience) - 1])
                    gates.push('x')
                    gates.push(quase[Number(patience) + 1])
-                   
+                   //console.log(gates, fazerConta(gates))
    
-                   
+                   //console.log(quase, Number(patience) + 1)
                    quase[Number(patience) + 1] = fazerConta(gates)[0]
                    aconta = fazerConta(gates)[0]
                    friend = fazerConta(gates)[0]
-                   
+                   //console.log(friend)
                  
                    gates = []
                }else if(quase[patience].search('[a-z]') != -1)  {
                   // console.log('É LETRA', quase[patience])
                     friend+= quase[patience]
                    if (quase[patience] == quase[Number(patience) - 1]) {
-                       
+                       //console.log('ELEVAR!')
                        elevar++
    
                        if (patience == quase.length - 1) {
-                           
+                           //console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                            aconta+= `^${elevar}`
-                           
+                           //console.log(aconta)
                        }
    
                    }else{
                        if (elevar > 1) {
-                         
+                         //console.log('UEPA')
                            aconta+= `^${elevar}`
                            
                        }
    
                        aconta+= quase[patience]
-                      
+                      //console.log(aconta)
                      
                        elevar = 1
                    }
-                   
+                   //console.log(elevar)
                   
                } 
            }
-           
+           //console.log('CETRTINHO? vaaaaaaaaaaaaaaaaaai', friend)
 
            if (aster == false) {
             // console.log('<<<<<<<<<<<<<',quase)
@@ -2553,15 +2651,15 @@ File
             }
             amount.push('-')
             amount.push(uh)
-            
+            //console.log('ANOTHERRRRRRRRRRRRRRRRRRRRRRR', '-',aconta,'____________________')
         }else{
             amount.push('+')
             amount.push(friend)
-            
+            //console.log('ANOTHERRRRRRRRRRRRRRRRRRRRRRR', aconta)
         }
 
            if (naonao.length == 0) {
-               
+               //console.log('TÁ VAZio')
                if (quase[0] == '-') {
                    naonao+= `-${aconta}`
                   
@@ -2638,7 +2736,7 @@ File
             deserve = naonao[k - 1]
             reason.push(k - 1)
             deserve+= naonao[k]
-            
+            //console.log('anterior:',deserve)
             naonao[k] = deserve
         }
       }
@@ -2646,17 +2744,17 @@ File
     //  console.log('reason')
      
    for (time = naonao.length - 1; time >= 0; time--) {
-    
+    //console.log(time, naonao[time])
     if (reason.indexOf(time) != -1) {
-        
+        //console.log('TIRAR')
         naonao.splice(time, 1)
         }
    }
-      
+      //console.log('', naonao)
 
    reason = []
       for (k in tobreak) {
-        
+        //console.log(k, tobreak[k])
         if (k != 0 && tobreak[k] != '-' && tobreak[k] != '+') {
             deserve = tobreak[k - 1]
             deserve+= tobreak[k]
@@ -2674,7 +2772,7 @@ File
             tobreak.splice(time, 1)
             }
        }
-      
+      //console.log('', tobreak)
 
       console.log('____________________','( ',naonao,' )','( ',tobreak,' )','___________________________')
 
@@ -2716,7 +2814,6 @@ File
 
    }
    
-   //ESSE DAQUI!!! OLHE! VAI! EEEEEEEE
    if (numsdesfat.length > 0) {
     console.warn('VAI TER QUE FATORAR DE NOVO')
     todososnumeros = []
@@ -2783,7 +2880,7 @@ File
    console.log(todososnumeros)
    
    for (bye in todososnumeros) {
-       
+       //console.log(monomios[todososnumeros[bye]].numero)
    
        quase = monomios[todososnumeros[bye]].numero
        aconta = ''
@@ -2791,11 +2888,11 @@ File
        aster = false
        friend = ''
        
-       
+       //console.log(quase)
        gates = []
    
         for (patience in quase) {
-            
+            //console.log('EFEEDEDEDEED',quase[patience])       
            
             if (quase[patience] == '*') {
                 aster = true
@@ -2812,10 +2909,10 @@ File
               
                 gates = []
             }else if(quase[patience].search('[a-z]') != -1)  {
-               
+               //console.log('É LETRA')
               
                 if (quase[patience] == quase[Number(patience) - 1]) {
-               
+               //console.log('ELEVAR!')
                     elevar++
    
                     if (patience == quase.length - 1) {
@@ -2895,6 +2992,78 @@ File
    console.log('FINALMENTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!: ', concatenar)
    //}
    
+   /*
+   vai = []
+   posições = []
+   y = 0
+   while (posições.length < monomios.length) {
+       console.log('-------------------------------------')
+       console.log(y, heya[y].w.what, heya[y].mons)
+       vai.push(heya[y].mons)
+   
+       for (uh in heya[y].mons) {
+      //console.log(heya[y].mons[uh])
+           if (posições.indexOf(heya[y].mons[uh]) == -1) {
+               posições.push(heya[y].mons[uh])
+           }
+       }
+   
+       for (data in heya[y].w.what) {
+      //console.log(heya[y].w.what[data].indice, heya[y].w.what[data].ar)
+       }
+       for (miya in vai) {
+           if (miya != y) {
+      //console.log('****',vai[miya])
+           for (redacao = vai[miya].length - 1; redacao >= 0; redacao--) {
+          //console.log(vai[miya][redacao])
+               if (heya[y].mons.indexOf(vai[miya][redacao]) != -1) {
+              //console.log('TEM')
+                   vai[miya].splice(redacao, 1)
+               }
+           }
+           }
+       }
+       y++
+   }
+   
+   
+   for (yehaa in podeser[cold].position) {
+       console.log(podeser[cold])
+       console.log(miss[podeser[cold].position[yehaa]].dividido)
+       if (miss[podeser[cold].position[yehaa]].dividido[0] == '-') {
+           
+           fi = ''
+           for (ohjesus in miss[podeser[cold].position[yehaa]].dividido) {
+               if (miss[podeser[cold].position[yehaa]].dividido[ohjesus] != '-') {
+                   fi+= miss[podeser[cold].position[yehaa]].dividido[ohjesus]
+               }
+           }
+      //console.log(fi)
+           if (yehaa != 0) {
+                ficaassim += ` - ${fi}`
+           }else{
+               ficaassim += `-${fi}`
+           }
+       }else if(yehaa != 0){
+           ficaassim += ' + '
+           ficaassim+= miss[podeser[cold].position[yehaa]].dividido
+       }else{
+           ficaassim+= miss[podeser[cold].position[yehaa]].dividido 
+       }
+       
+   
+   }
+   console.log('FICA ASSIM', `(${ficaassim})`)
+   for (ruin in podeser[cold].opl) {
+   console.log(scarecrow[podeser[cold].opl[ruin]].divisor)
+   emotion = ''
+   for (scream in scarecrow[podeser[cold].opl[ruin]].divisor ) {
+       console.log(scarecrow[podeser[cold].opl[ruin]].divisor[scream])
+       emotion+= scarecrow[podeser[cold].opl[ruin]].divisor[scream]
+   }
+   console.log(`${emotion}(${ficaassim})`)
+   }
+   */
    
    // Vendo se o número é primo
    function ehprimo(Number) {
@@ -3008,58 +3177,58 @@ File
         if (segs2[t].mons.length >= quanto) {
             util.push(segs2[t])
         }
-        //
+        ////console.log('')
     }
    
-    //
+    ////console.log('util', util)
     
     for (m in monomios) {
         aparic = 0
-        //
+        ////console.log(m)
         for (t in util) {
-            //
-            //
+            ////console.log('util[t].mons', util[t].mons)
+            ////console.log('util[t].mons.indexOf(Number(m))', util[t].mons.indexOf(Number(m)))
    
             if (util[t].mons.indexOf(Number(m)) != -1) {
                 aparic++
             }
         }
-        //
+        ////console.log('aparic',m, aparic)
         numapars.push({num: Number(m), vezes: aparic})
         }
    
     present = []
-    
-    //
+    //console.log('numapars',numapars)
+    ////console.log('----------------------------------------------------------------------------------------------------')
     for (r in util) {
    
-        //
+        ////console.log('-----------------------------------------------------------------------------------------------------------------------------')
        lista = util[r].mons
         present = {fix: [], falt: []}
-        //
+        ////console.log(lista)
       
         rep = 0
         for (g = 0; g < lista.length && rep < quanto; g++) {
-            //
+            ////console.log(lista[g])
    
    
             if (numapars.find(function(numapars) {
                 return numapars.num == lista[g]
                 }).vezes == 1) {
-                //
+                ////console.log('ADICIOnAR')
                   rep++
                   present.fix.push(lista[g])
                  
             }
    
         }
-        //
-        //
+        ////console.log('present', present)
+        ////console.log('--------------------------------------VEnDO O QUE FALTA-----------------------------------')
    
         if (present.fix.length < quanto) {
         for (g in lista) {
-            //
-           
+            ////console.log('')
+           //console.log(lista[g])
             if (present.fix.indexOf(lista[g]) == -1) {
               //  console.log('FALTA')
                 present.falt.push(lista[g])
@@ -3073,7 +3242,7 @@ File
                         
             }
         }
-        
+        //console.log('FALTAM OS nÚMEROS', present.falt)
    
         
         if (present.fix.length == 0) {
@@ -3098,47 +3267,47 @@ File
     }
     console.log('RELATIOn!!!!!!!!!!!!!!!!!', relation)
     for (c in relation) {
-        //
+        ////console.log('-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         if (relation[c].fix.length > 0) {
-   
+   //console.log(relation[c].fix, relation[c].falt)
    
         faltam = Number(quanto) - Number(relation[c].fix.length)
-   
+   //console.log('faltam', faltam)
    
         for (f = 0; f < faltam; f++) {
-       
+       //console.log(relation[c].falt[f])
            relation[c].fix.push(relation[c].falt[f])
           
-      
+      //console.log('AnTES: ', relation[c].falt)
            relation[c].falt[f] = -10
    
-      
+      //console.log('DEPOIS: ', relation[c].falt)
         }
-   
+   //console.log(relation[c].fix)
    
         for (tel = 0; tel < c; tel++){
    
             if (relation[tel].fix.length > 0) {
-       
+       //console.log('relation[tel]', relation[tel])
             }
             
             outrorel = relation[tel]
             
         for (hu in outrorel.fix) {
-       
+       //console.log(outrorel.fix[hu])
             if (relation[c].fix.indexOf(outrorel.fix[hu]) != -1) {
-           
-           
+           //console.log(`${relation[c].fix}.indexOf(${outrorel.fix[hu]}) = ${relation[c].fix.indexOf(outrorel.fix[hu])}`)
+           //console.log(outrorel.falt)
                 y = 0
                 for(ou = 0; y < 1 && ou < outrorel.falt.length; ou++) {
    
-               
+               //console.log(outrorel.falt[ou])
                     if (relation[c].fix.indexOf(outrorel.falt[ou]) == -1 && outrorel.falt[ou] != -10){
-                   
+                   //console.log('pode ir')
                         outrorel.fix[hu] =  outrorel.falt[ou]
                         outrorel.falt[ou] = -10
                         
-                   
+                   //console.log('isso aí:', outrorel.fix)
                         y++
                     }
                 }
@@ -3148,9 +3317,9 @@ File
         }
     }
    
-    //
+    ////console.log('SERÁ QUE DEU CERTO?')
    
-   ////
+   //////console.log(relation)
    
    groups = 0
    conts = []
@@ -3171,11 +3340,11 @@ File
    
    
    if (groups < divs[okentao]) {
-    
+    //console.log('DEU CERTO!!!EBAAAAAA')
    
     console.log('SERÁ QUE DEU CERTO?')
    
-   //
+   ////console.log(relation)
    
    groups = 0
    conts = []
@@ -3184,33 +3353,33 @@ File
    console.log(relation[yougo].fix)
    
    for (pals in relation[yougo].fix) {
-    //
+    ////console.log(relation[yougo].fix[pals])
     conts.push(relation[yougo].fix[pals])
    }
    groups++
    }
    }
-   //
+   ////console.log('IF LIFE AIn\'T JUST A JOKE THEn WHY ARE WE LAUGHInG?', divs[okentao], 'and', groups)
    if (divs[okentao] != groups) {
-   
-   //
+   //console.log('SÓ QUE nÃO')
+   ////console.log('I\'VE TRIED TO PUT THIS ALL BEHInD ME')
    
    tirados = []
    for (wish in relation) {
-    //
+    ////console.log(relation[wish].fix)
     for (edge in relation[wish].fix) {
-       //
+       ////console.log(relation[wish].fix[edge])
        tirados.push(relation[wish].fix[edge])
     }
    }
-   //
+   ////console.log('nÚMEROS QUE SERÃO TIRADOS', tirados)
    
    
    
    for (die in segs2) {
        tirar = []
    
-   
+   //console.log('break', segs2[die].mons)
    for (h in segs2[die].mons) {
    console.log(segs2[die].mons[h])
    if (tirados.indexOf(segs2[die].mons[h]) != -1) {
@@ -3229,27 +3398,27 @@ File
    }
    
    for (sorrow in segs2) {
-   
+   //console.log(segs2[sorrow].mons)
    grupos = Math.floor(Number(segs2[sorrow].mons.length)/quanto)
-   
+   //console.log('dá para formar', grupos,'grupos')
    
    imor = 0
    
    for (b = 0; b < grupos; b++) {
-       
+       //console.log(b, 'vez----------------------------------------------------------------------------------------')
       
        ob = {car: segs2[sorrow].car, fix: [],problem:false}
    
        for (live = 0; live < quanto; live++) {
-           
-      
+           //console.log('TIRADOS')
+      //console.log(segs2[sorrow].mons[imor])
    
        console.log(tirados.indexOf(segs2[sorrow].mons[imor]) == -1) 
    
               if (tirados.indexOf(segs2[sorrow].mons[imor]) != -1) {
                   ob.problem = true
               }
-               
+               //console.log('PLEASE DOnT ASK ME FOR THE LAST WORDS',ob)
            ob.fix.push(segs2[sorrow].mons[imor])
            tirados.push(segs2[sorrow].mons[imor])
            imor++
@@ -3260,8 +3429,8 @@ File
       
        console.log('In THE EnD', ob)
    
-       
-       
+       //console.log(segs2)
+       //console.log('VEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE',ob.fix,'----------------',temnaLista(ob.fix))
        if (ob.problem == false || temnaLista(ob.fix) == true) {
        relation.push(ob)
        }
@@ -3279,22 +3448,22 @@ File
              
     // console.log('fix',relation[nah].fix)
    
-     
+     //console.log('---VEnDO TODA A LISTA---')
      for (nop in relation) {
        if (relation[nop].fix.length > 0 && nop != nah) {
-   
+   //console.log(relation[nop].fix, relation[nop].car)
    
    igual = true
    for (uh in relation[nop].fix) {
-   
+   //console.log(relation[nop].fix[uh])
    if (relation[nah].fix.indexOf(relation[nop].fix[uh]) == -1) {
    igual = false
    }
    }
-   
+   //console.log(igual)
    if (igual == true) {
    if (relation[nah].car.length > relation[nop].car.length) {
-   
+   //console.log('ESSE É UM MAL QUE PRECISA SER RETIRADO DA SOCIEDADE')
    males.push(Number(nop))
    }
    //}
@@ -3309,7 +3478,7 @@ File
      }
    
      for (nah = relation.length - 1; nah >= 0; nah--) {
-         
+         //console.log('dream',nah, relation[nah])
         // console.log(males)
        if (males.indexOf(nah) != -1) {
          //  console.log('HEY')
@@ -3344,11 +3513,11 @@ File
    }
    
    for (pose in segs2) {
-   
+   //console.log(segs2[pose].mons)
    for (me = segs2[pose].mons.length - 1; me >= 0; me--) {
-   
+   //console.log(segs2[pose].mons[me])
    if (numerosquetem.indexOf(segs2[pose].mons[me]) != -1) {
-   
+   //console.log('tirar')
    segs2[pose].mons.splice(me, 1)
    }
    }
@@ -3371,7 +3540,7 @@ File
     console.log(doit2(segs2)[0])
     console.log(fireonfire)
    
-    
+    //console.log('relation', relation)
     for (red in fireonfire) {
       // console.log(fireonfire[red])
        relation.push({fix: fireonfire[red].mons, car: fireonfire[red].car})
@@ -3380,44 +3549,44 @@ File
    }else if(groups > divs[okentao]){
        
    console.log('nÃO DEU CERTO! BUÁÁÁÁÁÁÁÁÁÁÁÁÁÁÁ')
-    //
-    //
+    ////console.log('números que têm: ', conts)
+    ////console.log(segs)
    
     mia = []
    for (idk in segs2) {
-   ////
-   //
+   //////console.log('---------------------------------------------------------------------')
+   ////console.log('aqui ó',segs[idk].mons)
    
    
    for (mcr in segs2) {
    if (mcr != idk) {
    
-       ////
-      // 
+       //////console.log('uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu')
+      // //console.log('outro',segs[mcr].mons)
       
-      // 
+      // //console.log(segs[idk].mons.length)
        if (segs2[mcr].mons.length <= segs2[idk].mons.length) {
    
            sames = []
       for(y = 0; y < segs2[mcr].mons.length; y++) {
-       //  
+       //  //console.log(segs[idk].mons, segs[mcr].mons[y], segs[idk].mons.indexOf(segs[mcr].mons[y]))
            if (segs2[idk].mons.indexOf(segs2[mcr].mons[y]) != -1) {
-             //
+             ////console.log('igual')
                sames.push('igual')
            }else{
-             // 
+             // //console.log('diferente')
                sames.push('diferente')
            }
       }
-    // 
+    // //console.log(sames)
       if (sames.indexOf('diferente') == -1){
-     // 
+     // //console.log('TIRAR', segs[mcr])
    
        if (mia.indexOf(mcr) == -1) {
        mia.push(mcr)
        }
        
-       //
+       ////console.log(segs)
        
       }
    }
@@ -3437,71 +3606,71 @@ File
     
    relation = []
    
-    ////
+    //////console.log('--------------------------------------------------------------------------------------------------------------------------------')
    
    
     util = []
     for (t in segs2) {
    
-       //
-     //  
+       ////console.log(segs[n],'.mons: ',segs[t].mons,'.length: ', segs[t].mons.length)
+     //  //console.log(`${segs[t].mons.length} é maior que ou igual a ${quanto}? ${segs[t].mons.length >= quanto}`)
    
         if (segs2[t].mons.length >= quanto) {
             util.push(segs2[t])
         }
-        //
+        ////console.log('')
     }
    
-    
+    //console.log('util', util)
     
     for (m in monomios) {
         aparic = 0
-       //
+       ////console.log(m)
         for (t in util) {
-         //   
-         //   
+         //   //console.log('util[t].mons', util[t].mons)
+         //   //console.log('util[t].mons.indexOf(Number(m))', util[t].mons.indexOf(Number(m)))
    
             if (util[t].mons.indexOf(Number(m)) != -1) {
                 aparic++
             }
         }
-       // 
+       // //console.log('aparic',m, aparic)
         numapars.push({num: Number(m), vezes: aparic})
         }
    
     present = []
-    //
+    ////console.log('----------------------------------------------------------------------------------------------------')
     for (r in util) {
    
-        //
+        ////console.log('-----------------------------------------------------------------------------------------------------------------------------')
        lista = util[r].mons
         present = {fix: [], falt: []}
-        //
+        ////console.log(lista)
       
         rep = 0
         for (g = 0; g < lista.length && rep < quanto; g++) {
-         //   
+         //   //console.log(lista[g])
    
    
             if (numapars.find(function(numapars) {
                 return numapars.num == lista[g]
                 }).vezes == 1) {
-                //
+                ////console.log('ADICIOnAR')
                   rep++
                   present.fix.push(lista[g])
                  
             }
    
         }
-       // 
-        //
+       // //console.log('present', present)
+        ////console.log('--------------------------------------VEnDO O QUE FALTA-----------------------------------')
    
         if (present.fix.length < quanto) {
         for (g in lista) {
-           // 
-           // 
+           // //console.log('')
+           // //console.log(lista[g])
             if (present.fix.indexOf(lista[g]) == -1) {
-             //   
+             //   //console.log('FALTA')
                 present.falt.push(lista[g])
    
                
@@ -3513,12 +3682,12 @@ File
                         
             }
         }
-      //  
+      //  //console.log('FALTAM OS nÚMEROS', present.falt)
    
         
         if (present.fix.length == 0) {
         for (ti in present.falt) {
-          //  
+          //  //console.log(present.falt[ti])
    
            
    
@@ -3536,49 +3705,49 @@ File
     relation[r].car = segs2[r].car
     
     }
-    
+    //console.log('RELATIOn!!!!!!!!!!!!!!!!!', relation)
     for (c in relation) {
-       // 
+       // //console.log('-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         if (relation[c].fix.length > 0) {
-       // 
+       // //console.log(relation[c].fix, relation[c].falt)
    
         faltam = Number(quanto) - Number(relation[c].fix.length)
-        //
+        ////console.log('faltam', faltam)
    
         for (f = 0; f < faltam; f++) {
-         //   
+         //   //console.log(relation[c].falt[f])
            relation[c].fix.push(relation[c].falt[f])
           
-       //    
+       //    //console.log('AnTES: ', relation[c].falt)
            relation[c].falt[f] = -10
    
-       //    
+       //    //console.log('DEPOIS: ', relation[c].falt)
         }
-      //  
+      //  //console.log(relation[c].fix)
    
         for (tel = 0; tel < c; tel++){
    
             if (relation[tel].fix.length > 0) {
-          //  
+          //  //console.log('relation[tel]', relation[tel])
             }
             
             outrorel = relation[tel]
             
         for (hu in outrorel.fix) {
-          //  
+          //  //console.log(outrorel.fix[hu])
             if (relation[c].fix.indexOf(outrorel.fix[hu]) != -1) {
-             //   
-                //
+             //   //console.log(`${relation[c].fix}.indexOf(${outrorel.fix[hu]}) = ${relation[c].fix.indexOf(outrorel.fix[hu])}`)
+                ////console.log(outrorel.falt)
                 y = 0
                 for(ou = 0; y < 1 && ou < outrorel.falt.length; ou++) {
    
-                 ///   
+                 ///   //console.log(outrorel.falt[ou])
                     if (relation[c].fix.indexOf(outrorel.falt[ou]) == -1 && outrorel.falt[ou] != -10){
-                    //    
+                    //    //console.log('pode ir')
                         outrorel.fix[hu] =  outrorel.falt[ou]
                         outrorel.falt[ou] = -10
                         
-                     //   
+                     //   //console.log('isso aí:', outrorel.fix)
                         y++
                     }
                 }
@@ -3590,78 +3759,78 @@ File
    
     console.log('SERÁ QUE DEU CERTO?')
    
-   
+   //console.log(relation)
    
    groups = 0
    conts = []
    for (yougo in relation) {
    if (relation[yougo].fix.length > 0) {
-   //
+   ////console.log(relation[yougo].fix)
    
    for (pals in relation[yougo].fix) {
-    //
+    ////console.log(relation[yougo].fix[pals])
     conts.push(relation[yougo].fix[pals])
    }
    groups++
    }
    }
-   
+   //console.log('IF LIFE AIn\'T JUST A JOKE THEn WHY ARE WE LAUGHInG?', divs[okentao], 'and', groups)
    if (divs[okentao] != groups) {
-   
-   
+   //console.log('THEn WHY ARE WE LAUGHInG?')
+   //console.log('I\'VE TRIED TO PUT THIS ALL BEHInD ME')
    
    tirados = []
    for (wish in relation) {
-    
+    //console.log(relation[wish].fix)
     for (edge in relation[wish].fix) {
-       
+       //console.log(relation[wish].fix[edge])
        tirados.push(relation[wish].fix[edge])
     }
    }
-   
+   //console.log('nÚMEROS QUE SERÃO TIRADOS', tirados)
    
    
    for (die in segs2) {
        tirar = []
    
-   
+   //console.log('break', segs2[die].mons)
    for (h in segs2[die].mons) {
-   
+   //console.log(segs2[die].mons[h])
    if (tirados.indexOf(segs2[die].mons[h]) != -1) {
    tirar.push(Number(h))
    }
    }
-   
+   //console.log('tirar de ',segs2[die].mons, tirar)
    for (far = tirar.length - 1; far >= 0; far--) {
        
    segs2[die].mons.splice(tirar[far], 1)
    
    }
-   
+   //console.log('ficou assim:', segs2[die].mons)
    }
    
    for (sorrow in segs2) {
-   
+   //console.log(segs2[sorrow].mons)
    grupos = Math.floor(Number(segs2[sorrow].mons.length)/quanto)
-   
+   //console.log('dá para formar', grupos,'grupos')
    
    imor = 0
    
    for (b = 0; b < grupos; b++) {
-       
+       //console.log(b, 'vez----------------------------------------------------------------------------------------')
       
        ob = {car: segs2[sorrow].car, fix: [],problem:false}
    
        for (live = 0; live < quanto; live++) {
-           
-           
+           //console.log('TIRADOS')
+           //console.log(segs2[sorrow].mons[imor])
    
-          
+          //console.log(tirados.indexOf(segs2[sorrow].mons[imor]) == -1) 
    
               if (tirados.indexOf(segs2[sorrow].mons[imor]) != -1) {
                    ob.problem = true
               }
-               
+               //console.log('PLEASE DOnT ASK ME FOR THE LAST WORDS',ob)
            ob.fix.push(segs2[sorrow].mons[imor])
            tirados.push(segs2[sorrow].mons[imor])
            imor++
@@ -3670,10 +3839,10 @@ File
        }
       
       
-       
+       //console.log('In THE EnD', ob)
    
-       
-       
+       //console.log(segs2)
+       //console.log('VEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE',ob.fix,'----------------',temnaLista(ob.fix))
        if (ob.problem == false || temnaLista(ob.fix) == true) {
        relation.push(ob)
        }
@@ -3693,23 +3862,23 @@ File
    
    
    function temnaLista(h) {
-   
+   //console.log('THIS IS HOW I DISAPPEAR, THIS IS HOW I DISAPPEAR, THIS IS HOW I DISAPPEAR')
    
    for (t in relation) {
    
        if (relation[t].fix.length > 0) {
-       
+       //console.log(relation[t].fix)
    
        home = 0
        for (fear in relation[t].fix) {
            if (relation[t].fix[fear] == h[fear]) {
-               
+               //console.log('WOW')
                home++
            }
        }
    
        if (home == h.length) {
-           
+           //console.log('É IGUAL')
            return true 
        }
    
@@ -3753,60 +3922,60 @@ File
         if (segs2[t].mons.length >= quanto) {
             util.push(segs2[t])
         }
-        //
+        ////console.log('')
     }
    
-    //
+    ////console.log('util', util)
     
     for (m in monomios) {
         aparic = 0
-        //
+        ////console.log(m)
         for (t in util) {
-            //
-            //
+            ////console.log('util[t].mons', util[t].mons)
+            ////console.log('util[t].mons.indexOf(Number(m))', util[t].mons.indexOf(Number(m)))
    
             if (util[t].mons.indexOf(Number(m)) != -1) {
                 aparic++
             }
         }
-        //
+        ////console.log('aparic',m, aparic)
         numapars.push({num: Number(m), vezes: aparic})
         }
    
     present = []
-    
-    //
+    //console.log('numapars',numapars)
+    ////console.log('----------------------------------------------------------------------------------------------------')
     for (r in util) {
    
-        //
+        ////console.log('-----------------------------------------------------------------------------------------------------------------------------')
        lista = util[r].mons
         present = {fix: [], falt: []}
-        //
+        ////console.log(lista)
       
         rep = 0
         for (g = 0; g < lista.length && rep < quanto; g++) {
-            //
+            ////console.log(lista[g])
    
    
             if (numapars.find(function(numapars) {
                 return numapars.num == lista[g]
                 }).vezes == 1) {
-                //
+                ////console.log('ADICIOnAR')
                   rep++
                   present.fix.push(lista[g])
                  
             }
    
         }
-        //
-        //
+        ////console.log('present', present)
+        ////console.log('--------------------------------------VEnDO O QUE FALTA-----------------------------------')
    
         if (present.fix.length < quanto) {
         for (g in lista) {
-            //
-            //
+            ////console.log('')
+            ////console.log(lista[g])
             if (present.fix.indexOf(lista[g]) == -1) {
-                //
+                ////console.log('FALTA')
                 present.falt.push(lista[g])
    
                
@@ -3818,12 +3987,12 @@ File
                         
             }
         }
-        //
+        ////console.log('FALTAM OS nÚMEROS', present.falt)
    
         
         if (present.fix.length == 0) {
         for (ti in present.falt) {
-            //
+            ////console.log(present.falt[ti])
    
            
    
@@ -3841,49 +4010,49 @@ File
     relation[r].car = segs2[r].car
     
     }
-    //
+    ////console.log('RELATIOn!!!!!!!!!!!!!!!!!', relation)
     for (c in relation) {
-        //
+        ////console.log('-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         if (relation[c].fix.length > 0) {
-        //
+        ////console.log(relation[c].fix, relation[c].falt)
    
         faltam = Number(quanto) - Number(relation[c].fix.length)
-        //
+        ////console.log('faltam', faltam)
    
         for (f = 0; f < faltam; f++) {
-            //
+            ////console.log(relation[c].falt[f])
            relation[c].fix.push(relation[c].falt[f])
           
-           //
+           ////console.log('AnTES: ', relation[c].falt)
            relation[c].falt[f] = -10
    
-           //
+           ////console.log('DEPOIS: ', relation[c].falt)
         }
-        //
+        ////console.log(relation[c].fix)
    
         for (tel = 0; tel < c; tel++){
    
             if (relation[tel].fix.length > 0) {
-            //
+            ////console.log('relation[tel]', relation[tel])
             }
             
             outrorel = relation[tel]
             
         for (hu in outrorel.fix) {
-            //
+            ////console.log(outrorel.fix[hu])
             if (relation[c].fix.indexOf(outrorel.fix[hu]) != -1) {
-                //
-                //
+                ////console.log(`${relation[c].fix}.indexOf(${outrorel.fix[hu]}) = ${relation[c].fix.indexOf(outrorel.fix[hu])}`)
+                ////console.log(outrorel.falt)
                 y = 0
                 for(ou = 0; y < 1 && ou < outrorel.falt.length; ou++) {
    
-                    //
+                    ////console.log(outrorel.falt[ou])
                     if (relation[c].fix.indexOf(outrorel.falt[ou]) == -1 && outrorel.falt[ou] != -10){
-                        //
+                        ////console.log('pode ir')
                         outrorel.fix[hu] =  outrorel.falt[ou]
                         outrorel.falt[ou] = -10
                         
-                        //
+                        ////console.log('isso aí:', outrorel.fix)
                         y++
                     }
                 }
@@ -3893,32 +4062,32 @@ File
         }
     }
    
-    //
+    ////console.log('SERÁ QUE DEU CERTO?')
    
-   ////
+   //////console.log(relation)
    
    groups = 0
    conts = []
    for (yougo in relation) {
    if (relation[yougo].fix.length > 0) {
-   //
+   ////console.log(relation[yougo].fix)
    
    for (pals in relation[yougo].fix) {
-    //
+    ////console.log(relation[yougo].fix[pals])
     conts.push(relation[yougo].fix[pals])
    }
    groups++
    }
    }
    
-   //
-   //
+   ////console.log('divs é igual a ', divs[okentao])
+   ////console.log('groups é igual a', groups)
    if (groups < divs[okentao]) {
-    
+    //console.log('DEU CERTO!!!EBAAAAAA')
    
-    //
+    ////console.log('SERÁ QUE DEU CERTO?')
    
-   //
+   ////console.log(relation)
    
    groups = 0
    conts = []
@@ -3953,44 +4122,44 @@ File
    for (die in segs2) {
        tirar = []
    
-   
+   //console.log('break', segs2[die].mons)
    for (h in segs2[die].mons) {
-   
+   //console.log(segs2[die].mons[h])
    if (tirados.indexOf(segs2[die].mons[h]) != -1) {
    tirar.push(Number(h))
    }
    }
-   
+   //console.log('tirar de ',segs2[die].mons, tirar)
    for (far = tirar.length - 1; far >= 0; far--) {
       // console.log(segs[die].mons[tirar[far]])
    segs2[die].mons.splice(tirar[far], 1)
    
    }
-   
+   //console.log('ficou assim:', segs2[die].mons)
    }
    
    for (sorrow in segs2) {
-   
+   //console.log(segs2[sorrow].mons)
    grupos = Math.floor(Number(segs2[sorrow].mons.length)/quanto)
-   
+   //console.log('dá para formar', grupos,'grupos')
    
    imor = 0
    
    for (b = 0; b < grupos; b++) {
-       
+       //console.log(b, 'vez----------------------------------------------------------------------------------------')
       
        ob = {car: segs2[sorrow].car, fix: [],problem:false}
    
        for (live = 0; live < quanto; live++) {
-           
-           
+           //console.log('TIRADOS')
+           //console.log(segs2[sorrow].mons[imor])
    
-          
+          //console.log(tirados.indexOf(segs2[sorrow].mons[imor]) == -1) 
    
               if (tirados.indexOf(segs2[sorrow].mons[imor]) != -1) {
                   // ob.problem = true
               }
-               
+               //console.log('PLEASE DOnT ASK ME FOR THE LAST WORDS',ob)
            ob.fix.push(segs2[sorrow].mons[imor])
            tirados.push(segs2[sorrow].mons[imor])
            imor++
@@ -3999,10 +4168,10 @@ File
        }
       
       
-       
+       //console.log('In THE EnD', ob)
    
-       
-       
+       //console.log(segs2)
+       //console.log('VEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE',ob.fix,'----------------',temnaLista(ob.fix))
        if (ob.problem == false || temnaLista(ob.fix) == true) {
        relation.push(ob)
        }
@@ -4015,28 +4184,28 @@ File
    }
    }else if(groups > divs[okentao]){
        
-   
-    
-    //
+   //console.log('nÃO DEU CERTO! BUÁÁÁÁÁÁÁÁÁÁÁÁÁÁÁ')
+    //console.log('números que têm: ', conts)
+    ////console.log(segs)
    
     mia = []
    for (idk in segs2) {
-   ////
-   
+   //////console.log('---------------------------------------------------------------------')
+   //console.log('aqui ó',segs[idk].mons)
    
    
    for (mcr in segs2) {
    if (mcr != idk) {
    
-       ////
+       //////console.log('uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu')
      // console.log('outro',segs[mcr].mons)
       
-      
+      //console.log(segs[idk].mons.length)
        if (segs2[mcr].mons.length <= segs2[idk].mons.length) {
    
            sames = []
       for(y = 0; y < segs2[mcr].mons.length; y++) {
-       //  
+       //  //console.log(segs[idk].mons, segs[mcr].mons[y], segs[idk].mons.indexOf(segs[mcr].mons[y]))
            if (segs2[idk].mons.indexOf(segs2[mcr].mons[y]) != -1) {
           //   console.log('igual')
                sames.push('igual')
@@ -4047,7 +4216,7 @@ File
       }
    // console.log(sames)
       if (sames.indexOf('diferente') == -1){
-    
+    //console.log('TIRAR', segs[mcr])
    
        if (mia.indexOf(mcr) == -1) {
        mia.push(mcr)
@@ -4073,71 +4242,71 @@ File
     
    relation = []
    
-    ////
+    //////console.log('--------------------------------------------------------------------------------------------------------------------------------')
    
    
     util = []
     for (t in segs2) {
    
-       //
-     //  
+       ////console.log(segs[n],'.mons: ',segs[t].mons,'.length: ', segs[t].mons.length)
+     //  //console.log(`${segs[t].mons.length} é maior que ou igual a ${quanto}? ${segs[t].mons.length >= quanto}`)
    
         if (segs2[t].mons.length >= quanto) {
             util.push(segs2[t])
         }
-        //
+        ////console.log('')
     }
    
-    
+    //console.log('util', util)
     
     for (m in monomios) {
         aparic = 0
-       //
+       ////console.log(m)
         for (t in util) {
-         //   
-         //   
+         //   //console.log('util[t].mons', util[t].mons)
+         //   //console.log('util[t].mons.indexOf(Number(m))', util[t].mons.indexOf(Number(m)))
    
             if (util[t].mons.indexOf(Number(m)) != -1) {
                 aparic++
             }
         }
-       // 
+       // //console.log('aparic',m, aparic)
         numapars.push({num: Number(m), vezes: aparic})
         }
    
     present = []
-    //
+    ////console.log('----------------------------------------------------------------------------------------------------')
     for (r in util) {
    
-        //
+        ////console.log('-----------------------------------------------------------------------------------------------------------------------------')
        lista = util[r].mons
         present = {fix: [], falt: []}
-        //
+        ////console.log(lista)
       
         rep = 0
         for (g = 0; g < lista.length && rep < quanto; g++) {
-         //   
+         //   //console.log(lista[g])
    
    
             if (numapars.find(function(numapars) {
                 return numapars.num == lista[g]
                 }).vezes == 1) {
-                //
+                ////console.log('ADICIOnAR')
                   rep++
                   present.fix.push(lista[g])
                  
             }
    
         }
-       // 
-        //
+       // //console.log('present', present)
+        ////console.log('--------------------------------------VEnDO O QUE FALTA-----------------------------------')
    
         if (present.fix.length < quanto) {
         for (g in lista) {
-           // 
-           // 
+           // //console.log('')
+           // //console.log(lista[g])
             if (present.fix.indexOf(lista[g]) == -1) {
-             //   
+             //   //console.log('FALTA')
                 present.falt.push(lista[g])
    
                
@@ -4149,12 +4318,12 @@ File
                         
             }
         }
-      //  
+      //  //console.log('FALTAM OS nÚMEROS', present.falt)
    
         
         if (present.fix.length == 0) {
         for (ti in present.falt) {
-          //  
+          //  //console.log(present.falt[ti])
    
            
    
@@ -4172,49 +4341,49 @@ File
     relation[r].car = segs2[r].car
     
     }
-    
+    //console.log('RELATIOn!!!!!!!!!!!!!!!!!', relation)
     for (c in relation) {
-       // 
+       // //console.log('-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         if (relation[c].fix.length > 0) {
-       // 
+       // //console.log(relation[c].fix, relation[c].falt)
    
         faltam = Number(quanto) - Number(relation[c].fix.length)
-        //
+        ////console.log('faltam', faltam)
    
         for (f = 0; f < faltam; f++) {
-         //   
+         //   //console.log(relation[c].falt[f])
            relation[c].fix.push(relation[c].falt[f])
           
-       //    
+       //    //console.log('AnTES: ', relation[c].falt)
            relation[c].falt[f] = -10
    
-       //    
+       //    //console.log('DEPOIS: ', relation[c].falt)
         }
-      //  
+      //  //console.log(relation[c].fix)
    
         for (tel = 0; tel < c; tel++){
    
             if (relation[tel].fix.length > 0) {
-          //  
+          //  //console.log('relation[tel]', relation[tel])
             }
             
             outrorel = relation[tel]
             
         for (hu in outrorel.fix) {
-          //  
+          //  //console.log(outrorel.fix[hu])
             if (relation[c].fix.indexOf(outrorel.fix[hu]) != -1) {
            // console.log(`${relation[c].fix}.indexOf(${outrorel.fix[hu]}) = ${relation[c].fix.indexOf(outrorel.fix[hu])}`)
-                //
+                ////console.log(outrorel.falt)
                 y = 0
                 for(ou = 0; y < 1 && ou < outrorel.falt.length; ou++) {
    
-                 ///   
+                 ///   //console.log(outrorel.falt[ou])
                     if (relation[c].fix.indexOf(outrorel.falt[ou]) == -1 && outrorel.falt[ou] != -10){
-                    //    
+                    //    //console.log('pode ir')
                         outrorel.fix[hu] =  outrorel.falt[ou]
                         outrorel.falt[ou] = -10
                         
-                     
+                     //console.log('isso aí:', outrorel.fix)
                         y++
                     }
                 }
@@ -4226,29 +4395,29 @@ File
    
     console.log('SERÁ QUE DEU CERTO?')
    
-   
+   //console.log(relation)
    
    groups = 0
    conts = []
    for (yougo in relation) {
    if (relation[yougo].fix.length > 0) {
-   
+   //console.log(relation[yougo].fix)
    
    for (pals in relation[yougo].fix) {
-    
+    //console.log(relation[yougo].fix[pals])
     conts.push(relation[yougo].fix[pals])
    }
    groups++
    }
    }
-   
+   //console.log('IF LIFE AIn\'T JUST A JOKE THEn WHY ARE WE LAUGHInG?', divs[okentao], 'and', groups)
    if (divs[okentao] != groups) {
-   
-   
+   //console.log('THEn WHY ARE WE LAUGHInG?')
+   //console.log('I\'VE TRIED TO PUT THIS ALL BEHInD ME')
    
    tirados = []
    for (wish in relation) {
-    
+    //console.log(relation[wish].fix)
     for (edge in relation[wish].fix) {
       // console.log(relation[wish].fix[edge])
        tirados.push(relation[wish].fix[edge])
@@ -4260,31 +4429,31 @@ File
    for (die in segs2) {
        tirar = []
    
-   
+   //console.log('break', segs2[die].mons)
    for (h in segs2[die].mons) {
-   
+   //console.log(segs2[die].mons[h])
    if (tirados.indexOf(segs2[die].mons[h]) != -1) {
    tirar.push(Number(h))
    }
    }
-   
+   //console.log('tirar de ',segs2[die].mons, tirar)
    for (far = tirar.length - 1; far >= 0; far--) {
        
    segs2[die].mons.splice(tirar[far], 1)
    
    }
-   
+   //console.log('ficou assim:', segs2[die].mons)
    }
    
    for (sorrow in segs2) {
    console.log(segs2[sorrow].mons)
    grupos = Math.floor(Number(segs2[sorrow].mons.length)/quanto)
-   
+   //console.log('dá para formar', grupos,'grupos')
    
    imor = 0
    
    for (b = 0; b < grupos; b++) {
-       
+       //console.log(b, 'vez----------------------------------------------------------------------------------------')
       
        ob = {car: segs2[sorrow].car, fix: [],problem:false}
    
@@ -4306,10 +4475,10 @@ File
        }
       
       
-       
+       //console.log('In THE EnD', ob)
    
-       
-       
+       //console.log(segs2)
+       //console.log('VEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE',ob.fix,'----------------',temnaLista(ob.fix))
        if (ob.problem == false || temnaLista(ob.fix) == true) {
        relation.push(ob)
        }
@@ -4328,9 +4497,9 @@ File
    return [relation, segs2]
    }
    
-   
+   //console.log('PERAÍIIIIIIIII', DIVIDIR(['2'],['2', '*', '2', '*', '3', 'x', 'x']))
    //DESFATORAR(['-','3'],['3'],['1'])
-   
+   //console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', DIVIDIR(['x'], ['10','x']))
    
  function SOMANDOMONOMIOS(list) {
         
@@ -4340,13 +4509,13 @@ for (n = 0; n < list.length; n++) {
 
 
 if (String(list[n]).search('[\\-\\+]') != -1 && n != 0) {
-
+//console.log('DEVTOOLS EU TE ODEIOoooooooooooooooooo')
 particles.push({numero: ''})
 obnum++
 }
 
 particles[obnum].numero += list[n]
-
+//console.log('número----------------------------------------------:',particles[obnum].numero)
 }
 
 
@@ -4356,9 +4525,9 @@ for (huh in particles) {
 
     partlet = ''
     for (y in particles[huh].numero) {
-     
+     //console.log(particles[huh].numero[y])
      if (String(particles[huh].numero[y]).search('[a-z]') != -1) {
-        
+        //console.log('EEEEEE')
         partlet+= String(particles[huh].numero[y])
      }
     }
@@ -4369,7 +4538,7 @@ for (huh in particles) {
 
 exp = []
 for (bye in particles) {
-    
+    //console.log(particles[bye])
 
     comofica = []
     ground = ''
@@ -4378,8 +4547,8 @@ for (bye in particles) {
      // console.log(particles[bye].numero[misery])
         
         carac = particles[bye].numero[misery]
-       
-      
+       //console.log('CARACTER' + carac)
+      //console.log(ground.length)
 
       // console.log('OH COME On',ground, String(ground.search('[0-9]')))
             if (ground.length == 0) {
@@ -4400,7 +4569,7 @@ for (bye in particles) {
     }
 
    // console.log('COMOFICA', comofica)
-    //
+    ////console.log('nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',particles[bye].numero)
     particles[bye].numero = comofica
 }
 
@@ -4408,12 +4577,12 @@ for (bye in particles) {
 agruparsoma = []
 // JUNTANDO OS MONÔMIOS QUE DÁ PARA SOMAR
 for (huh in particles) {
-    
+    //console.log(particles[huh].numero, particles[huh].partletral,'_________________')
     
     if (agruparsoma.find(function (agruparsoma) {
         return agruparsoma.que == particles[huh].partletral
        }) == undefined) {
-           
+           //console.log('ARRRRRROZ')
     agruparsoma.push({quais: [Number(huh)], que:  particles[huh].partletral})
        }else{
         agruparsoma.find(function (agruparsoma) {
@@ -4431,9 +4600,9 @@ for (huh in particles) {
 
 
 for (chuva in agruparsoma) {
-    
+    //console.log('')
    // console.log('')
-    
+    //console.log('')
 
     conta = []
 for (da in agruparsoma[chuva].quais) {
@@ -4446,21 +4615,21 @@ for (flowers in agruparsoma[chuva].que) {
 divisor.push(agruparsoma[chuva].que[flowers])
 }
 
-
+//console.log(particles[agruparsoma[chuva].quais[da]].numero, '/',divisor)
 tu = [...divisor]
 resultadoDaDivisão = DIVIDIR( divisor, particles[agruparsoma[chuva].quais[da]].numero)
 
-
+//console.log('A DIVISÃO É IGUAL DE',particles[agruparsoma[chuva].quais[da]].numero,'por',tu, resultadoDaDivisão)
 
 plan = []
 add = ''
 
 for (past in resultadoDaDivisão) {
    
- 
+ //console.log(resultadoDaDivisão[past])
 
  if (resultadoDaDivisão[past].search('\\*') != -1 || resultadoDaDivisão[past].search('[0-9]') != -1) {
-
+//console.log('ADICIOnAR')
 
 if (add.length == 0) {
     if (resultadoDaDivisão[past - 1] != '-') {
@@ -4468,47 +4637,47 @@ if (add.length == 0) {
     }
 
 }else if (resultadoDaDivisão[past].search('[0-9]') != -1 && add.search('[0-9]') != -1) {
-    
+    //console.log('OK')
 add+= resultadoDaDivisão[past]
 }else{
     plan.push(add)
     add = ''
-    
+    //console.log('AASADWHDUWHDU',resultadoDaDivisão[past - 1])
    
     add+= resultadoDaDivisão[past]
     
     
 }
 // console.log('ADD', add)
-
+//console.log('PLAn É:', plan)
 
 if (plan.length == 3) {
-
-
-
+//console.log('É TRÊEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEIS')
+//console.log('___________________number1:', Number(plan[0]), 'number2:', Number(plan[2]),'__________________')
+//console.log(Number(plan[0])*Number(plan[2]))
 plan = [String(Number(plan[0])*Number(plan[2]))]
 }
  }
 
 }
 
-
+//console.log(agruparsoma[chuva].quais.length, '---------')
 if (add == '' && agruparsoma[chuva].quais.length > 1) {
     add = '1'
-   
+   //console.log('VAIIIIIIIIIIIIIII')
 }
 plan.push(add)
-
+//console.log('PLAn', plan)
 
 if (plan.length == 3) {
-    
-    
+    //console.log('É TRÊEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEIS')
+    //console.log(Number(plan[0])*Number(plan[2]))
     plan = [String(Number(plan[0])*Number(plan[2]))]
-    
+    //console.log('É ISSO!!', plan)
     }
 
     if (particles[agruparsoma[chuva].quais[da]].numero[0] == '+' || particles[agruparsoma[chuva].quais[da]].numero[0] == '-') {
-   
+   //console.log('O SInAL É: ', particles[agruparsoma[chuva].quais[da]].numero[0])
 
     sinal = particles[agruparsoma[chuva].quais[da]].numero[0]
 
@@ -4521,7 +4690,7 @@ if (plan.length == 3) {
 
  entao = '-'
  entao+= plan[0]
- 
+ //console.log(entao)
  conta.push(entao)
     }else{
        
@@ -4532,10 +4701,10 @@ if (plan.length == 3) {
 }
 
 
-
+//console.log('OK, FICOU ASSIM:', conta)
 
 comehome = fazerConta(conta)
-
+//console.log('E RESOLVEnDO FICA ASSIM:', comehome)
 
 
 
@@ -4547,10 +4716,10 @@ if (comehome[0][0] == '-') {
    }
    }
   // console.log(t)
-   
+   //console.log(typeof t)
    at = t
    if (ehprimo(t) == false) {
-      
+      //console.log(at)
    fat = FATORARSInGULAR(at)
   // console.log(String(fat))
    }else{
@@ -4559,7 +4728,7 @@ if (comehome[0][0] == '-') {
    }
    oop = '-'
    oop+= String(fat)
-
+//console.log(oop)
 
 exp.push('-')
 fat += agruparsoma[chuva].que
@@ -4573,12 +4742,12 @@ fat = FATORARSInGULAR(comehome)
         fat = comehome
     }
     
-
+//console.log(fat)
 
 if (exp.length == 0) {
     fat += agruparsoma[chuva].que
     exp.push(fat)
-    
+    //console.log('PARTE LETRAL:', agruparsoma[chuva].que)
    
     }else {
         exp.push('+')
@@ -4794,4 +4963,125 @@ function sort(n) {
     }
     return [maiorparamenor, posiçõesnumeros]
 }
+
+console.log('Poxa segs, você me decepcionou... ;-; (D:)', VAI('13x'), DIVIDIR(['-','.','13'],['2','.','13']))
+
+
 }
+
+console.log('Poxa segs, você me decepcionou... ;-; (D:)', VAI('13x'))
+function VAI(str) {
+
+    
+    comofica = []
+    ground = ''
+for (bye in str) {
+    
+
+        
+        carac = str[bye]
+      
+            if (ground.length == 0) {
+                ground+= carac
+            }else if(String(ground.search('[0-9]')) != -1 && String(carac).search('[0-9]') != -1) {
+                ground+= carac
+            }else{
+                comofica.push(ground)
+                ground = ''
+                ground += carac
+               
+            }
+            if (bye == str.length - 1) {
+                comofica.push(ground)
+            }
+    str[bye].numero = comofica
+ }
+
+ return comofica
+}
+
+function FATORE(q) {
+    qualexp1 = q;
+    qualexp = "";
+  
+    parar = false;
+    for (copy in qualexp1) {
+      //console.log(qualexp1[copy])
+      if (qualexp1[copy] != " ") {
+        if (
+          qualexp1[copy].search("[0-9]") != -1 ||
+          qualexp1[copy].search("[a-z]") != -1 ||
+          qualexp1[copy].search("[\\+\\-\\^]") != -1
+        ) {
+          //console.log(qualexp1[copy],'ir')
+          qualexp += qualexp1[copy];
+        } else {
+          parar = true;
+        }
+      }
+    }
+    //console.log('É ESSE:', qualexp)
+  
+    if (qualexp != "" && parar == false) {
+      ground = "";
+      expression = [];
+      for (phy in qualexp) {
+        if (qualexp[phy].search("[0-9]") != -1) {
+          if (ground.search("[0-9]") != -1) {
+            ground += qualexp[phy];
+          } else if (ground.length > 0) {
+            expression.push(ground);
+            ground = qualexp[phy];
+          } else {
+            ground = qualexp[phy];
+          }
+        } else {
+          if (ground.length > 0) {
+            expression.push(ground);
+          }
+          ground = qualexp[phy];
+        }
+        if (phy == qualexp.length - 1) {
+          expression.push(ground);
+        }
+      }
+  
+      //resultado = FATORAR(expression,0);
+      //return resultado;
+      return expression
+    }
+  }
+  function INDIRETARROLL() { // CÓDIGO PARA ADICIONAR POSIÇÕES QUE POSSUEM  O TERMO (REPETIDO) DO ROLL[N] E QUE NÃO ESTÃO INSERIDAS
+    for (nao in roll) {
+      shot = "";
+      for (gun in roll[nao].repetidos) {
+        shot += roll[nao].repetidos[gun] + ",";
+      }
+  
+      for (whyso in miss) {
+        igual = 0;
+        for (heat in miss[whyso].aparicoes) {
+          if (roll[nao].repetidos.indexOf(miss[whyso].aparicoes[heat]) != -1) {
+            igual++;
+          }
+        }
+  
+        if (igual == roll[nao].repetidos.length) {
+          if (
+            roll
+              .find(function (roll) {
+                return roll.way == shot;
+              })
+              .posições.indexOf(whyso) != -1
+          ) {
+          } else {
+            roll
+              .find(function (roll) {
+                return roll.way == shot;
+              })
+              .posições.push(whyso);
+          }
+        }
+      }
+    }
+  }
