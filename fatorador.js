@@ -55,7 +55,7 @@
 //expression = ['132','+','2']
 //expression = ['29','+','37','+','74','x','+','58','x']
 //expression = ['x','^','2','-','3','x','-','2','x','+','6']
-
+a
 function ir() {
   qualexp1 = document.getElementById("typearea").value;
   qualexp = "";
