@@ -51,12 +51,12 @@
 //expression = ['15','+','15','x','+','15','x','x'] //15(1 + x + xx)
 //expression = ['58','x','+','74','x','+','29','+','37'] 
 //expression = ['14','y','+','9','x','+','7','x']
-expression = '15 + 5b + 15l + 5bl'
+//expression = '15 + 5b + 15l + 5bl'
 //expression = '-8x + 3xy + 4xy - 6x + 2xy - 4x'
 //expression = '29 + 37 + 74x + 58x'
-//expression = '3x + 15x + 19l + 17l'
+expression = '3x + 15x + 19l + 17l'
 // BIOLOGIA, FÍSICA, QUÍMICA, MATEMÁTICA
-expression = '10y - 338xy + 20y^2 - 169x + ab + bb + ac + bc'
+//expression = '10y - 338xy + 20y^2 - 169x + ab + bb + ac + bc'
 
 FATORAR(FATORE(expression))
 function FATORAR(expression) {
@@ -872,26 +872,52 @@ function FATORAR(expression) {
 
    segs = grtols
 
-   /*
-   grtols = []
-   
-   for (hi in segs) {
-       segs[hi].length = segs[hi].car.length
-   
-       grtols.push(segs[hi])
+   lengs = []
+   for (i in segs) {
+     if (lengs.find(function(lengs){
+       return lengs.leng == segs[i].mons.length
+     }) == undefined){
+       lengs.push({leng:segs[i].mons.length, num: [i]})
+     }else{
+      lengs.find(function(lengs){
+       return lengs.leng == segs[i].mons.length
+     }).num.push(i)
+     }
    }
    
-   organizado = sortob(grtols, 'length')[1]
    
-   grtols = []
-   for (ah in organizado) {
-       grtols.push(segs[organizado[ah]])
+   segsordered = []
+   for (f in lengs) {
+     its = []
+     for (i in lengs[f].num) {
+       its.push(segs[lengs[f].num[i]])
+     }
+   
+     grtols = []
       
+      for (hi in its) {
+          its[hi].length = its[hi].car.length
+      
+          grtols.push(its[hi])
+      }
+      
+      organizado = sortob(grtols, 'length')[1]
+      
+      grtols = []
+      for (ah in organizado) {
+          grtols.push(its[organizado[ah]])
+         
+      }
+   
+      its = grtols
+     console.log(its)
+     for (c in its) {
+       segsordered.push(its[c])
+     }
    }
-
-   segs = grtols
-   */
-  
+   
+   segs = [...segsordered]
+   
    //DIVS
    ml = monomios.length
    //////console.log(ml)

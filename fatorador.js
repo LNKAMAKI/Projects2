@@ -1034,7 +1034,9 @@ function FATORAR(expression) {
       }
 
       if (podeir == true) {
-        splitUp(repetido[moe].letr);
+       // splitUp(repetido[moe].letr);
+        segs.push({ car: repetido[moe].letr, mons: [m] });
+        /*
         function splitUp(str) {
           estado = "";
           // CÓDIGO PARA ADICIONAR OS TERMOS EM COMUM DOS MONÔMIOS NA LISTA SEGS(SEGMENTOS)
@@ -1056,6 +1058,7 @@ function FATORAR(expression) {
           }
           //
         }
+        */
       } else if (segs[qual].mons.indexOf(m) == -1) {
         segs[qual].mons.push(m);
       }
@@ -1120,6 +1123,51 @@ function FATORAR(expression) {
 
   segs = grtols;
 
+  lengs = []
+for (i in segs) {
+  if (lengs.find(function(lengs){
+    return lengs.leng == segs[i].mons.length
+  }) == undefined){
+    lengs.push({leng:segs[i].mons.length, num: [i]})
+  }else{
+   lengs.find(function(lengs){
+    return lengs.leng == segs[i].mons.length
+  }).num.push(i)
+  }
+}
+
+
+segsordered = []
+for (f in lengs) {
+  its = []
+  for (i in lengs[f].num) {
+    its.push(segs[lengs[f].num[i]])
+  }
+
+  grtols = []
+   
+   for (hi in its) {
+       its[hi].length = its[hi].car.length
+   
+       grtols.push(its[hi])
+   }
+   
+   organizado = sortob(grtols, 'length')[1]
+   
+   grtols = []
+   for (ah in organizado) {
+       grtols.push(its[organizado[ah]])
+      
+   }
+
+   its = grtols
+  console.log(its)
+  for (c in its) {
+    segsordered.push(its[c])
+  }
+}
+
+segs = [...segsordered]
   //DIVS
   ml = monomios.length;
 
@@ -1880,160 +1928,220 @@ function FATORAR(expression) {
 
   aswillbe2 = [];
   for (raging = 0; raging < roll.length; raging++) {
-    asitwas = [];
+   
+    asitwas = [] 
 
-    obe = { what: [] };
+    obe = {what:[]}
 
-    for (still in roll[raging].repetidos) {
-      asitwas2 = [];
-      aswillbe = [];
+    console.log('________________________________________')
+   console.log(roll[raging].repetidos, roll[raging].posições)
 
-      mylife = "(";
-      for (still2 in roll[raging].posições) {
+   
+
+   for (still in roll[raging].repetidos) {
+    asitwas2 = []
+    aswillbe = []
+
+       console.log('')
+    console.log(scarecrow[roll[raging].repetidos[still]].divisor, still)
+
+    mylife = '('
+    for (still2 in roll[raging].posições) {
+
         if (still != 0) {
-          mylife += " + " + miss[roll[raging].posições[still2]].dividido;
-        } else {
-          mylife += miss[roll[raging].posições[still2]].dividido;
+        mylife+= ' + ' + miss[roll[raging].posições[still2]].dividido
+        }else{
+            mylife+= miss[roll[raging].posições[still2]].dividido
         }
 
-        conseguiu = false;
-        older = 0;
+      
+        console.log(miss[roll[raging].posições[still2]].dividido)
+
+        conseguiu = false
+        older = 0
         while (older < monomios.length && conseguiu == false) {
-          DESFATORAR(
-            monomios[older].numero,
-            scarecrow[roll[raging].repetidos[still]].divisor,
-            miss[roll[raging].posições[still2]].dividido
-          );
+        DESFATORAR(monomios[older].numero, scarecrow[roll[raging].repetidos[still]].divisor, miss[roll[raging].posições[still2]].dividido)
+        console.log('ISOOOOOOOOO', monomios[older].numero, scarecrow[roll[raging].repetidos[still]].divisor, miss[roll[raging].posições[still2]].dividido)
+        
+        // correto == ['2','*','10','x'] (NÚMERO QUE VAI SER COMPARADO)
+        // eg2 == ['10'] (NÚMERO QUE VAI MULTIPLICAR)
+        // eg == '2x' (NÚMERO QUE VAI SER MULTIPLICADO)
+        
+        function DESFATORAR(correto, eg2, eg) {
 
-          //correto == ['2','*','10','x'] (NÚMERO QUE VAI SER COMPARADO)
-          //eg2 == ['10'] (NÚMERO QUE VAI MULTIPLICAR)
-          //eg == '2x' (NÚMERO QUE VAI SER MULTIPLICADO)
+            console.log('eg', eg)
 
-          function DESFATORAR(correto, eg2, eg) {
-            eassim = [];
-            solo = "";
-            for (ne in eg) {
-              if (eg[ne] != ".") {
-                if (solo.length == 0) {
-                  solo += eg[ne];
-                } else if (
-                  String(solo.search("[0-9]")) != -1 &&
-                  String(eg[ne]).search("[0-9]") != -1
-                ) {
-                  solo += eg[ne];
-                } else {
-                  eassim.push(solo);
-                  solo = "";
-                  solo += eg[ne];
-                }
-                if (ne == eg.length - 1) {
-                  eassim.push(solo);
-                }
-              } else {
-              }
+        eassim = []
+        solo = ''
+        for (ne in eg) {
+            //console.log('EGGGGGG',eg[ne])
+            if (eg[ne] != '.') {
+        if (solo.length == 0) {
+            //console.log('LISTA VAZIA')
+            solo+= eg[ne]
+        }else if(String(solo.search('[0-9]')) != -1 && String(eg[ne]).search('[0-9]') != -1){
+            //console.log('É UM nÚMERO')
+            solo+= eg[ne]
+        }else{
+            eassim.push(solo)
+            solo = ''
+            solo += eg[ne]
+            
+        }
+        if (ne == eg.length - 1) {
+            eassim.push(solo)
+        }
+            }else{
+           //console.log('NAO')
             }
-
-            eg = eassim;
-
-            whythat = [...eg];
-
-            teri = false;
-            juntar = "";
-            for (estudar in eg2) {
-              if (eg2[estudar] == ".") {
-                teri = true;
-                if (eg2[Number(estudar) + 1].search("[0-9]") != -1) {
-                  whythat.push(juntar);
-                  juntar = "";
-                  whythat.push("*");
+        }
+        
+        eg = eassim
+        
+        
+        whythat = [...eg]
+        console.log(correto)
+      /*
+        for (ponto in eg2) {
+          //  console.log(eg2[ponto])
+            if (eg2[ponto] != '.') {
+            whythat.push(eg2[ponto])
+          //  console.log('I FOLLOW YOu')
+            }
+        }
+        */
+       teri = false
+        juntar = ''
+        for (estudar in eg2) {
+       console.log(eg2[estudar])
+            if (eg2[estudar] == '.') {
+                teri = true
+                if (eg2[Number(estudar) + 1].search('[0-9]') != -1) {
+                  
+                    whythat.push(juntar)
+                    juntar = ''
+                whythat.push('*')
+               
                 }
-              } else {
+            }else{
+               
+           
+         //console.log('juntar',juntar)
                 if (juntar.length == 0) {
-                  juntar = eg2[estudar];
+                    juntar = eg2[estudar]
+              //console.log('LISTA VAZIA', juntar)
+                    if (estudar == eg2.length - 1) {
+                        whythat.push(juntar)
+                   //console.log('WHYTHAAAAAAAAAAAAAAAAT', whythat)
+                    }
 
-                  if (estudar == eg2.length - 1) {
-                    whythat.push(juntar);
-                  }
-                } else if (
-                  eg2[estudar].search("[0-9]") != -1 &&
-                  juntar.search("[0-9]") != -1
-                ) {
-                  juntar += eg2[estudar];
-
-                  if (estudar == eg2.length - 1) {
-                    whythat.push(juntar);
-                  }
-                } else {
-                  whythat.push(juntar);
-                  juntar = eg2[estudar];
-                  if (estudar == eg2.length - 1) {
-                    whythat.push(juntar);
-                  }
+                }else if(eg2[estudar].search('[0-9]') != -1 && juntar.search('[0-9]') != -1){
+               //console.log('I\'M NEVER WHAT I LIKE')
+                    juntar+= eg2[estudar]
+               //console.log('juntar', juntar)
+                    if (estudar == eg2.length - 1) {
+                   //console.log('UAISO')
+                        whythat.push(juntar)
+                    
+                    }
+                }else{
+                    whythat.push(juntar)
+                    juntar= eg2[estudar]
+                    if (estudar == eg2.length - 1) {
+                        whythat.push(juntar)
+                    }
                 }
-              }
             }
-            if (teri == false) {
-              whythat = [];
-              for (t in eg2) {
-                whythat.push(eg2[t]);
-              }
-              for (t in eg) {
-                whythat.push(eg[t]);
-              }
+              
+         }
+         if (teri == false) {
+          whythat = []
+       //console.log('SEM ASTERISCO')
+            for (t in eg2) {
+            whythat.push(eg2[t])
+            }
+            for (t in eg) {
+                whythat.push(eg[t])
+            }
+        }
+
+ console.log('MULTIPLICAR', eg2,'*',eg)
+// console.log('YOU ARE YES AND YOU ARE NO---------',whythat)
+        
+        numerinhos = []
+        for (decisao in correto) {
+            if (correto[decisao] != '*' && correto[decisao] != '.' && correto[decisao] != '+' && correto[decisao] != '-') {
+               numerinhos.push(correto[decisao])
+               
+                }
+       //console.log(correto[decisao],'AH, NAO')
+        }
+       //console.log(numerinhos)
+            thatway = [...numerinhos]
+
+
+            for (poder in whythat){
+                if (whythat[poder] != '*' && whythat[poder] != '.' && whythat[poder] != '+' && numerinhos.indexOf(whythat[poder]) != -1) {
+           //console.log(whythat[poder], numerinhos)
+           //console.log(numerinhos.indexOf(whythat[poder]))
+                numerinhos.splice(numerinhos.indexOf(whythat[poder]),1)
+
+                }
             }
 
-            numerinhos = [];
-            for (decisao in correto) {
-              if (
-                correto[decisao] != "*" &&
-                correto[decisao] != "." &&
-                correto[decisao] != "+" &&
-                correto[decisao] != "-"
-              ) {
-                numerinhos.push(correto[decisao]);
-              }
+            for (pombo = whythat.length - 1; pombo >= 0; pombo--){
+           //console.log('______________________', whythat[pombo])
+                if (whythat[pombo] == '*' || whythat[pombo] == '1') {
+               console.log('?',whythat[pombo])
+                    whythat.splice(pombo,1)
+              console.log(whythat)
+                }
+                
             }
 
-            thatway = [...numerinhos];
+       console.log('WHYTHATTTTTTTTTTTTTTT', whythat, thatway, 'THATWAAAAAAAAAAAY')
+       console.log(numerinhos)
+       console.log('WERE BROKEN PEOPLE', thatway, 'thatway', whythat, 'numerinhos')
 
-            for (poder in whythat) {
-              if (
-                whythat[poder] != "*" &&
-                whythat[poder] != "." &&
-                whythat[poder] != "+" &&
-                numerinhos.indexOf(whythat[poder]) != -1
-              ) {
-                numerinhos.splice(numerinhos.indexOf(whythat[poder]), 1);
-              }
-            }
+     console.log('_U__U__U__U__U__U__U__U_ooooo_U_U_U__U_U__U__U_U_U__U__', thatway)
+          
+     console.log('PLEAAAAAAAAAAAAAAASE, GOD', numerinhos, whythat, thatway)
 
-            for (pombo = whythat.length - 1; pombo >= 0; pombo--) {
-              if (whythat[pombo] == "*" || whythat[pombo] == "1") {
-                whythat.splice(pombo, 1);
-              }
-            }
-
-            for (pray = whythat.length - 1; pray >= 0; pray--) {
-              if (whythat[pray] == "-") whythat.splice(pray, 1);
-            }
+          for (pray = whythat.length - 1; pray>=0 ; pray--) {
+       //console.log(whythat[pray])
+            if (whythat[pray] == '-')
+            whythat.splice(pray, 1)
+          }
 
             if (numerinhos.length == 0 && thatway.length == whythat.length) {
-              conseguiu = true;
+           //console.log('ENTÃO', eg2,'*',eg,'=',correto, older, 'ONE MORE MOMNET')
+                conseguiu = true
             }
-          }
-          older++;
         }
-        asitwas.push(older - 1);
-        asitwas2.push(older - 1);
-        aswillbe.push(older - 1);
-      }
+        older++
+        }
+  console.log('ALL THE SORROW I\'VE SEEN', older - 1, scarecrow[roll[raging].repetidos[still]].divisor, miss[roll[raging].posições[still2]].dividido)
+  console.log(whythat,'está na posição', older - 1, 'em monômios',monomios[older - 1].numero)
+  console.log(older - 1, monomios[older - 1].numero)
+       asitwas.push(older - 1)
+       asitwas2.push(older - 1)
+       aswillbe.push(older - 1)
+       
+   }
 
-      obe.what.push({ ar: asitwas2, indice: still });
-      aswillbe2.push({ oque: aswillbe, onde: raging });
-    }
 
-    youdumb.push({ mons: asitwas, rag: raging, w: obe, polen: raging });
-  }
+console.log('ASITWAS',asitwas, asitwas2, aswillbe)
+   console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', asitwas)
+
+
+   obe.what.push({ar: asitwas2, indice: still})
+   aswillbe2.push({oque:aswillbe, onde:raging})
+   
+}
+
+youdumb.push({mons: asitwas, rag: raging, w: obe, polen: raging})
+console.log(obe)
+}
 
   dontworry = [];
   for (behappy in youdumb) {
@@ -5016,7 +5124,10 @@ function FATORAR2(expression_2) {
       }
 
       if (podeir == true) {
-        splitUp(repetido[moe].letr);
+        //splitUp(repetido[moe].letr);
+
+        segs_2.push({ car: repetido[moe].letr, mons: [m] })
+        /*
         function splitUp(str) {
           estado = "";
           for (i in str) {
@@ -5036,6 +5147,7 @@ function FATORAR2(expression_2) {
             }
           }
         }
+        */
       } else if (segs_2[qual].mons.indexOf(m) == -1) {
         segs_2[qual].mons.push(m);
       }
@@ -5958,122 +6070,156 @@ function FATORAR2(expression_2) {
           //eg == '2x' (NÚMERO QUE VAI SER MULTIPLICADO)
 
           function DESFATORAR(correto, eg2, eg) {
-            eassim = [];
-            solo = "";
-            for (ne in eg) {
-              if (eg[ne] != ".") {
-                if (solo.length == 0) {
-                  solo += eg[ne];
-                } else if (
-                  String(solo.search("[0-9]")) != -1 &&
-                  String(eg[ne]).search("[0-9]") != -1
-                ) {
-                  solo += eg[ne];
-                } else {
-                  eassim.push(solo);
-                  solo = "";
-                  solo += eg[ne];
-                }
-                if (ne == eg.length - 1) {
-                  eassim.push(solo);
-                }
-              } else {
-              }
-            }
 
-            eg = eassim;
+            console.log('eg', eg)
 
-            whythat = [...eg];
+        eassim = []
+        solo = ''
+        for (ne in eg) {
+            //console.log('EGGGGGG',eg[ne])
+            if (eg[ne] != '.') {
+        if (solo.length == 0) {
+            //console.log('LISTA VAZIA')
+            solo+= eg[ne]
+        }else if(String(solo.search('[0-9]')) != -1 && String(eg[ne]).search('[0-9]') != -1){
+            //console.log('É UM nÚMERO')
+            solo+= eg[ne]
+        }else{
+            eassim.push(solo)
+            solo = ''
+            solo += eg[ne]
             
-
-            teri = false;
-            juntar = "";
-            for (estudar in eg2) {
-              if (eg2[estudar] == ".") {
-                teri = true;
-                if (eg2[Number(estudar) + 1].search("[0-9]") != -1) {
-                  whythat.push(juntar);
-                  juntar = "";
-                  whythat.push("*");
+        }
+        if (ne == eg.length - 1) {
+            eassim.push(solo)
+        }
+            }else{
+           //console.log('NAO')
+            }
+        }
+        
+        eg = eassim
+        
+        
+        whythat = [...eg]
+        console.log(correto)
+      /*
+        for (ponto in eg2) {
+          //  console.log(eg2[ponto])
+            if (eg2[ponto] != '.') {
+            whythat.push(eg2[ponto])
+          //  console.log('I FOLLOW YOu')
+            }
+        }
+        */
+       teri = false
+        juntar = ''
+        for (estudar in eg2) {
+       console.log(eg2[estudar])
+            if (eg2[estudar] == '.') {
+                teri = true
+                if (eg2[Number(estudar) + 1].search('[0-9]') != -1) {
+                  
+                    whythat.push(juntar)
+                    juntar = ''
+                whythat.push('*')
+               
                 }
-              } else {
+            }else{
+               
+           
+         //console.log('juntar',juntar)
                 if (juntar.length == 0) {
-                  juntar = eg2[estudar];
+                    juntar = eg2[estudar]
+              //console.log('LISTA VAZIA', juntar)
+                    if (estudar == eg2.length - 1) {
+                        whythat.push(juntar)
+                   //console.log('WHYTHAAAAAAAAAAAAAAAAT', whythat)
+                    }
 
-                  if (estudar == eg2.length - 1) {
-                    whythat.push(juntar);
-                  }
-                } else if (
-                  eg2[estudar].search("[0-9]") != -1 &&
-                  juntar.search("[0-9]") != -1
-                ) {
-                  juntar += eg2[estudar];
-
-                  if (estudar == eg2.length - 1) {
-                    whythat.push(juntar);
-                  }
-                } else {
-                  whythat.push(juntar);
-                  juntar = eg2[estudar];
-                  if (estudar == eg2.length - 1) {
-                    whythat.push(juntar);
-                  }
+                }else if(eg2[estudar].search('[0-9]') != -1 && juntar.search('[0-9]') != -1){
+               //console.log('I\'M NEVER WHAT I LIKE')
+                    juntar+= eg2[estudar]
+               //console.log('juntar', juntar)
+                    if (estudar == eg2.length - 1) {
+                   //console.log('UAISO')
+                        whythat.push(juntar)
+                    
+                    }
+                }else{
+                    whythat.push(juntar)
+                    juntar= eg2[estudar]
+                    if (estudar == eg2.length - 1) {
+                        whythat.push(juntar)
+                    }
                 }
-              }
             }
-            if (teri == false) {
-              whythat = [];
-
-              for (t in eg2) {
-                whythat.push(eg2[t]);
-              }
-              for (t in eg) {
-                whythat.push(eg[t]);
-              }
+              
+         }
+         if (teri == false) {
+          whythat = []
+       //console.log('SEM ASTERISCO')
+            for (t in eg2) {
+            whythat.push(eg2[t])
             }
-
-            //
-            //
-
-            numerinhos = [];
-            for (decisao in correto) {
-              if (
-                correto[decisao] != "*" &&
-                correto[decisao] != "." &&
-                correto[decisao] != "+" &&
-                correto[decisao] != "-"
-              ) {
-                numerinhos.push(correto[decisao]);
-              }
+            for (t in eg) {
+                whythat.push(eg[t])
             }
+        }
 
-            thatway = [...numerinhos];
+ console.log('MULTIPLICAR', eg2,'*',eg)
+// console.log('YOU ARE YES AND YOU ARE NO---------',whythat)
+        
+        numerinhos = []
+        for (decisao in correto) {
+            if (correto[decisao] != '*' && correto[decisao] != '.' && correto[decisao] != '+' && correto[decisao] != '-') {
+               numerinhos.push(correto[decisao])
+               
+                }
+       //console.log(correto[decisao],'AH, NAO')
+        }
+       //console.log(numerinhos)
+            thatway = [...numerinhos]
 
-            for (poder in whythat) {
-              if (
-                whythat[poder] != "*" &&
-                whythat[poder] != "." &&
-                whythat[poder] != "+" &&
-                numerinhos.indexOf(whythat[poder]) != -1
-              ) {
-                numerinhos.splice(numerinhos.indexOf(whythat[poder]), 1);
-              }
+
+            for (poder in whythat){
+                if (whythat[poder] != '*' && whythat[poder] != '.' && whythat[poder] != '+' && numerinhos.indexOf(whythat[poder]) != -1) {
+           //console.log(whythat[poder], numerinhos)
+           //console.log(numerinhos.indexOf(whythat[poder]))
+                numerinhos.splice(numerinhos.indexOf(whythat[poder]),1)
+
+                }
             }
 
-            for (pombo = whythat.length - 1; pombo >= 0; pombo--) {
-              if (whythat[pombo] == "*" || whythat[pombo] == "1") {
-                whythat.splice(pombo, 1);
-              }
+            for (pombo = whythat.length - 1; pombo >= 0; pombo--){
+           //console.log('______________________', whythat[pombo])
+                if (whythat[pombo] == '*' || whythat[pombo] == '1') {
+               console.log('?',whythat[pombo])
+                    whythat.splice(pombo,1)
+              console.log(whythat)
+                }
+                
             }
 
-            for (pray = whythat.length - 1; pray >= 0; pray--) {
-              if (whythat[pray] == "-") whythat.splice(pray, 1);
-            }
+       console.log('WHYTHATTTTTTTTTTTTTTT', whythat, thatway, 'THATWAAAAAAAAAAAY')
+       console.log(numerinhos)
+       console.log('WERE BROKEN PEOPLE', thatway, 'thatway', whythat, 'numerinhos')
+
+     console.log('_U__U__U__U__U__U__U__U_ooooo_U_U_U__U_U__U__U_U_U__U__', thatway)
+          
+     console.log('PLEAAAAAAAAAAAAAAASE, GOD', numerinhos, whythat, thatway)
+
+          for (pray = whythat.length - 1; pray>=0 ; pray--) {
+       //console.log(whythat[pray])
+            if (whythat[pray] == '-')
+            whythat.splice(pray, 1)
+          }
 
             if (numerinhos.length == 0 && thatway.length == whythat.length) {
-              conseguiu = true;
+           //console.log('ENTÃO', eg2,'*',eg,'=',correto, older, 'ONE MORE MOMNET')
+                conseguiu = true
             }
-          }
+        }
           older++;
         }
 
