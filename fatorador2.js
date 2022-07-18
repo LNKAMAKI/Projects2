@@ -52,6 +52,9 @@
 //expression = ['58','x','+','74','x','+','29','+','37'] 
 //expression = ['14','y','+','9','x','+','7','x']
 expression = '15 + 5b + 15l + 5bl'
+//expression = '-8x + 3xy + 4xy - 6x + 2xy - 4x'
+//expression = '29 + 37 + 74x + 58x'
+//expression = '3x + 15x + 19l + 17l'
 // BIOLOGIA, FÍSICA, QUÍMICA, MATEMÁTICA
 
 FATORAR(FATORE(expression))
@@ -468,7 +471,31 @@ function FATORAR(expression) {
    }
    //
    
-   
+   function versetem(comp) {
+    podeir = true;
+    qual = -1;
+    for (meow in segs) {
+      array1 = [];
+      for (d in segs[meow].car) {
+        array1.push(segs[meow].car[d]);
+      }
+      array2 = [];
+      for (d in comp) {
+        array2.push(comp[d]);
+      }
+      if (segs[meow].car.length < comp.length) {
+        divisao = DIVIDIR(VAI(segs[meow].car), VAI(comp));
+      } else {
+        divisao = DIVIDIR(VAI(comp), VAI(segs[meow].car));
+      }
+      if (divisao == "" || divisao == "-") {
+        //
+        podeir = false;
+        qual = meow;
+      }
+    }
+    return podeir;
+  }
    
    function DIVIDIR(T, qual) {
        
@@ -828,28 +855,41 @@ function FATORAR(expression) {
    
    grtols = []
    
-   
    for (hi in segs) {
-       //////console.log(segs[hi], segs[hi].mons.length)
        segs[hi].length = segs[hi].mons.length
    
        grtols.push(segs[hi])
    }
    
-   //////console.log('grtols: ', segs)
-   //////console.log(sortob(grtols, 'length'))
    organizado = sortob(grtols, 'length')[1]
    
    grtols = []
    for (ah in organizado) {
-      // ////console.log(segs[organizado[ah]])
        grtols.push(segs[organizado[ah]])
       
    }
-   
-   //////console.log('LISTA ORDEnADA PELO TAMAnHO', grtols)
+
    segs = grtols
+
+   /*
+   grtols = []
    
+   for (hi in segs) {
+       segs[hi].length = segs[hi].car.length
+   
+       grtols.push(segs[hi])
+   }
+   
+   organizado = sortob(grtols, 'length')[1]
+   
+   grtols = []
+   for (ah in organizado) {
+       grtols.push(segs[organizado[ah]])
+      
+   }
+
+   segs = grtols
+   */
   
    //DIVS
    ml = monomios.length
@@ -1098,7 +1138,67 @@ function FATORAR(expression) {
    
    //console.log('MISS.LENGTH',miss.length)
    
-   
+   roller = [];
+  for (eep in miss) {
+    for (quad in miss) {
+      if (quad != eep) {
+        repeated = [];
+        repwri = "";
+        for (vespa in miss[eep].aparicoes) {
+          if (miss[quad].aparicoes.indexOf(miss[eep].aparicoes[vespa]) != -1) {
+            repeated.push(miss[eep].aparicoes[vespa]);
+
+            repwri += "," + miss[eep].aparicoes[vespa];
+
+            if (
+              roller.find(function (roller) {
+                return roller.rept == repwri;
+              }) == undefined
+            ) {
+              //console.log('PODE PUSHAR',{rept: repwri,opl:repeated,position: [eep,quad]}, repeated, repeated.length)
+              roller.push({
+                rept: repwri,
+                opl: [...repeated],
+                position: [eep, quad],
+              });
+            } else {
+              if (
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.indexOf(eep) == -1
+              ) {
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.push(eep);
+              }
+
+              if (
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.indexOf(quad) == -1
+              ) {
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.push(quad);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+   for (r in roller) {
+       console.log(roller[r].opl, roller[r].position, roller[r].rept)
+       roll.push({repetidos: roller[r].opl, posições: roller[r].position, way: roller[r].rept})
+   }
    while(java < miss.length && deucerto == false) {
               
              // if (miss[java].aparicoes.length >= quantasposições) {
@@ -1165,7 +1265,7 @@ function FATORAR(expression) {
    
                if (roll.length == 0) {
                   // console.log('ADICIONAR(LISTA VAZIA)')
-                   roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
+                   //roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
                }else if(roll.find(function(roll){return roll.way == shot}) != undefined) { // SE JÁ TIVER NA LSITA
                    //console.log('JÁ TEM')
                   //console.log(roll.find(function(roll){return roll.way == shot}),'esse',podeser[belief])
@@ -1183,7 +1283,7 @@ function FATORAR(expression) {
    
                }else{
                    //console.log('NÃO TEM')
-                   roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
+                   //roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
                }
               }
    
@@ -1251,7 +1351,7 @@ function FATORAR(expression) {
           okentao++
    
    
-          
+          /*
           for (nao in roll) {
              // console.log('-------------------------------------------------------------------')
           // console.log('esse é o negócio',roll[nao].repetidos)
@@ -1292,7 +1392,7 @@ function FATORAR(expression) {
                   
                }
            }
-           
+           */
           
          //  console.log('ROOLLLLLLLLLLLLLLLLLLLLLLLLLLL', roll)
    
@@ -1445,10 +1545,88 @@ function FATORAR(expression) {
          }
          
    
+         grtols = [];
+  for (hi in miss) {
+    miss[hi].length = miss[hi].aparicoes.length;
+
+    grtols.push(miss[hi]);
+  }
+  organizado = sortob(grtols, "length")[1];
+
+  grtols = [];
+  for (ah in organizado) {
+    grtols.push(miss[organizado[ah]]);
+  }
+  miss = [...grtols];
+
+
          java = 0
          roll = []
          deucerto = false
    
+         roller = [];
+  for (eep in miss) {
+    for (quad in miss) {
+      if (quad != eep) {
+        repeated = [];
+        repwri = "";
+        for (vespa in miss[eep].aparicoes) {
+          if (miss[quad].aparicoes.indexOf(miss[eep].aparicoes[vespa]) != -1) {
+            repeated.push(miss[eep].aparicoes[vespa]);
+
+            repwri += "," + miss[eep].aparicoes[vespa];
+
+            if (
+              roller.find(function (roller) {
+                return roller.rept == repwri;
+              }) == undefined
+            ) {
+              //console.log('PODE PUSHAR',{rept: repwri,opl:repeated,position: [eep,quad]}, repeated, repeated.length)
+              roller.push({
+                rept: repwri,
+                opl: [...repeated],
+                position: [eep, quad],
+              });
+            } else {
+              if (
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.indexOf(eep) == -1
+              ) {
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.push(eep);
+              }
+
+              if (
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.indexOf(quad) == -1
+              ) {
+                roller
+                  .find(function (roller) {
+                    return roller.rept == repwri;
+                  })
+                  .position.push(quad);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  for (r in roller) {
+    console.log(roller[r].opl, roller[r].position, roller[r].rept)
+    roll.push({repetidos: roller[r].opl, posições: roller[r].position, way: roller[r].rept})
+}
+
          while(java < miss.length && deucerto == false) {
            
    
@@ -1512,7 +1690,7 @@ function FATORAR(expression) {
    
              if (roll.length == 0) {
                 // console.log('ADICIONAR(LISTA VAZIA)')
-                 roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
+                 //roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
              }else if(roll.find(function(roll){return roll.way == shot}) != undefined) { // SE JÁ TIVER NA LSITA
                  //console.log('JÁ TEM')
                 //console.log(roll.find(function(roll){return roll.way == shot}),'esse',podeser[belief])
@@ -1530,7 +1708,7 @@ function FATORAR(expression) {
    
              }else{
                  //console.log('NÃO TEM')
-                 roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
+                 //roll.push({repetidos: [...podeser[belief].opl], way: shot, posições: [...podeser[belief].position]})
              }
             }
    
@@ -1930,6 +2108,21 @@ function FATORAR(expression) {
        }
    }
    
+   grtols = [];
+   for (hi in youdumb) {
+     youdumb[hi].length = youdumb[hi].w.what.length;
+ 
+     grtols.push(youdumb[hi]);
+   }
+   organizado = sortob(grtols, "length")[1];
+ 
+   grtols = [];
+   for (ah in organizado) {
+     ////
+     grtols.push(youdumb[organizado[ah]]);
+   }
+   youdumb = [...grtols];
+
    heya = [...youdumb]
    for (imback in youdumb) {
       // console.log('AAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', imback)
