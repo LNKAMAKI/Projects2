@@ -1034,31 +1034,29 @@ function FATORAR(expression) {
       }
 
       if (podeir == true) {
-       // splitUp(repetido[moe].letr);
-        segs.push({ car: repetido[moe].letr, mons: [m] });
-        /*
+        splitUp(repetido[moe].letr);
         function splitUp(str) {
-          estado = "";
-          // CÓDIGO PARA ADICIONAR OS TERMOS EM COMUM DOS MONÔMIOS NA LISTA SEGS(SEGMENTOS)
-          for (i in str) {
+        estado = "";
+        // CÓDIGO PARA ADICIONAR OS TERMOS EM COMUM DOS MONÔMIOS NA LISTA SEGS(SEGMENTOS)
+        for (i in str) {
             if (str[i] == "." && estado != "-") {
-              permission = versetem(estado);
-              //console.log(permission)
-              if (permission == true && estado != " " && estado != "-") {
+            permission = versetem(estado);
+            //console.log(permission)
+            if (permission == true && estado != " " && estado != "-") {
                 segs.push({ car: estado, mons: [m] });
-              }
+            }
             }
             estado += str[i];
             if (i == str.length - 1) {
-              permission = versetem(estado);
-              if (permission == true && estado != " " && estado != "-") {
+            permission = versetem(estado);
+            if (permission == true && estado != " " && estado != "-") {
                 segs.push({ car: estado, mons: [m] });
-              }
             }
-          }
-          //
+            }
         }
-        */
+        //
+        }
+        
       } else if (segs[qual].mons.indexOf(m) == -1) {
         segs[qual].mons.push(m);
       }
@@ -3264,7 +3262,7 @@ console.log(obe)
           }
 
           for (far = tirar.length - 1; far >= 0; far--) {
-            segs2[die].mons.splice(tirar[far], 1);
+            (tirar[far], 1);
           }
         }
 
@@ -3348,7 +3346,7 @@ console.log(obe)
       for (pose in segs2) {
         for (me = segs2[pose].mons.length - 1; me >= 0; me--) {
           if (numerosquetem.indexOf(segs2[pose].mons[me]) != -1) {
-            segs2[pose].mons.splice(me, 1);
+            (me, 1);
           }
         }
       }
@@ -3542,7 +3540,7 @@ console.log(obe)
           }
 
           for (far = tirar.length - 1; far >= 0; far--) {
-            segs2[die].mons.splice(tirar[far], 1);
+            (tirar[far], 1);
           }
         }
 
@@ -3794,7 +3792,7 @@ console.log(obe)
 
           for (far = tirar.length - 1; far >= 0; far--) {
             //
-            segs2[die].mons.splice(tirar[far], 1);
+            (tirar[far], 1);
           }
         }
 
@@ -3860,7 +3858,7 @@ console.log(obe)
       }
 
       for (f = mia.length - 1; f >= 0; f--) {
-        //segs2.splice(mia[f],1)
+        //(mia[f],1)
       }
 
       numapars = [];
@@ -4025,7 +4023,7 @@ console.log(obe)
           }
 
           for (far = tirar.length - 1; far >= 0; far--) {
-            segs2[die].mons.splice(tirar[far], 1);
+            (tirar[far], 1);
           }
         }
 
@@ -5124,30 +5122,29 @@ function FATORAR2(expression_2) {
       }
 
       if (podeir == true) {
-        //splitUp(repetido[moe].letr);
-
-        segs_2.push({ car: repetido[moe].letr, mons: [m] })
-        /*
+        splitUp(repetido[moe].letr);
         function splitUp(str) {
-          estado = "";
-          for (i in str) {
+        estado = "";
+        // CÓDIGO PARA ADICIONAR OS TERMOS EM COMUM DOS MONÔMIOS NA LISTA SEGS(SEGMENTOS)
+        for (i in str) {
             if (str[i] == "." && estado != "-") {
-              permission = versetem(estado);
-              //console.log(permission)
-              if (permission == true && estado != " " && estado != "-") {
-                segs_2.push({ car: estado, mons: [m] });
-              }
+            permission = versetem(estado);
+            //console.log(permission)
+            if (permission == true && estado != " " && estado != "-") {
+                segs.push({ car: estado, mons: [m] });
+            }
             }
             estado += str[i];
             if (i == str.length - 1) {
-              permission = versetem(estado);
-              if (permission == true && estado != " " && estado != "-") {
-                segs_2.push({ car: estado, mons: [m] });
-              }
+            permission = versetem(estado);
+            if (permission == true && estado != " " && estado != "-") {
+                segs.push({ car: estado, mons: [m] });
             }
-          }
+            }
         }
-        */
+        //
+        }
+        
       } else if (segs_2[qual].mons.indexOf(m) == -1) {
         segs_2[qual].mons.push(m);
       }
@@ -7249,7 +7246,7 @@ function FATORAR2(expression_2) {
           }
 
           for (far = tirar.length - 1; far >= 0; far--) {
-            segs_22[die].mons.splice(tirar[far], 1);
+            (tirar[far], 1);
           }
         }
 
@@ -7340,7 +7337,7 @@ function FATORAR2(expression_2) {
       for (pose in segs_22) {
         for (me = segs_22[pose].mons.length - 1; me >= 0; me--) {
           if (numerosquetem.indexOf(segs_22[pose].mons[me]) != -1) {
-            segs_22[pose].mons.splice(me, 1);
+            (me, 1);
           }
         }
       }
@@ -7404,7 +7401,7 @@ function FATORAR2(expression_2) {
       }
 
       for (f = mia.length - 1; f >= 0; f--) {
-        //segs_22.splice(mia[f],1)
+        //(mia[f],1)
       }
 
       numapars = [];
@@ -7573,7 +7570,7 @@ function FATORAR2(expression_2) {
           }
 
           for (far = tirar.length - 1; far >= 0; far--) {
-            segs_22[die].mons.splice(tirar[far], 1);
+            (tirar[far], 1);
           }
         }
 
@@ -7810,7 +7807,7 @@ function FATORAR2(expression_2) {
 
           for (far = tirar.length - 1; far >= 0; far--) {
             //
-            segs_22[die].mons.splice(tirar[far], 1);
+            (tirar[far], 1);
           }
         }
 
@@ -7876,7 +7873,7 @@ function FATORAR2(expression_2) {
       }
 
       for (f = mia.length - 1; f >= 0; f--) {
-        //segs_22.splice(mia[f],1)
+        //(mia[f],1)
       }
 
       numapars = [];
@@ -8005,7 +8002,7 @@ function FATORAR2(expression_2) {
           }
 
           for (far = tirar.length - 1; far >= 0; far--) {
-            segs_22[die].mons.splice(tirar[far], 1);
+            (tirar[far], 1);
           }
         }
 
